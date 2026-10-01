@@ -1,0 +1,81 @@
+/* Site-wide art direction: charcoal archive, warm paper, restrained oxide red. */
+:root{
+  --bg:#101519;--coal:#101519;--ink:#151b20;--paper:#eee7dc;--muted:#a6aaa5;
+  --line:#d0c4ae29;--red:#a9473e;--rust:#a9473e;--amber:#c7a779;
+  --cinema-ink:#11191e;--cinema-paper:#eee7dc;--cinema-gold:#c7a779;
+  --slate:#1b252b;--slate-raised:#263139;--parchment:#ded7cb;--brass:#c7a779;
+  --site-bg:#101519;--site-surface:#151e23;--site-raised:#1c272d;
+  --site-red:#a9473e;--site-paper:#eee7dc;--site-muted:#a8aca7;
+}
+html{scrollbar-color:#79534c #11171b;scrollbar-width:thin}
+body{background:var(--site-bg);color:var(--site-paper)}
+::selection{background:#a9473e;color:#fff4e8}
+button,a{accent-color:var(--site-red)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid #cf786d;outline-offset:4px}
+.noise{opacity:0}
+.topbar:not(.cover-header){background:linear-gradient(180deg,#121a20f5,#121a20dd);border-color:#d8ccb626;backdrop-filter:blur(18px)}
+.topbar .brand-mark{border-color:#c7a77988}.topbar .brand-mark b{color:#eee7dc}
+.side-nav a.active:before{background:var(--site-red);box-shadow:0 0 12px #a9473e65}
+.route-indicator:not(.cover-navigation){border-color:#d8ccb62c;background:#11191eeb;box-shadow:0 12px 34px #0006}
+.route-indicator a:hover,.route-indicator a.active{background:#a9473e24;color:#f3ebdf}
+.section-kicker,.eyebrow{color:#c7a779}
+.section-head h2,.section-head.light h2{color:#eee7dc}
+.section-head h2 em,.section-head.light h2 em{color:#9ca5a4}
+.section-head>p{color:#a8b0ad;border-color:#c7a77966}
+.text-btn,.primary-btn{transition:color .3s,border-color .3s,background .3s,transform .3s}
+.primary-btn{border-color:#c7a779;background:#c7a779;color:#171c1d}
+.primary-btn:hover{background:#a9473e;border-color:#a9473e;color:#fff0e6}
+.sound-control,.research-dock,.route-indicator{backdrop-filter:blur(16px)}
+.route-bridge{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,#10171bf2 0%,#11191ddd 43%,#11191d9c 100%),url('/assets/operation-atmosphere.png') center 58%/cover no-repeat}
+.route-bridge:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 60%,#a9473e14)}
+.route-bridge>span{color:#c7a779}.route-bridge a{color:#eee7dc}
+.route-opening{background:linear-gradient(180deg,#0e1519b8,#0e1519d9),url('/assets/operation-atmosphere.png') center 48%/cover no-repeat}
+.route-opening .opening-grid{opacity:.45}
+.route-significance{background:linear-gradient(110deg,#131b20f4,#131b20dc),url('/assets/operation-atmosphere.png') center/cover fixed;color:#eee7dc}
+.route-significance .section-kicker{color:#c7a779}.route-significance h2 em{color:#9ca5a4}
+.significance-grid p{border-color:#d4c4a442;color:#b8bcb6}.significance-grid b{color:#c76a5e}
+.route-significance>a{color:#eee7dc;border-color:#c7a779}
+.route-opening strong em{color:#bd6258}
+.archive-section{background:linear-gradient(145deg,#141d22,#10171b 75%);color:#eee7dc}
+.archive-section .section-head h2{color:#eee7dc}.archive-section .section-kicker{color:#c7a779}
+.archive-card{border-color:#d8ccb62b;background:#192329;box-shadow:0 20px 52px #0003}
+.archive-copy{color:#eee7dc}.archive-copy>span,.archive-copy>small{color:#a9ada6}
+.archive-footer{border-color:#d8ccb62e;color:#a9ada6}.archive-footer strong{color:#eee7dc}
+.memory-bg{background-image:url('/assets/operation-atmosphere.png');filter:grayscale(.28) contrast(1.04);opacity:.48}
+.memory-overlay{background:linear-gradient(90deg,#0d1417d9,#0d141798 52%,#0d1417d9),linear-gradient(0deg,#0d1417ef,transparent 38%,#0d14178c)}
+.memory-content .section-kicker{color:#c7a779}.memory-content>p{color:#c0c1bb}
+.memory-stat span{color:#b8b9b2}
+.era-switch button.active{color:#eee7dc}.era-switch i{border-color:#c7a779}.era-switch b{background:var(--site-red)}
+.depth-scene{background:radial-gradient(ellipse at 63% 46%,#29363b,#11191e 70%)}
+.stage-journey{background:linear-gradient(180deg,#172127,#121a1f)}
+.stage-journey .scene-eyebrow,.journey-note{color:#a8aaa1}
+.stage-tabs button[aria-pressed=true]{color:#eee7dc;border-color:#a9473e}
+.stage-tabs button[aria-pressed=true] small{color:#cb7568}
+.bagration-network{background:radial-gradient(ellipse at 69% 48%,#2b383d,#11191e 70%)}
+.network-heading>span,.network-heading .network-filters button[aria-pressed=true]{color:#c7a779}
+.network-detail{border-color:#c7a7795c}
+.technology,.strategy,.forces,.events-section,.then-now{background-color:#141d22}
+.technology,.strategy,.forces,.events-section,.then-now{color:#eee7dc}
+.strategy-scheme,.network-board{background-color:#11191d}
+.event-card{border-color:#d2c4a82a}.event-card.expanded:before{background:var(--site-red)}
+.event-card .event-num{color:#c7a779}
+.event-card>button{color:#d5cbb9;border-color:#c7a77955}
+.tech-ribbon>button{border-color:#c7a77935}.tech-ribbon>button.active{border-color:#a9473e;background:linear-gradient(180deg,#29343a,#182126)}
+.tech-ribbon button.active>svg{color:#cf8171}
+.connection-web line{stroke:#c8c1b13b}.connect-node{border-color:#c7a77942;background:#192329ee;color:#ded9cf}
+.connect-node.active,.connect-node:hover{border-color:#bd6156;box-shadow:0 12px 25px #0005}
+.connection-readout{background:#151f24ed;border-color:#c7a77951;color:#eee7dc}
+.connection-readout p{color:#b5bbb4}
+.then-now-view{border-color:#c7a7793b;box-shadow:18px 18px 0 #a9473e28}
+.route-intro{background:linear-gradient(135deg,#1a252a,#101519 68%)}
+.replay-invitation{background:radial-gradient(circle at 77% 45%,#a9473e26,transparent 40%),#11191e}
+.results.scale-scroll{background:#151b1e}
+.war-room{--war-red:#a9473e}
+.war-game,.war-intro,.war-finale{scroll-margin-top:20px}
+.war-launch,.war-issue-order{background-image:linear-gradient(110deg,#6e302b,#a9473e)}
+.war-issue-order:hover:not(:disabled){background:#b35b4e}
+.war-orders-heading .war-kicker,.war-map-toolbar svg{color:#c7a779}
+.war-front-strip>button.active{box-shadow:inset 0 2px #a9473e}
+.site-theme-image-credit{color:#8f9790}
+@media(max-width:900px){.route-significance{background-attachment:scroll}.route-bridge{background-position:62% center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

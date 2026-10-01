@@ -1,0 +1,33 @@
+{
+  "name": "operation-bagration-interactive",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:visual": "node scripts/experience-check.mjs",
+    "test:route": "node scripts/route-check.mjs",
+    "test:map": "node scripts/map-accuracy-check.mjs",
+    "test:technology": "node scripts/technology-check.mjs",
+    "test:aviators": "node scripts/aviators-check.mjs",
+    "test:motion": "node scripts/motion-check.mjs",
+    "test:cinema": "node scripts/cinema-check.mjs",
+    "test:details": "node scripts/cinema-detail-check.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.3.1",
+    "@vitejs/plugin-react": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4"
+  }
+}

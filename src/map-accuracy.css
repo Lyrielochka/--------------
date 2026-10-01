@@ -1,0 +1,122 @@
+.bagration-map{display:block;width:100%;height:100%;overflow:hidden;color:#b5c3b8}
+.bmap-initial-front{fill:none;stroke:#d0c8a8;stroke-width:2;stroke-dasharray:10 10;stroke-opacity:.72;stroke-linecap:round;stroke-linejoin:round}
+.bmap-current-front{fill:none;stroke:#b4c3bb;stroke-width:3;stroke-opacity:.85;stroke-linecap:round;stroke-linejoin:round}
+.bmap-front-caption,.bmap-disclaimer{font:500 11px var(--font);letter-spacing:2px;fill:#c4cbbc;opacity:.65}
+.bmap-disclaimer{font-size:9px;opacity:.45}
+.bmap-route-guide{fill:none;stroke:#c2cabb;stroke-width:2;stroke-opacity:.18;stroke-linecap:round;stroke-linejoin:round}
+.bmap-route-active{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.bmap-route-shadow,.bmap-route-core{display:none;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bmap-route-head{stroke:#101416;stroke-width:3;stroke-linejoin:round}
+.bmap-relief{opacity:.7;mix-blend-mode:screen;pointer-events:none}
+.bmap-routes .dimmed{opacity:.13}
+.bmap-rail path{fill:none;stroke:#d1b988;stroke-width:2.5;stroke-opacity:.75;stroke-dasharray:10 9;stroke-linecap:round;stroke-linejoin:round}
+.bmap-partisans ellipse{stroke:#cda874;stroke-opacity:.55;stroke-width:1.5}
+.bmap-partisans path{fill:none;stroke:#dfad72;stroke-width:7;stroke-dasharray:8 12;stroke-linecap:round;filter:drop-shadow(0 0 6px #cb925e)}
+.bmap-partisans text{fill:#dfbd8a;font:600 10px var(--font);letter-spacing:2px}
+.bmap-battles ellipse{fill:#b64c4230;stroke:#ce7669;stroke-width:2;stroke-dasharray:8 7}
+.bmap-battles .active ellipse{fill:#bd5b4440;stroke-width:3;filter:drop-shadow(0 0 10px #ad5b4b)}
+.bmap-battles text{fill:#d7a492;font:600 10px var(--font);letter-spacing:1.5px}
+.bmap-front-labels text{fill:#c5cfbd;font:500 11px var(--font);letter-spacing:2px;opacity:.65}
+.bmap-cities circle{fill:#ebdfbf;stroke:#273c39;stroke-width:2}
+.bmap-cities .halo{fill:none;stroke:#d5c6a1;stroke-opacity:.5;stroke-width:1.5}
+.bmap-cities text{font:600 13px var(--font);letter-spacing:1.4px;fill:#e1e3d6;paint-order:stroke;stroke:#101d1c;stroke-width:4px}
+.bmap-cities .dimmed{opacity:.32}.bmap-cities .selected circle{fill:#cc6859}.bmap-cities .selected .halo{stroke:#e6bba0;stroke-width:3}
+.bmap-modern path{fill:none;stroke:#b2c8b2;stroke-width:2;stroke-dasharray:5 10;opacity:.65}.bmap-modern text{fill:#d6e1d4;font:500 12px var(--font);letter-spacing:2px}
+.bmap-memory text{font:25px Georgia;fill:#ead2a7}
+.rich-map{height:500svh;min-height:0;padding-bottom:0}
+.rich-map .map-shell{position:sticky;top:0;z-index:2}
+.rich-map .map-canvas{height:calc(100svh - 166px);min-height:420px}
+.rich-map .map-expanded{position:fixed}
+.rich-map .map-expanded .map-canvas{height:calc(100svh - 166px)}
+.map-scroll-hint{font-size:8px;letter-spacing:.13em;white-space:nowrap;color:#bcb7a8}
+@media(max-width:900px){.rich-map{height:500svh}.rich-map .map-canvas{height:calc(100svh - 165px);min-height:330px}.map-scroll-hint{font-size:0}.map-scroll-hint:after{content:'↓';font-size:18px}}
+.rich-map .map-world{inset:auto;left:50%;top:50%;height:100%;width:auto;aspect-ratio:1402/1122;transform-origin:center center;filter:brightness(.94)}
+.rich-map .map-world>svg{inset:0;width:100%;height:100%;filter:none}
+.rich-map .map-world .map-point{z-index:7}
+.rich-map .map-world .map-point.is-pending{opacity:.55}
+.rich-map .map-world .map-point.is-pending i{box-shadow:none}
+.rich-map .map-world .map-point span{font-size:9px;text-shadow:0 2px 6px #071211}
+.rich-map .compare-before{inset:0;z-index:6;background:#23352f80;backdrop-filter:grayscale(1) brightness(.78)}
+.rich-map .compare-before .bagration-map{width:100%;height:100%}
+.rich-map .map-card{z-index:8}
+.strategy-scheme .bagration-map{position:relative;z-index:2;width:100%;height:100%;filter:brightness(.82)}
+.strategy-scheme .bagration-map path{stroke-dasharray:initial;filter:none}
+.strategy-scheme .bagration-map .bmap-route-active{stroke-width:7;filter:drop-shadow(0 0 10px #c76b5c)}
+.strategy-scheme .bagration-map .bmap-initial-front{stroke-dasharray:10 10}
+.strategy-scheme .scheme-target{left:24px;bottom:20px;top:auto;display:flex;align-items:center;gap:8px}
+.strategy-scheme .scheme-target svg{width:20px;height:20px;animation:none}
+.prehistory-map .bagration-map{width:100%;height:100%;object-fit:contain;filter:brightness(.88)}
+.partisans .rail-network{opacity:.92;right:2%;top:10%;width:57%;height:78%}
+.partisans .rail-network .bagration-map{width:100%;height:100%;filter:brightness(.8)}
+.partisans .rail-network .bagration-map path{stroke-dasharray:initial;filter:none}
+.partisans .rail-network .bagration-map .bmap-rail path{stroke-dasharray:10 9;stroke-width:3;filter:drop-shadow(0 0 6px #d6aa70)}
+.partisans .rail-network .bagration-map .bmap-partisans path{stroke-dasharray:8 12;stroke-width:7;filter:drop-shadow(0 0 8px #d6aa70)}
+
+/* Territory ownership is schematic and follows the generalized front line. */
+.bmap-german-territory{fill:#0b0d10;fill-opacity:.91}
+.bmap-soviet-territory{fill:#a62c32;fill-opacity:.83}
+.bmap-territory-name{fill:#f4eee1;font:600 23px var(--font-head);letter-spacing:6px;paint-order:stroke;stroke:#101013;stroke-width:5px;filter:drop-shadow(0 3px 8px #000c)}
+.rich-map .bmap-current-front{stroke:#fff4d5;stroke-width:4;stroke-opacity:1;filter:drop-shadow(0 0 7px #fff7d8)}
+.rich-map .bmap-initial-front{stroke:#fff7dd;stroke-opacity:.9}
+.rich-map .bmap-front-caption,.rich-map .bmap-disclaimer,.rich-map .bmap-front-labels text,.rich-map .bmap-battles text,.rich-map .bmap-partisans text{fill:#fff9e9;opacity:1;paint-order:stroke;stroke:#101013;stroke-width:5px}
+.rich-map .map-world .map-point span{color:#fff9e9;text-shadow:0 1px 5px #000,0 0 12px #000}
+.rich-map .map-world .map-point small{color:#fff4d9}
+.rich-map .map-world .map-point.is-pending{opacity:1}
+.rich-map .map-world .map-point i{background:#fff7e3;outline-color:#fff7e3;box-shadow:0 0 0 3px #1119}
+.rich-map .bmap-route-active{stroke-width:7;filter:drop-shadow(0 0 7px currentColor)}
+.rich-map .bmap-front-labels text.front-baltic{fill:#64d9ec}
+.rich-map .bmap-front-labels text.front-third{fill:#ffd46b}
+.rich-map .bmap-front-labels text.front-second{fill:#a9eaaa}
+.rich-map .bmap-front-labels text.front-first{fill:#ff8f80}
+@media(max-width:560px){.bmap-territory-name{font-size:17px;letter-spacing:3px}}
+
+/* Tactical map treatment */
+.rich-map .map-canvas{background:radial-gradient(circle at 50% 45%,#293633 0,#101718 75%)}
+.rich-map .map-canvas:before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(#d9e9c510 1px,transparent 1px),linear-gradient(90deg,#d9e9c510 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 85%)}
+.rich-map .map-canvas:after{z-index:1;background-image:repeating-radial-gradient(ellipse at 55% 55%,transparent 0 34px,#d5ddc010 35px 36px);opacity:.65}
+.rich-map .bmap-territory-name{display:none}
+.rich-map .bmap-german-territory{fill:#090d11;fill-opacity:.88}
+.rich-map .bmap-soviet-territory{fill:#a8373c;fill-opacity:.8}
+.rich-map .bmap-relief{opacity:.52;filter:brightness(1.4) contrast(1.12);mix-blend-mode:screen}
+.rich-map .bmap-route-guide{stroke:#f1e3bd;stroke-opacity:.24;stroke-width:2;stroke-dasharray:5 14}
+.rich-map .bmap-route-shadow{display:block;stroke:#081113;stroke-width:26;stroke-opacity:.9;filter:drop-shadow(0 2px 5px #000c)}
+.rich-map .bmap-route-active{stroke-width:14;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px currentColor)}
+.rich-map .bmap-route-core{display:block;stroke:#fff9df;stroke-opacity:.55;stroke-width:2.2;pointer-events:none}
+.rich-map .bmap-route-head{filter:drop-shadow(0 0 5px #000b)}
+.rich-map .bmap-front-labels{display:none}
+.rich-map .bmap-battles ellipse{stroke-width:3;stroke-dasharray:9 6;fill:#090d113d}
+.rich-map .bmap-battles text{display:none}
+.rich-map .map-world .map-point span{font:500 15px var(--font-head);letter-spacing:.08em;text-transform:uppercase}
+.rich-map .map-world .map-point small{font:600 8px var(--font);letter-spacing:.1em}
+.rich-map .map-world .map-point i{width:12px;height:12px;background:#f9edce;outline:2px solid #151b18;box-shadow:0 0 0 4px #e4d2ad85,0 0 14px #f2dec1}
+.rich-map .map-card{background:linear-gradient(145deg,#121a1aeF,#0a1012ed);border:1px solid #e8c78988;border-left:3px solid #f1c778;box-shadow:0 18px 45px #000b,0 0 0 5px #0b1112a8}
+.rich-map .map-card h3{font:500 36px/.95 var(--font-head);letter-spacing:.01em;text-transform:uppercase}
+.rich-map .map-card>small,.rich-map .map-card-top{color:#e6c485}
+.rich-map .map-toolbar{background:linear-gradient(90deg,#131b1b,#1d2825);border-bottom-color:#dac39458;color:#d5dfd4}
+.rich-map .map-toolbar .live-date{color:#f1c778}
+.map-side-label{position:absolute;z-index:4;bottom:94px;pointer-events:none;display:flex;flex-direction:column;gap:6px;text-shadow:0 4px 20px #000}
+.map-side-label small{font:600 9px var(--font);letter-spacing:.22em;color:#aebdb4}
+.map-side-label strong{font:500 clamp(39px,4.1vw,70px)/.9 var(--font-head);letter-spacing:.025em;color:#f2ead6;paint-order:stroke;-webkit-text-stroke:1px #f2ead680}
+.map-side-label i{width:100%;height:2px;background:linear-gradient(90deg,#f2ead6,transparent)}
+.map-side-german{left:30px;align-items:flex-start}.map-side-soviet{right:30px;align-items:flex-end;text-align:right}.map-side-soviet i{background:linear-gradient(270deg,#f2ead6,transparent)}
+.rich-map .map-caption{color:#dbdbcb}.rich-map .map-north{color:#e9e1c9}
+.map-front-key{position:absolute;z-index:5;right:60px;top:76px;display:grid;gap:7px;padding:12px 14px;background:#101718d9;border:1px solid #d6cca269;box-shadow:0 12px 24px #0008;pointer-events:none}
+.map-front-key span{display:flex;align-items:center;gap:9px;font:500 10px var(--font-head);letter-spacing:.07em;text-transform:uppercase;color:#eee9d8;white-space:nowrap}
+.map-front-key i{width:16px;height:5px;display:inline-block;border-radius:2px;background:#fff;box-shadow:0 0 8px currentColor}
+.map-front-key i.front-baltic{background:#64d9ec;color:#64d9ec}.map-front-key i.front-third{background:#ffd46b;color:#ffd46b}.map-front-key i.front-second{background:#a9eaaa;color:#a9eaaa}.map-front-key i.front-first{background:#ff8f80;color:#ff8f80}
+@media(max-width:900px){.map-side-label{bottom:105px}.map-side-label strong{font-size:clamp(30px,5vw,48px)}.map-side-german{left:14px}.map-side-soviet{right:14px}}
+@media(max-width:900px){.map-front-key{top:45px;right:13px;padding:8px;gap:4px}.map-front-key span{font-size:8px}}
+@media(max-width:560px){
+  .rich-map .map-world{width:100%;height:auto;aspect-ratio:1402/1122;top:36%;left:50%}
+  .rich-map .map-world .map-point span{font-size:8px;letter-spacing:0}
+  .rich-map .map-world .map-point small{display:none}
+  .rich-map .map-world .map-point{gap:3px;min-width:18px;min-height:18px}
+  .rich-map .map-world .map-point i{width:8px;height:8px;box-shadow:0 0 0 2px #e4d2ad85}
+  .rich-map .map-card{padding:10px 12px;bottom:48px}
+  .rich-map .map-card h3{font-size:24px;margin:4px 0 0}
+  .rich-map .map-card>small{margin-top:5px}
+  .rich-map .map-card p,.rich-map .map-card .metric{display:none}
+  .map-side-label{display:none}
+  .map-front-key{top:55px;left:8px;right:8px;display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;padding:5px 8px}
+  .map-front-key span{font-size:7px}.map-front-key i{width:10px}
+}

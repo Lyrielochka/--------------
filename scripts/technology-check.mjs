@@ -1,0 +1,46 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+
+const browser=await chromium.launch({headless:true,channel:'chrome'});
+const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+const errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+try{
+  await page.goto(process.env.BASE_URL||'http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+  await page.locator('#technology').scrollIntoViewIfNeeded();
+  await page.locator('#technology .tech-ribbon > button').nth(0).click();
+  assert.equal(await page.getByRole('dialog',{name:'ТАНКИ'}).count(),1);
+  assert.equal(await page.locator('.equipment-card').count(),3);
+  assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).overflow),'hidden');
+  await page.getByRole('button',{name:/Т-34-85/}).click();
+  await page.getByRole('dialog',{name:'Т-34-85'}).waitFor();
+  await page.waitForFunction(()=>document.querySelector('.equipment-detail model-viewer')?.loaded,null,{timeout:45000});
+  await page.locator('.equipment-dialog').screenshot({path:'artifacts/desktop-technology-t34-detail.png'});
+  await page.getByRole('button',{name:'Вернуться к списку техники'}).click();
+  await page.getByRole('dialog',{name:'ТАНКИ'}).waitFor();
+  await page.getByRole('button',{name:/ИС-2/}).click();
+  await page.waitForFunction(()=>document.querySelector('.equipment-detail model-viewer')?.loaded,null,{timeout:45000});
+  await page.locator('.equipment-dialog').screenshot({path:'artifacts/desktop-technology-is2-detail.png'});
+  await page.keyboard.press('Escape');
+  await page.getByRole('dialog',{name:'ТАНКИ'}).waitFor();
+  await page.waitForTimeout(350);
+  await page.locator('.equipment-dialog').screenshot({path:'artifacts/desktop-technology-tanks.png'});
+  await page.keyboard.press('Escape');
+  await page.locator('.equipment-backdrop').waitFor({state:'detached'});
+  assert.notEqual(await page.locator('body').evaluate(el=>getComputedStyle(el).overflow),'hidden');
+  await page.locator('#technology .tech-ribbon > button').nth(1).click();
+  assert.equal(await page.getByRole('dialog',{name:'ПОЛЕВАЯ АРТИЛЛЕРИЯ'}).count(),1);
+  assert.equal(await page.locator('.equipment-card').count(),3);
+  await page.waitForTimeout(350);
+  await page.locator('.equipment-dialog').screenshot({path:'artifacts/desktop-technology-artillery.png'});
+  await page.getByRole('button',{name:/М-30/}).click();
+  await page.getByRole('dialog',{name:'М-30'}).waitFor();
+  assert.equal(await page.locator('.equipment-main-visual img').evaluate(el=>el.complete&&el.naturalWidth>0),true);
+  await page.locator('.equipment-dialog').screenshot({path:'artifacts/desktop-technology-m30-detail.png'});
+  await page.getByRole('button',{name:'Вернуться к списку техники'}).click();
+  await page.getByRole('button',{name:'Закрыть категорию'}).click();
+  await page.locator('.equipment-backdrop').waitFor({state:'detached'});
+  assert.equal(await page.getByRole('dialog').count(),0);
+  assert.deepEqual(errors,[]);
+  console.log('TECHNOLOGY_CHECK_OK');
+}finally{await browser.close()}

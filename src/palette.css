@@ -1,0 +1,87 @@
+/* Palette inspired by a charcoal campaign map and aged archive paper. */
+:root{
+  --bg:#10161b;
+  --paper:#eee8dc;
+  --muted:#a5aaa9;
+  --line:#c3baa832;
+  --red:#ad584e;
+  --amber:#d1ad79;
+  --ink:#151b20;
+  --cinema-ink:#121a20;
+  --cinema-paper:#e4dccb;
+  --cinema-gold:#d1ad79;
+  --coal:#10161b;
+  --slate:#1a242a;
+  --slate-raised:#243038;
+  --parchment:#e0dbd1;
+  --brass:#d1ad79;
+  --rust:#ad584e;
+}
+body{background:var(--coal);color:var(--paper)}
+.topbar{border-bottom-color:#cabca638;background:linear-gradient(#11181eeF,#11181ed9 68%,#11181e2a)}
+.brand,.brand-mark{color:#efe4d1}.brand-mark{border-color:#d9bd91aa}.brand small,.status{color:#c4c4bd}.status span{color:#8d969a}
+.route-indicator{background:#11191ee8;border-color:#c7bba642;box-shadow:0 12px 34px #0008}
+.route-indicator a:hover,.route-indicator a.active{background:#ad584e25;color:#f0e4d2}
+.side-nav a.active:before{background:var(--rust)}
+.sound-control,.research-dock{background:#172129ed;border-color:#c2b18e66;color:#e4d9c4}
+.section-kicker,.eyebrow,.map-scroll-hint{color:var(--brass)}
+.section-head h2{color:#eee9de}.section-head h2 em{color:#9ca7aa}.section-head>p{color:#a1a9aa;border-color:#b8b5a650}
+.hero-bg{background:linear-gradient(90deg,#0d141be8 0%,#111b22ae 46%,#111a2370 78%),linear-gradient(0deg,#10161b 0%,transparent 43%),url('/assets/bagration-hero.webp') center/cover no-repeat;filter:saturate(.72) sepia(.08)}
+.hero h1{color:#f0e6d4}.hero h1 em{-webkit-text-stroke-color:#d6c3a8ad}.hero-bottom p{color:#b8bab6}
+.hero .primary-btn{background:#d8bf98;color:#192027;border-color:#f0dfc2;box-shadow:0 12px 38px #0008}.hero .primary-btn:hover{color:#fbf1df}.hero .primary-btn:before{background:#a94f47}
+.hero-coord,.scroll-cue,.hero-index span{color:#a8aaa8}
+
+.route-intro{background:linear-gradient(135deg,#1b262d,#10161b 64%)}
+.route-bridge{background:radial-gradient(circle at 70% 50%,#ad584e20,transparent 48%),#182127}
+.route-opening{background:radial-gradient(circle at center,#794e423d,transparent 48%),linear-gradient(160deg,#243039,#10161b 70%)}
+.replay-invitation{background:radial-gradient(circle at 77% 45%,#ad584e2b,transparent 42%),#121a20}
+.strategy,.forces,.technology,.events-section,.then-now,.memory-section,footer{background-color:#11191f}
+.map-section{background:#11191f}.map-shell{background:#162027;border-color:#c4b69c42}
+.map-toolbar{border-bottom-color:#c4b69c3d}.map-timeline{background:#151e24}
+.strategy-scheme{background:radial-gradient(circle,#2a353b,#11191e 72%)}
+.network-board{background:radial-gradient(circle at 35% 50%,#2a353b,#141c22 67%)}
+.root-node,.network-node{background:#1a252be8;border-color:#a9a99c6e;color:#ece5d7}
+.network-board aside{background:#121b20ef}
+.tech-ribbon>button{background:linear-gradient(180deg,#202a30,#121a20);color:#a9b0ad}
+.tech-ribbon>button.active{background:linear-gradient(180deg,#354047,#192229);color:#f1e7d6}
+.tech-ribbon button.active>svg{color:#d3ae7c}
+.rich-map .map-toolbar{background:linear-gradient(90deg,#192229,#242f35);border-bottom-color:#d2b98b5e}
+.rich-map .map-card{background:linear-gradient(145deg,#1b252bed,#11191eef);border-color:#d8bc8a8c}
+.layers-panel{background:#182229ed;border-color:#d6c19b5c}
+.map-side-label strong{color:#f0e4d0;-webkit-text-stroke-color:#f0e4d0a8}
+
+.partisan-atlas{background:radial-gradient(circle at 84% 12%,#27333b 0,transparent 42%),#11191f;color:#e9e1d1}
+.partisan-atlas-panel,.partisan-dashboard,.partisan-legend,.partisan-controls{border-color:#c2b59a42;background-color:#192329}
+.partisan-map-window{background:radial-gradient(circle at 52% 45%,#334047,#172127 72%);border-color:#d4bf9f55}
+.partisan-map-window:before{background-image:linear-gradient(#d8d0b514 1px,transparent 1px),linear-gradient(90deg,#d8d0b514 1px,transparent 1px)}
+.partisan-dashboard-note{background:linear-gradient(120deg,#383532,#222b30)}
+.partisan-controls button,.partisan-legend{color:#d4d3c9}
+.partisan-controls button:hover,.partisan-controls button.active{border-color:#d1ad79;color:#f3dfba;background:#a77a4930}
+.partisan-atlas-head h2{color:#eee6d7}.partisan-atlas-head h2 em{color:#afb5b2}.partisan-atlas-head p,.partisan-legend p{color:#aeb3af}
+.partisan-timeline,.partisan-index{background:#1c272d;border-color:#bdae944a}
+.partisan-detail{background:#1c262c;color:#eee7dc}
+
+.aviators-section{background:linear-gradient(180deg,#111a20,#202b31 55%,#11191f);color:#eee7d9}
+.aviators-sky{background:radial-gradient(ellipse at 85% 12%,#73858d31,transparent 38%),radial-gradient(ellipse at 12% 75%,#b2937338,transparent 44%)}
+.equipment-dialog{background:linear-gradient(145deg,#28343bfa,#192329f8 58%,#10181efa);color:#eae4d7;border-color:#c3b79c4d}
+.equipment-head{background:#151f25c9}
+.cinema-intro,.operation-scroll,.depth-scene,.stage-journey,.bagration-network,.time-rift:not(.era-modern){color:var(--cinema-paper)}
+.depth-scene{background:radial-gradient(ellipse at 65% 50%,#35434a,#162127 68%)}
+.depth-map{background:#263a40;border-color:#a7aa9655}
+.depth-glass{background:#24363dbb;border-color:#d0b58d75}
+.stage-journey{background:#19252b}.journey-copy p{color:#bac2b5}
+.bagration-network{background:radial-gradient(ellipse at 65% 50%,#32414a,#121d23 68%)}
+.network-heading p{color:#b2bdad}.network-detail{background:#1c2b31e8;border-color:#b4ae8b66}
+.time-rift:not(.era-modern){background:#29333a}.rift-present{background:#254046}.rift-past{background:#343a36}
+.research-dock b{color:#d9b984}
+.cinema-modal{background:#121e24;color:#e5dcc9}.cinema-modal>header{background:#152128ef;border-color:#b8b59d48}
+.film-matte{background:radial-gradient(ellipse at 60% 30%,#39474b,#17252b 70%)}
+.film-transcript button{background:#1b2d33;border-color:#b0aa8c55;color:#d4d1be}
+.film-end{background:#17252bef}
+
+/* Light chapters retain their existing structure and contrast. */
+.prehistory,.commanders,.cities,.connections,.results,.timeline-section,.archive-section,.archive-desk,.route-significance{background-color:#dfdbd2;color:#222626}
+.prehistory-map,.city-copy{background-color:#d3d0c7}
+.archive-sheet{background-color:#eee9dc}.sheet-paper{background:#dcd0ba}.archive-reader>header{background:#dfdbd2}
+.section-head.light h2,.commanders .section-head h2,.cities .section-head h2{color:#242626}
+.section-head.light .section-kicker,.prehistory .section-kicker,.commanders .section-kicker,.cities .section-kicker,.connections .section-kicker,.results .section-kicker,.archive-section .section-kicker,.archive-desk .section-kicker,.route-significance .section-kicker{color:#935a4d}
