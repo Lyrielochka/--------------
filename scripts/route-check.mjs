@@ -24,8 +24,8 @@ try {
     await page.locator('#strategy').scrollIntoViewIfNeeded();
     await page.locator('#strategy').evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
     await page.screenshot({path:`artifacts/${name}-route-strategy.png`});
-    await page.locator('#strategy .front-list button').nth(1).click();
-    await page.locator('#strategy').getByRole('button',{name:/ПОКАЗАТЬ НА КАРТЕ/}).click();
+    await page.locator('#strategy .fd-tabs button').nth(1).click();
+    await page.locator('#strategy').getByRole('button',{name:/К ходу операции/}).click();
     assert.equal(await page.getByLabel('Дата операции',{exact:true}).inputValue(),'3');
     await page.locator('#map').scrollIntoViewIfNeeded();
     await page.locator('#map').getByRole('button',{name:'Минск',exact:true}).click();

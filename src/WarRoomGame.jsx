@@ -5,8 +5,8 @@ import BagrationMap from './BagrationMap.jsx';
 import {line, pct, placeXY} from './bagrationMapData.js';
 import './war-room.css';
 
-const ASSET='/assets/scale/soviet-t34-right.png';
-const AIRCRAFT='/assets/aviators/pe-2.png';
+const ASSET='/assets/scale/soviet-t34-right.lossless.webp';
+const AIRCRAFT='/assets/aviators/pe-2.lossless.webp';
 const phases=[
   {date:'23 ИЮНЯ 1944',name:'ПРОРЫВ ОБОРОНЫ',note:'Начало наступления. Определите, где потребуется артиллерийская подготовка, а где достаточно подвижного удара.'},
   {date:'25 ИЮНЯ 1944',name:'РАЗВИТИЕ ПРОРЫВА',note:'На нескольких участках оборона теряет устойчивость. Решите, где наращивать темп, а где беречь силы.'},
@@ -191,7 +191,7 @@ export default function WarRoomGame(){
         </div>
         <aside className="war-orders-panel">
           <div className="war-orders-heading"><span className="war-kicker">ПАНЕЛЬ КОМАНДОВАНИЯ</span><h3>ПРИКАЗЫ<br/><em>НА ФРОНТ</em></h3></div>
-          <div className="war-sector-summary"><img src={ASSET} alt=""/><div><small>{sector.front}</small><b>{sector.name}</b><span>ЦЕЛЬ: {target?target.name:'НАПРАВЛЕНИЕ ВЗЯТО'}</span></div><Flag size={15}/></div>
+          <div className="war-sector-summary"><img loading="lazy" decoding="async" src={ASSET} alt=""/><div><small>{sector.front}</small><b>{sector.name}</b><span>ЦЕЛЬ: {target?target.name:'НАПРАВЛЕНИЕ ВЗЯТО'}</span></div><Flag size={15}/></div>
           <div className="war-front-tabs">{sectors.map(s=><button key={s.id} className={selectedFront===s.id?'active':''} onClick={()=>setSelectedFront(s.id)} disabled={queuedFronts.has(s.id)}><span>{s.id==='north'?'СЕВЕР':s.id==='center'?'ЦЕНТР':'ЮГ'}</span>{queuedFronts.has(s.id)&&<i/>}</button>)}</div>
           <div className="war-tactics-label"><span>ВЫБЕРИТЕ ТИП ПРИКАЗА</span><small>ЦЕНА / КОМАНДЫ · СНАБЖЕНИЕ</small></div>
           <div className="war-order-list">
@@ -199,7 +199,7 @@ export default function WarRoomGame(){
             <OrderCard id="assault" title="Подготовленный прорыв" detail="Сильный удар · снижает готовность" command="2" supply="3" icon={Target} active={tactic==='assault'} onClick={()=>setTactic('assault')}/>
             <OrderCard id="regroup" title="Перегруппировка" detail="Восстановить боеготовность" command="1" supply="0" icon={Shield} active={tactic==='regroup'} onClick={()=>{setTactic('regroup');setAirSupport(false)}}/>
           </div>
-          {tactic!=='regroup'&&<button className={`war-air-support ${airSupport?'active':''}`} onClick={()=>setAirSupport(v=>!v)} disabled={game.supply<supplies[tactic]+2||!target}><span><img src={AIRCRAFT} alt=""/><b>ПОДДЕРЖКА АВИАЦИИ</b><small>+1 к силе удара · 2 снабжения</small></span><i>{airSupport?'ВКЛ':'ВЫКЛ'}</i></button>}
+          {tactic!=='regroup'&&<button className={`war-air-support ${airSupport?'active':''}`} onClick={()=>setAirSupport(v=>!v)} disabled={game.supply<supplies[tactic]+2||!target}><span><img loading="lazy" decoding="async" src={AIRCRAFT} alt=""/><b>ПОДДЕРЖКА АВИАЦИИ</b><small>+1 к силе удара · 2 снабжения</small></span><i>{airSupport?'ВКЛ':'ВЫКЛ'}</i></button>}
           <button className="war-issue-order" onClick={addOrder} disabled={game.command<commands[tactic]||game.supply<supplies[tactic]+(airSupport&&tactic!=='regroup'?2:0)||queuedFronts.has(selectedFront)||(!target&&tactic!=='regroup')}>
             <span>{queuedFronts.has(selectedFront)?'ПРИКАЗ УЖЕ НАЗНАЧЕН':!target&&tactic!=='regroup'?'НАПРАВЛЕНИЕ ВЗЯТО':'ВЫДАТЬ ПРИКАЗ'}</span><ArrowRight size={16}/>
           </button>

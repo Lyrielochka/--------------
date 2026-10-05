@@ -20,12 +20,16 @@ export function progressLine(points,progress){
     if(remaining<=length){const share=length?remaining/length:0;endpoint={x:vertices[i].x+(vertices[i+1].x-vertices[i].x)*share,y:vertices[i].y+(vertices[i+1].y-vertices[i].y)*share};break}
     remaining-=length;endpoint=vertices[i+1];
   }
+  const visible=[vertices[0]];
   let travelled=0;
-  return vertices.map((point,i)=>{
-    if(i)travelled+=segments[i-1];
-    const target=travelled<=limit?point:endpoint;
-    return `${i?'L':'M'}${target.x.toFixed(1)} ${target.y.toFixed(1)}`;
-  }).join(' ');
+  for(let i=1;i<vertices.length;i++){
+    travelled+=segments[i-1];
+    const target=travelled<=limit?vertices[i]:endpoint;
+    const previous=visible.at(-1);
+    if(Math.hypot(target.x-previous.x,target.y-previous.y)>0.001)visible.push(target);
+    if(travelled>=limit)break;
+  }
+  return visible.map((point,i)=>`${i?'L':'M'}${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(' ');
 }
 export function routeArrow(points,progress){
   const vertices=points.map(([lon,lat])=>xy(lon,lat));

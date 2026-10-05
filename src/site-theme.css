@@ -26,12 +26,12 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid #cf78
 .primary-btn{border-color:#c7a779;background:#c7a779;color:#171c1d}
 .primary-btn:hover{background:#a9473e;border-color:#a9473e;color:#fff0e6}
 .sound-control,.research-dock,.route-indicator{backdrop-filter:blur(16px)}
-.route-bridge{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,#10171bf2 0%,#11191ddd 43%,#11191d9c 100%),url('/assets/operation-atmosphere.png') center 58%/cover no-repeat}
+.route-bridge{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,#10171bf2 0%,#11191ddd 43%,#11191d9c 100%),url('/assets/operation-atmosphere.lossless.webp') center 58%/cover no-repeat}
 .route-bridge:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 60%,#a9473e14)}
 .route-bridge>span{color:#c7a779}.route-bridge a{color:#eee7dc}
-.route-opening{background:linear-gradient(180deg,#0e1519b8,#0e1519d9),url('/assets/operation-atmosphere.png') center 48%/cover no-repeat}
+.route-opening{background:linear-gradient(180deg,#0e1519b8,#0e1519d9),url('/assets/operation-atmosphere.lossless.webp') center 48%/cover no-repeat}
 .route-opening .opening-grid{opacity:.45}
-.route-significance{background:linear-gradient(110deg,#131b20f4,#131b20dc),url('/assets/operation-atmosphere.png') center/cover fixed;color:#eee7dc}
+.route-significance{background:linear-gradient(110deg,#131b20f4,#131b20dc),url('/assets/operation-atmosphere.lossless.webp') center/cover fixed;color:#eee7dc}
 .route-significance .section-kicker{color:#c7a779}.route-significance h2 em{color:#9ca5a4}
 .significance-grid p{border-color:#d4c4a442;color:#b8bcb6}.significance-grid b{color:#c76a5e}
 .route-significance>a{color:#eee7dc;border-color:#c7a779}
@@ -41,7 +41,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid #cf78
 .archive-card{border-color:#d8ccb62b;background:#192329;box-shadow:0 20px 52px #0003}
 .archive-copy{color:#eee7dc}.archive-copy>span,.archive-copy>small{color:#a9ada6}
 .archive-footer{border-color:#d8ccb62e;color:#a9ada6}.archive-footer strong{color:#eee7dc}
-.memory-bg{background-image:url('/assets/operation-atmosphere.png');filter:grayscale(.28) contrast(1.04);opacity:.48}
+.memory-bg{background-image:url('/assets/operation-atmosphere.lossless.webp');filter:grayscale(.28) contrast(1.04);opacity:.48}
 .memory-overlay{background:linear-gradient(90deg,#0d1417d9,#0d141798 52%,#0d1417d9),linear-gradient(0deg,#0d1417ef,transparent 38%,#0d14178c)}
 .memory-content .section-kicker{color:#c7a779}.memory-content>p{color:#c0c1bb}
 .memory-stat span{color:#b8b9b2}

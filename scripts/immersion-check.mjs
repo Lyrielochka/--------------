@@ -1,0 +1,56 @@
+﻿import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({headless:true,channel:'chrome'});
+const errors=[];
+try {
+ for(const [name,width,height] of [['desktop',1440,1000],['mobile',390,844]]){
+  const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+  await page.locator('#map').evaluate(e=>e.scrollIntoView({block:'start'}));
+  await page.getByLabel('Дата операции',{exact:true}).fill('3');
+  const date=await page.getByLabel('Дата операции',{exact:true}).inputValue();
+  await page.locator('.map-card > small').filter({hasText:'27.06'}).waitFor();
+  await page.locator('.map-enter-button').click();
+  await page.locator('.map-immersion').waitFor();
+  await page.waitForFunction(()=>document.querySelector('.map-immersion model-viewer')?.loaded,{timeout:45000});
+  await page.locator('.immersion-copy h3').filter({hasText:'Оршанское'}).waitFor();
+  await page.locator('.map-canvas').screenshot({path:`artifacts/immersion-${name}-direction.png`});
+  await page.getByRole('button',{name:'Рассмотреть Т-34-85',exact:true}).click();
+  await page.locator('.is-object').waitFor();
+  assert.equal(await page.locator('.map-immersion model-viewer').getAttribute('camera-controls'),'');
+  await page.locator('.map-canvas').screenshot({path:`artifacts/immersion-${name}-tank.png`});
+  await page.keyboard.press('Escape');
+  await page.locator('.immersion-directions button').last().click();
+  await page.locator('.immersion-copy h3').filter({hasText:'Бобруйское'}).waitFor();
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  await page.keyboard.press('Escape');
+  await page.locator('.map-immersion').waitFor({state:'detached'});
+  assert.equal(await page.getByLabel('Дата операции',{exact:true}).inputValue(),date);
+  await page.close();
+ }
+ const animated=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'no-preference'});
+ animated.on('pageerror',e=>errors.push(e.message));
+ await animated.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+ await animated.locator('#map').evaluate(e=>e.scrollIntoView({behavior:'instant',block:'start'}));
+ await animated.locator('.map-front-key button').nth(1).click();
+ const savedDate=await animated.getByLabel('Дата операции',{exact:true}).inputValue();
+ await animated.waitForTimeout(1600);
+ assert.match(await animated.locator('.map-world').evaluate(e=>getComputedStyle(e).transform),/matrix3d/);
+ await animated.locator('.immersion-copy h3').filter({hasText:'Оршанское'}).waitFor();
+ await animated.locator('.map-canvas').screenshot({path:'artifacts/immersion-desktop-animated.png'});
+ await animated.getByRole('button',{name:'К карте наступления',exact:true}).click();
+ await animated.locator('.map-immersion').waitFor({state:'detached'});
+ assert.equal(await animated.getByLabel('Дата операции',{exact:true}).inputValue(),savedDate);
+ await animated.close();
+ const fallback=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+ await fallback.route('**/assets/tech/t-34-85.glb',route=>route.abort());
+ await fallback.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+ await fallback.locator('#map').evaluate(e=>e.scrollIntoView({behavior:'instant'}));
+ await fallback.locator('.map-enter-button').click();
+ await fallback.locator('.immersion-object > img').waitFor();
+ await fallback.getByRole('button',{name:'Закрыть пространственную экспозицию'}).click();
+ await fallback.locator('.map-immersion').waitFor({state:'detached'});
+ await fallback.close();
+ assert.deepEqual(errors,[]);console.log('PASS: desktop/mobile entry, GLB loaded, object controls, directions, Escape, original date, animated camera, direct direction entry, failed-model fallback, no overflow/runtime errors.');
+}finally{await browser.close()}

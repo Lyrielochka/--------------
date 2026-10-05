@@ -1,0 +1,20 @@
+﻿.hero-author-stamp{position:absolute;z-index:6;right:clamp(50px,6vw,115px);bottom:110px;width:270px;padding:20px 19px 17px;text-align:center;transform:rotate(-5deg);border:1px solid #d9bb8575;border-radius:5px;color:#e2cfac;background:linear-gradient(135deg,#162019a6,#12181280);box-shadow:0 10px 30px #0003,inset 0 0 0 5px #0c141329;backdrop-filter:blur(5px);text-shadow:0 1px 3px #0006}
+.hero-author-stamp::before{content:"";position:absolute;inset:6px;border:1px solid #d9bb8538;border-radius:2px;pointer-events:none}
+.hero-stamp-label{display:block;font:9px/1.5 var(--font);letter-spacing:.2em}
+.hero-stamp-contest{display:block;font:600 34px/1.2 var(--font-head);letter-spacing:.07em;margin-top:3px}
+.hero-stamp-contest>span{color:#d78764}
+.hero-stamp-rule{display:block;width:65%;height:1px;background:#d9bb855c;margin:12px auto}
+.hero-stamp-role{display:block;font:8px/1.5 var(--font);letter-spacing:.18em;color:#bfae90;margin-bottom:6px}
+.hero-author-stamp strong{display:block;font:500 22px/1.2 var(--font-head);letter-spacing:.025em;color:#f0e2c6}
+.hero-stamp-supervisor-label{margin-top:12px;font-size:7px;letter-spacing:.1em}
+.hero-stamp-supervisor{display:block;font:500 15px/1.3 var(--font-head);color:#e2cfac}
+.hero-author-stamp{width:220px;padding:15px 14px 13px;right:calc(13vw + 5cm);top:17%;bottom:auto}
+.hero-stamp-contest{font-size:27px}
+.hero-author-stamp strong{font-size:18px}
+.hero-stamp-label{font-size:8px}
+.hero-stamp-rule{margin:9px auto}
+@media(max-width:1100px){.hero-author-stamp{right:calc(9vw + 5cm);top:16%;bottom:auto;width:205px}}
+@media(max-width:750px){.hero-author-stamp{left:26px;right:auto;top:auto;bottom:125px;width:190px;padding:12px 13px;transform:rotate(-3deg)}.hero-stamp-contest{font-size:24px}.hero-stamp-label{font-size:7px}.hero-stamp-rule{margin:7px auto}.hero-author-stamp strong{font-size:16px}}
+@media(max-width:750px) and (max-height:740px){.cinema-intro:has(.hero-author-stamp){min-height:780px!important}}
+@media(max-width:750px){.hero-stamp-supervisor-label{margin-top:9px;font-size:6px}.hero-stamp-supervisor{font-size:13px}}
+

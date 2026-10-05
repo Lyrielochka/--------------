@@ -7,7 +7,7 @@ const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 try {
   await page.goto(process.env.BASE_URL||'http://127.0.0.1:5173/',{waitUntil:'networkidle'});
-  assert.equal(await page.locator('#map .bagration-map image[href="/assets/belarus-base.png"]').count(),1);
+  assert.equal(await page.locator('#map .bagration-map image[href="/assets/belarus-base.lossless.webp"]').count(),1);
   await page.locator('#map').evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
   assert.equal(await page.locator('#map [data-layer=rail]').count(),0);
   await page.locator('#map').getByRole('button',{name:'Слои карты'}).click();
@@ -40,7 +40,7 @@ try {
   await page.locator('#partisans').evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
   assert.equal(await page.locator('#partisans .bagration-map [data-layer=partisans]').count(),1);
   await page.locator('#partisans').screenshot({path:'artifacts/desktop-partisans-accurate.png'});
-  await page.locator('#strategy .strategy-scheme').screenshot({path:'artifacts/desktop-strategy-map-accurate.png'});
+  await page.locator('#strategy .fd-map-canvas').screenshot({path:'artifacts/desktop-strategy-map-accurate.png'});
   assert.deepEqual(errors,[]);
   console.log('MAP_ACCURACY_CHECK_OK');
 } finally {

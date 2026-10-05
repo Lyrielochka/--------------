@@ -1,0 +1,27 @@
+.story-site .bagration-videos{position:relative;isolation:isolate;padding-top:86px;padding-bottom:100px;background:#292821;color:#f1ead9;overflow:hidden}
+.bagration-videos::before{content:"";position:absolute;inset:0;z-index:-2;background:url('/assets/bagration-hero.webp') center 58%/cover;opacity:.48}
+.bagration-videos::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#181b19c9,#28241bad 50%,#171a18eb)}
+.bagration-videos-heading{margin-bottom:36px}
+.bagration-videos-heading .section-kicker{color:#d0bca0}
+.story-site .bagration-videos-heading h2{font:600 clamp(30px,3.1vw,48px)/1.15 var(--font-head);letter-spacing:.035em;margin:14px 0 18px;color:#f1ead9}
+.bagration-videos-heading h2 em{font-style:normal;color:inherit}
+.bagration-videos-heading h2::after{content:"";display:block;width:148px;height:2px;background:#d95340;margin-top:22px}
+.bagration-videos-heading p{font-size:14px;line-height:1.6;color:#c7bca9;margin:0}
+.bagration-video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.bagration-video-card{min-width:0}
+.bagration-video-card a{display:block;color:inherit;text-decoration:none}
+.bagration-video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:18px;background:#181b19;box-shadow:0 12px 32px #0003}
+.bagration-video-cover img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s;filter:saturate(1.15)}
+.bagration-video-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#0008)}
+.bagration-video-kind{position:absolute;z-index:1;top:14px;left:14px;background:#171916c9;color:#f4ead5;border:1px solid #ffffff26;border-radius:3px;padding:6px 9px;font-size:10px;letter-spacing:.06em}
+.bagration-video-play{position:absolute;z-index:1;bottom:18px;left:18px;width:58px;height:58px;display:grid;place-items:center;padding-left:3px;border-radius:50%;color:#fff3df;background:#dc5140;box-shadow:0 4px 20px #0003;transition:background .2s,transform .2s}
+.bagration-video-watch{position:absolute;z-index:1;right:16px;bottom:25px;display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.08em;color:#fff3df}
+.story-site .bagration-video-card h3{font:500 clamp(20px,1.6vw,25px)/1.25 var(--font-head);letter-spacing:.02em;margin:19px 0 10px;color:#eee3cc}
+.bagration-video-author{font:14px/1.5 Georgia,serif;color:#d3bfa0;margin:0 0 5px}
+.bagration-video-note{font-size:11px;color:#b7ad9c;line-height:1.5}
+.bagration-video-card a:hover img{transform:scale(1.045);filter:saturate(1.25) brightness(1.07)}
+.bagration-video-card a:hover .bagration-video-play{background:#ef634e;transform:scale(1.08)}
+.bagration-video-card a:focus-visible{outline:2px solid #f5bb76;outline-offset:7px;border-radius:18px}
+@media(max-width:1000px){.bagration-video-grid{gap:18px}.bagration-video-watch{display:none}.bagration-video-kind{font-size:9px;padding:5px 6px}}
+@media(max-width:700px){.story-site .bagration-videos{padding-top:60px;padding-bottom:65px}.bagration-video-grid{grid-template-columns:1fr;gap:34px}.bagration-videos-heading{margin-bottom:28px}.bagration-video-watch{display:flex}.bagration-video-kind{font-size:10px}.story-site .bagration-video-card h3{font-size:24px;margin-top:15px}}
+@media(prefers-reduced-motion:reduce){.bagration-video-cover img,.bagration-video-play{transition:none}}

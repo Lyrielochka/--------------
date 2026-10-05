@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "prompts": {
+    "soviet": "Use case: historical-scene. Separate transparent PNG museum category symbol: Soviet SSh-40 steel infantry helmet, rounded dome and short brim, plain olive green. One isolated helmet only, three-quarter side view facing left, restrained realistic painted object illustration, subtle worn steel, soft studio lighting, compact clear silhouette readable at 48 pixels. Entire helmet centered with margins. Genuine transparent background. Completely unmarked plain surface: absolutely no insignia, no decals, no symbols, no swastikas, no runes, no eagle, no stars, no text, no letters, no numbers, no watermark. No person, no mannequin, no ground.",
+    "german": "Use case: historical-scene. Separate transparent PNG museum category symbol: German M40 steel infantry helmet, characteristic flared skirt and angular visor, plain dark grey green. One isolated helmet only, three-quarter side view facing left, restrained realistic painted object illustration, subtle worn steel, soft studio lighting, compact clear silhouette readable at 48 pixels. Entire helmet centered with margins. Genuine transparent background. Completely unmarked plain surface: absolutely no insignia, no decals, no symbols, no swastikas, no runes, no eagle, no stars, no text, no letters, no numbers, no watermark. No person, no mannequin, no ground."
+  }
+}

@@ -15,7 +15,8 @@
     "test:motion": "node scripts/motion-check.mjs",
     "test:cinema": "node scripts/cinema-check.mjs",
     "test:details": "node scripts/cinema-detail-check.mjs",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "test:optimization": "node scripts/optimization-check.mjs"
   },
   "dependencies": {
     "@google/model-viewer": "^4.3.1",

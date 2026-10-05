@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {motion, useReducedMotion, useScroll, useTransform} from 'framer-motion';
 import {Users, Shield, Crosshair, Plane} from 'lucide-react';
+import './personnel.css';
 
 const number = new Intl.NumberFormat('ru-RU');
 
@@ -24,7 +25,7 @@ export function CampaignFigures({data:d}) {
     {label:'Авиация',icon:Plane,unit:'самолётов',a:d.forces.planes,b:d.forces.enemyPlanes,extra:'+'},
   ];
   const item=comparisons[selected];
-  const illustrations=[null,{soviet:'soviet-t34-right.png',german:'german-tiger-left.png'},{soviet:'soviet-zis3-right.png',german:'german-88mm-left.png'},{soviet:'soviet-il2-right.png',german:'german-fw190-left.png'}][selected];
+  const illustrations=[{soviet:'soviet-helmet.lossless.webp',german:'german-helmet.lossless.webp'},{soviet:'soviet-t34-right.lossless.webp',german:'german-tiger-left.lossless.webp'},{soviet:'soviet-zis3-right.lossless.webp',german:'german-88mm-left.lossless.webp'},{soviet:'soviet-il2-right.lossless.webp',german:'german-fw190-left.lossless.webp'}][selected];
   const ratio=(item.a/item.b).toLocaleString('ru-RU',{maximumFractionDigits:1});
   return <section className="campaign-figures section" id="results" aria-labelledby="figures-heading">
     <div className="figures-heading"><span className="section-kicker">ИТОГИ / 23 ИЮНЯ — 29 АВГУСТА</span><h2 id="figures-heading">Масштаб<br/><em>освобождения.</em></h2></div>
@@ -37,7 +38,7 @@ export function CampaignFigures({data:d}) {
       <div className="comparison-heading"><div><span className="section-kicker">СООТНОШЕНИЕ СИЛ</span><h3>С чем вступили в бой.</h3></div><div className="comparison-switch" aria-label="Вид сил">{comparisons.map((option,i)=><button key={option.label} aria-pressed={selected===i} onClick={()=>setSelected(i)}><option.icon size={16}/>{option.label}</button>)}</div></div>
       <div className="comparison-chart" aria-live="polite" aria-atomic="true">
         {[{name:'СССР',value:item.a,extra:item.extra,side:'soviet'},{name:'Германия',value:item.b,extra:'≈ ',side:'german'}].map(row=><div className={'force-row '+row.side} key={row.side}>
-          {illustrations&&<div className="force-equipment" aria-hidden="true"><motion.img key={illustrations[row.side]} src={'/assets/scale/'+illustrations[row.side]} alt="" initial={reduced?false:{opacity:0,x:row.side==='soviet'?-18:18}} animate={{opacity:1,x:0}} transition={{duration:.45}}/></div>}
+          {illustrations&&<div className="force-equipment" aria-hidden="true"><motion.img key={illustrations[row.side]} src={(selected===0?'/assets/personnel/':'/assets/scale/')+illustrations[row.side]} alt="" initial={reduced?false:{opacity:0,x:row.side==='soviet'?-18:18}} animate={{opacity:1,x:0}} transition={{duration:.45}}/></div>}
           <div className="force-label"><span>{row.name}</span><strong>{row.side==='german'&&row.extra}{number.format(row.value)}{row.side==='soviet'&&row.extra}</strong></div>
           <div className="force-track" aria-hidden="true"><motion.i initial={false} animate={{width:`${row.value/item.a*100}%`}} transition={{duration:reduced?0:.7,ease:[.22,1,.36,1]}}/></div>
         </div>)}

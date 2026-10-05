@@ -1,0 +1,13 @@
+.jury-welcome{width:min(620px,calc(100% - 32px));max-height:calc(100dvh - 40px);padding:0;border:1px solid #d1ad7959;border-radius:4px;background:linear-gradient(145deg,#233038,#11191f 75%);color:#eee8dc;box-shadow:0 30px 100px #0009;overflow:auto;cursor:auto;animation:jury-appear .4s ease-out}
+.jury-welcome::backdrop{background:#071015bc;backdrop-filter:blur(7px)}
+.jury-welcome-content{padding:clamp(24px,4vw,44px)}
+.jury-welcome-kicker{display:block;font:600 10px/1.5 var(--font,Arial,sans-serif);letter-spacing:2.5px;color:#d1ad79;margin-bottom:18px}
+.jury-welcome h2{font:400 clamp(27px,4vw,36px)/1.2 Georgia,serif;margin:0 0 24px;letter-spacing:0;color:#f0e7d6}
+.jury-welcome-copy{font:400 14px/1.75 var(--font,Arial,sans-serif);color:#c3c9c6}
+.jury-welcome-copy p{margin:0 0 18px}.jury-welcome-copy strong{font-weight:600;color:#eee8dc}
+.jury-welcome-highlight{padding:16px 18px;border-left:2px solid #d1ad79;background:#d1ad790c}.jury-welcome-highlight strong{display:block;margin-top:5px;color:#dfbd8b}
+.jury-welcome-note{font:400 11px/1.6 var(--font,Arial,sans-serif);color:#98a39f;border-top:1px solid #d1ad792b;padding-top:16px;margin:22px 0}
+.jury-welcome form{margin:0}.jury-welcome button{display:flex;align-items:center;justify-content:space-between;gap:30px;width:100%;border:1px solid #dfbf91;background:#d1ad79;color:#172127;padding:15px 20px;font:600 14px/1.4 var(--font,Arial,sans-serif);cursor:pointer;transition:background .2s}.jury-welcome button:hover{background:#e1c49c}.jury-welcome button:focus-visible{outline:2px solid #f0e7d6;outline-offset:4px}
+@keyframes jury-appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.jury-welcome{max-height:calc(100dvh - 24px)}.jury-welcome-copy{font-size:13px;line-height:1.65}.jury-welcome h2{margin-bottom:20px}.jury-welcome-copy p{margin-bottom:14px}.jury-welcome-highlight{padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.jury-welcome{animation:none}.jury-welcome button{transition:none}}

@@ -1,0 +1,3 @@
+﻿import {readFile,writeFile} from 'node:fs/promises';
+const file='scripts/optimization-check.mjs';let text=await readFile(file,'utf8');text=text.replace('for(const width of [390])','for(const width of [1440,390])');text=text.replace("await page.goto('http://127.0.0.1:4173/',","await page.goto(process.env.BASE_URL || 'http://127.0.0.1:4173/',");text=text.replace("r.url().startsWith('http://127.0.0.1:4173')","r.url().startsWith(process.env.BASE_URL || 'http://127.0.0.1:4173')");await writeFile(file,text);
+const pkg=JSON.parse(await readFile('package.json','utf8'));pkg.scripts['test:optimization']='node scripts/optimization-check.mjs';await writeFile('package.json',JSON.stringify(pkg,null,2)+'\n');

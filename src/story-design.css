@@ -1,4 +1,4 @@
-/* Deliberately scoped: the cover keeps its existing design. */
+﻿/* Deliberately scoped: the cover keeps its existing design. */
 .force-equipment{display:none}
 @media(min-width:901px){
   /* Content, not viewport height, determines the end of the atlas. */
@@ -46,8 +46,43 @@
 .story-site .prehistory-copy>p{color:#425758;font-size:15px;line-height:1.85}
 .story-site .giant-date{font-size:clamp(150px,21vw,300px);color:#14313a0c;top:3%;right:2%;pointer-events:none}
 .story-site .giant-date span{-webkit-text-stroke-color:#14313a18}
-.story-site .prehistory-map{height:510px;background:#cad0c5;border:10px solid #f2ebdf;outline:1px solid #53696a36;box-shadow:18px 22px 0 #b8b9a923;rotate:1.3deg}
+.story-site .prehistory-map{height:510px;background:#cad0c5;border:10px solid #f2ebdf;outline:1px solid #53696a36;box-shadow:18px 22px 0 #b8b9a923;rotate:0}
 .story-site .prehistory-map:before{display:none}
+.story-site .prehistory{min-height:0;grid-template-columns:minmax(230px,.68fr) minmax(400px,1.12fr) minmax(300px,1fr);gap:clamp(24px,3vw,48px);align-items:start;padding-top:82px;padding-bottom:92px}
+.story-site .prehistory-heading{position:relative;z-index:2;grid-column:1;grid-row:1;align-self:start;padding-top:8px}
+.story-site .prehistory-heading h2{font:400 clamp(43px,5vw,70px)/.91 var(--font-head);letter-spacing:-.045em;margin:22px 0 0}
+.story-site .prehistory-heading h2 em{font-style:normal;font-weight:300;color:#a53840}
+.story-site .prehistory-map-wrap{grid-column:2;grid-row:1 / span 2;min-width:0}
+.story-site .prehistory-map{height:clamp(390px,40vw,565px);rotate:0;position:relative;overflow:hidden;border:1px solid #637270;background:#bfc7bd;box-shadow:0 16px 34px #1e343526}
+.story-site .prehistory-map .bagration-map{filter:none}
+.story-site .prehistory-map .bmap-german-territory{fill:#090b0e;fill-opacity:.96}
+.story-site .prehistory-map .bmap-soviet-territory{fill:#b51f2a;fill-opacity:.87}
+.story-site .prehistory-map .bmap-initial-front{stroke:#f0e7ce;stroke-width:5;stroke-dasharray:11 8;stroke-opacity:1;filter:drop-shadow(0 1px 2px #111)}
+.story-site .prehistory-map .bmap-cities circle{fill:#f1dfb7;stroke:#162e35;stroke-width:3}
+.story-site .prehistory-map .bmap-cities .halo{stroke:#f5e8c8}
+.story-site .prehistory-map .bmap-cities text{fill:#f6f1e6;stroke:#13242b;stroke-width:5px}
+.story-site .prehistory-map .bmap-disclaimer{fill:#192a2a;opacity:.78;stroke:none;font-size:8px;letter-spacing:1px}
+.story-site .prehistory-map-legend{position:absolute;top:14px;left:14px;z-index:3;display:flex;flex-wrap:wrap;gap:7px;padding:8px 10px;background:#101a1ae8;color:#f0eadb;border:1px solid #d8d2bc66}
+.story-site .prehistory-map-legend span{display:flex;align-items:center;gap:6px;font-size:8px;letter-spacing:.04em;white-space:nowrap}
+.story-site .prehistory-map-legend i{width:13px;height:10px;display:inline-block;border:1px solid #fff7}
+.story-site .prehistory-map-legend .legend-german{background:#090b0e}
+.story-site .prehistory-map-legend .legend-soviet{background:#b51f2a}
+.story-site .prehistory-map-legend .legend-front{height:0;width:18px;border:0;border-top:2px dashed #f0e7ce}
+.story-site .prehistory-map .map-stamp{color:#f1eddf;text-shadow:0 1px 4px #000;background:#101a1ad9;padding:7px 9px;left:12px;bottom:12px}
+.story-site .prehistory-map .map-stamp span{color:#d0caba}
+.story-site .prehistory-map-note{display:block;margin-top:10px;color:#596762;font-size:9px;line-height:1.6}
+.story-site .prehistory-brief{grid-column:3;grid-row:1 / span 2;min-width:0}
+.story-site .prehistory-lead{padding:0 0 20px;border-bottom:1px solid #20383e35}
+.story-site .brief-number,.story-site .prehistory-facts article>span{font-size:8px;letter-spacing:.14em;color:#8e4549}
+.story-site .prehistory-lead h3{font:400 clamp(26px,2.6vw,37px)/1.08 var(--font-head);margin:12px 0}
+.story-site .prehistory-lead p,.story-site .prehistory-facts p,.story-site .prehistory-soviet-note{font-size:11px;line-height:1.75;color:#435857;margin:0}
+.story-site .prehistory-facts{display:grid;gap:15px;padding:19px 0;border-bottom:1px solid #20383e35}
+.story-site .prehistory-facts article strong{display:block;font:400 24px/1.15 var(--font-head);color:#243f43;margin:5px 0 4px}
+.story-site .prehistory-soviet-note{padding:17px 0 10px}
+.story-site .prehistory-soviet-note b{color:#9b303b}
+.story-site .prehistory-source-note{display:block;font-size:8px;line-height:1.55;color:#69746d}
+@media(max-width:1100px){.story-site .prehistory{grid-template-columns:minmax(210px,.65fr) minmax(0,1.35fr);gap:28px}.story-site .prehistory-heading{grid-column:1}.story-site .prehistory-map-wrap{grid-column:2;grid-row:1}.story-site .prehistory-brief{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:20px 30px}.story-site .prehistory-lead{grid-row:span 2}.story-site .prehistory-facts{padding:0;border:0}.story-site .prehistory-soviet-note,.story-site .prehistory-source-note{grid-column:2}.story-site .prehistory-map{height:420px}}
+@media(max-width:800px){.story-site .prehistory{grid-template-columns:1fr;gap:25px;padding-top:56px}.story-site .prehistory-heading,.story-site .prehistory-map-wrap,.story-site .prehistory-brief{grid-column:1;grid-row:auto}.story-site .prehistory-map{height:min(68vw,420px);min-height:290px}.story-site .prehistory-brief{display:block}.story-site .prehistory-lead{padding-bottom:18px}.story-site .prehistory-facts{padding:18px 0;border-bottom:1px solid #20383e35}.story-site .prehistory-soviet-note{padding:17px 0 10px}}
 .story-site .fact-tabs{margin-top:28px;border-color:#304b4d35}
 .story-site .fact-tabs button{font-size:12px;min-height:50px;color:#5b6c68;letter-spacing:0;text-transform:none}
 .story-site .fact-tabs button.active{color:#a53840}
@@ -121,6 +156,33 @@
 .story-site .aviator-more{background:#11252e;color:#bdc6bb;font-size:10px}
 .story-site .aviator-card.is-active .aviator-more{background:#783440;color:#f1d8c7}
 .story-site .aviators-foot{font-size:9px;line-height:1.6}
+.story-site .aviators-section{background:linear-gradient(145deg,#11181d,#141c22 55%,#0e151a)}
+.story-site .aviators-heading h2 em{color:#d0ccc3}
+.story-site .aviators-exhibition{grid-template-columns:minmax(310px,.78fr) minmax(0,1.22fr);gap:clamp(28px,5vw,72px)}
+.story-site .aviator-selector button{height:auto;min-height:91px;padding:13px 11px 12px 14px;background:transparent;border-right:1px solid #d8d5cc20;color:#dedbd4;box-shadow:none;transform:none}
+.story-site .aviator-selector button:first-child{border-left:1px solid #d8d5cc20}
+.story-site .aviator-selector button[aria-selected=true]{background:#ffffff08}
+.story-site .aviator-selector-name{font:400 clamp(14px,1.5vw,20px)/1.05 var(--font-head);letter-spacing:normal;text-transform:none;color:#dedbd4}
+.story-site .aviator-selector-role{font-size:8px;color:#a9aaa6}
+.story-site .aviator-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px}
+.story-site .aviator-story-grid article{padding:0;background:transparent;border:0;box-shadow:none}
+.story-site .aviator-equipment{grid-column:1/-1;padding-top:15px!important;border-top:1px solid #d8d5cc20!important}
+.story-site .aviator-equipment>div{display:flex;align-items:center;gap:19px;min-height:74px}
+.story-site .aviator-equipment img{width:125px;height:55px}
+.story-site .aviator-equipment b{font:400 25px var(--font-head)}
+.story-site .aviator-equipment small{font-size:8px}
+.story-site .aviator-sources{display:flex;flex-wrap:wrap;gap:12px 22px}
+.story-site .aviator-sources a{display:flex;align-items:center;color:#acaeaa}
+.story-site .aviator-photo figcaption{position:absolute;left:17px;right:17px;bottom:14px;margin:0;padding:0;background:none}
+.story-site .aviator-photo-placeholder{display:flex;align-items:center;justify-content:center}
+.story-site .aviator-photo-placeholder strong{font:400 clamp(56px,8vw,104px)/1 var(--font-head)}
+.story-site .aviator-feature-copy h3{font-size:clamp(43px,5vw,69px);line-height:.88}
+.story-site .aviator-connection-line{font:400 clamp(17px,2vw,24px)/1.2 var(--font-head)}
+.story-site .aviator-story-grid article h4{font:600 8px var(--font);letter-spacing:.14em;text-transform:uppercase}
+.story-site .aviator-story-grid article p{font-size:11px;line-height:1.75}
+.story-site .aviators-foot{font-size:7px}
+@media(max-width:950px){.story-site .aviators-exhibition{grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr);gap:28px}.story-site .aviator-story-grid{grid-template-columns:1fr;gap:14px}.story-site .aviator-equipment{grid-column:auto}}
+@media(max-width:650px){.story-site .aviators-exhibition{grid-template-columns:1fr;gap:30px}.story-site .aviator-selector button{min-height:85px}.story-site .aviator-selector-name{font-size:17px}.story-site .aviator-story-grid{grid-template-columns:1fr}.story-site .aviator-equipment{grid-column:auto}.story-site .aviator-photo figcaption{left:8px;right:8px;bottom:9px}.story-site .aviator-feature-copy h3{font-size:clamp(30px,8.7vw,50px);line-height:.88}.story-site .aviator-connection-line{font-size:20px}}
 .story-site .partisan-atlas{background:#233a37;color:#e8e0d2}
 .story-site .partisan-atlas-head h2 em{color:#c29b84}
 .story-site .partisan-map-window{background:#162d2b;border-color:#b3be9b33}
@@ -130,7 +192,7 @@
 .story-site .partisan-marker:before,.story-site .partisan-marker:after{animation:none;opacity:0}
 .story-site .partisan-marker.selected:before,.story-site .partisan-marker:hover:before{opacity:.7;inset:-7px}
 .story-site .partisan-map-window:before{opacity:.3}
-.story-site .route-opening{min-height:590px;background:linear-gradient(90deg,#0b1c24ee,#10212966),url('/assets/operation-atmosphere.png') center/cover;text-align:left;align-items:flex-start;padding-inline:clamp(26px,7.5vw,130px)}
+.story-site .route-opening{min-height:590px;background:linear-gradient(90deg,#0b1c24ee,#10212966),url('/assets/operation-atmosphere.lossless.webp') center/cover;text-align:left;align-items:flex-start;padding-inline:clamp(26px,7.5vw,130px)}
 .story-site .opening-grid{display:none}
 .story-site .route-opening strong{font-size:clamp(76px,11vw,160px);display:flex;gap:.2em;align-items:baseline;flex-wrap:wrap}
 .story-site .route-opening strong em{display:inline;color:#ca7671}
@@ -230,3 +292,23 @@
 .story-site .aviators-gallery{align-items:stretch}
 @media(max-width:500px){.story-site .portrait-placeholder{height:200px;min-height:200px}.story-site .aviator-plane{height:180px}.story-site .aviator-copy strong{font-size:46px}.topbar:not(.cover-header) .status{display:none}}
 @media(prefers-reduced-motion:reduce){.story-site *,.story-site *:before,.story-site *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.story-site .portrait-placeholder>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(.35) contrast(1.05)}
+.story-site .portrait-placeholder>span{display:none}
+.story-site .portrait-placeholder>small{position:absolute;z-index:2;left:0;right:0;bottom:0;align-self:auto;background:#101719e8;padding:12px 14px;max-width:none;text-align:left}
+.story-site .commander-info{text-align:center;padding-left:0}
+.story-site .commander-info>span{display:block;text-align:center;font-size:16px;line-height:1.4;letter-spacing:.08em;color:#e1b18e;font-weight:600;margin-bottom:14px}
+.story-site .commander-info .text-btn{margin-inline:auto}
+
+/* Restore the archival signal pulses on event markers in the partisan atlas. */
+.story-site .partisan-marker{animation:marker-glow 2.5s ease-in-out infinite alternate;box-shadow:0 0 0 3px #122322,0 0 15px var(--signal)!important}
+.story-site .partisan-marker:before,.story-site .partisan-marker:after{animation:marker-pulse 2.7s ease-out infinite;opacity:1}
+.story-site .partisan-marker:after{animation-delay:1.35s}
+.story-site .partisan-marker.selected:before,.story-site .partisan-marker:hover:before{opacity:.7;inset:-7px}
+@media(prefers-reduced-motion:reduce){.story-site .partisan-marker,.story-site .partisan-marker:before,.story-site .partisan-marker:after{animation:none;opacity:1}}
+
+.story-site .partisan-atlas-head{min-width:0}
+@media(min-width:901px){
+  .story-site .partisan-atlas-head h2{font-size:clamp(42px,3.5vw,52px);line-height:1.08;text-wrap:initial;max-width:100%}
+  .story-site .partisan-atlas-head h2 em{display:block}
+}

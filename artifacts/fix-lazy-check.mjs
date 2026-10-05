@@ -1,0 +1,2 @@
+﻿import {readFile,writeFile} from 'node:fs/promises';
+const file='scripts/optimization-check.mjs';let text=await readFile(file,'utf8');text=text.replaceAll('if(await img.isVisible())await img.evaluate(el=>el.decode());','if(await img.isVisible()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}');text=text.replace('for(const width of [1440,390])','for(const width of [390])');await writeFile(file,text);

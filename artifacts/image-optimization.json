@@ -1,0 +1,474 @@
+[
+  {
+    "source": "public/assets/aviators/pe-2.png",
+    "output": "public/assets/aviators/pe-2.lossless.webp",
+    "before": 899717,
+    "after": 507196,
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "source": "public/assets/aviators/po-2.png",
+    "output": "public/assets/aviators/po-2.lossless.webp",
+    "before": 1128319,
+    "after": 648040,
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "source": "public/assets/bagration-hero.png",
+    "output": "public/assets/bagration-hero.lossless.webp",
+    "before": 2445643,
+    "after": 1740476,
+    "width": 1916,
+    "height": 821
+  },
+  {
+    "source": "public/assets/belarus-base.png",
+    "output": "public/assets/belarus-base.lossless.webp",
+    "before": 1693060,
+    "after": 1227430,
+    "width": 1402,
+    "height": 1122
+  },
+  {
+    "source": "public/assets/events/minsk-encirclement.png",
+    "output": "public/assets/events/minsk-encirclement.lossless.webp",
+    "before": 2849924,
+    "after": 2115022,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/operation-atmosphere.png",
+    "output": "public/assets/operation-atmosphere.lossless.webp",
+    "before": 1978424,
+    "after": 1453728,
+    "width": 2172,
+    "height": 724
+  },
+  {
+    "source": "public/assets/partisans-night.png",
+    "output": "public/assets/partisans-night.lossless.webp",
+    "before": 1962120,
+    "after": 1417932,
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "source": "public/assets/personnel/german-helmet.png",
+    "output": "public/assets/personnel/german-helmet.lossless.webp",
+    "before": 125103,
+    "after": 69592,
+    "width": 384,
+    "height": 256
+  },
+  {
+    "source": "public/assets/personnel/soviet-helmet.png",
+    "output": "public/assets/personnel/soviet-helmet.lossless.webp",
+    "before": 114097,
+    "after": 59340,
+    "width": 384,
+    "height": 256
+  },
+  {
+    "source": "public/assets/scale/enemy-assault-gun-steel.png",
+    "output": "public/assets/scale/enemy-assault-gun-steel.lossless.webp",
+    "before": 1882444,
+    "after": 1276842,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/german-88mm-left.png",
+    "output": "public/assets/scale/german-88mm-left.lossless.webp",
+    "before": 797520,
+    "after": 532024,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/german-fw190-left.png",
+    "output": "public/assets/scale/german-fw190-left.lossless.webp",
+    "before": 1175917,
+    "after": 784068,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/german-tiger-left.png",
+    "output": "public/assets/scale/german-tiger-left.lossless.webp",
+    "before": 2102349,
+    "after": 1404508,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/soviet-il2-right.png",
+    "output": "public/assets/scale/soviet-il2-right.lossless.webp",
+    "before": 1206272,
+    "after": 847384,
+    "width": 1983,
+    "height": 793
+  },
+  {
+    "source": "public/assets/scale/soviet-t34-right.png",
+    "output": "public/assets/scale/soviet-t34-right.lossless.webp",
+    "before": 1947451,
+    "after": 1389328,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/soviet-tank-copper.png",
+    "output": "public/assets/scale/soviet-tank-copper.lossless.webp",
+    "before": 1793542,
+    "after": 1257958,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/scale/soviet-zis3-right.png",
+    "output": "public/assets/scale/soviet-zis3-right.lossless.webp",
+    "before": 695286,
+    "after": 474296,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/supply/ammunition.png",
+    "output": "public/assets/supply/ammunition.lossless.webp",
+    "before": 407576,
+    "after": 214980,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "source": "public/assets/supply/engineering.png",
+    "output": "public/assets/supply/engineering.lossless.webp",
+    "before": 468450,
+    "after": 284044,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "source": "public/assets/supply/fuel.png",
+    "output": "public/assets/supply/fuel.lossless.webp",
+    "before": 468998,
+    "after": 255080,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "source": "public/assets/supply/signals.png",
+    "output": "public/assets/supply/signals.lossless.webp",
+    "before": 433408,
+    "after": 250372,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "source": "public/assets/supply/transport.png",
+    "output": "public/assets/supply/transport.lossless.webp",
+    "before": 348284,
+    "after": 205482,
+    "width": 512,
+    "height": 512
+  },
+  {
+    "source": "public/assets/tech/catalog/12rt.png",
+    "output": "public/assets/tech/catalog/12rt.lossless.webp",
+    "before": 2792776,
+    "after": 1645104,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/45mm.png",
+    "output": "public/assets/tech/catalog/45mm.lossless.webp",
+    "before": 2011355,
+    "after": 882618,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/boat.png",
+    "output": "public/assets/tech/catalog/boat.lossless.webp",
+    "before": 2058700,
+    "after": 1438036,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/tech/catalog/bridge.png",
+    "output": "public/assets/tech/catalog/bridge.lossless.webp",
+    "before": 1956464,
+    "after": 1329078,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/tech/catalog/bs3.png",
+    "output": "public/assets/tech/catalog/bs3.lossless.webp",
+    "before": 1678030,
+    "after": 601100,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/bulldozer.png",
+    "output": "public/assets/tech/catalog/bulldozer.lossless.webp",
+    "before": 2574628,
+    "after": 1451858,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/fascine.png",
+    "output": "public/assets/tech/catalog/fascine.lossless.webp",
+    "before": 2452210,
+    "after": 1715222,
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "source": "public/assets/tech/catalog/gazaa.png",
+    "output": "public/assets/tech/catalog/gazaa.lossless.webp",
+    "before": 2021023,
+    "after": 954008,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/il2.png",
+    "output": "public/assets/tech/catalog/il2.lossless.webp",
+    "before": 1671628,
+    "after": 639044,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/is2.png",
+    "output": "public/assets/tech/catalog/is2.lossless.webp",
+    "before": 2491095,
+    "after": 1295354,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/katyusha.png",
+    "output": "public/assets/tech/catalog/katyusha.lossless.webp",
+    "before": 2543125,
+    "after": 1387508,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/la5.png",
+    "output": "public/assets/tech/catalog/la5.lossless.webp",
+    "before": 1807667,
+    "after": 727360,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/lamp.png",
+    "output": "public/assets/tech/catalog/lamp.lossless.webp",
+    "before": 2156657,
+    "after": 1474902,
+    "width": 1145,
+    "height": 1374
+  },
+  {
+    "source": "public/assets/tech/catalog/m30.png",
+    "output": "public/assets/tech/catalog/m30.lossless.webp",
+    "before": 1935893,
+    "after": 840310,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/mine.png",
+    "output": "public/assets/tech/catalog/mine.lossless.webp",
+    "before": 1594215,
+    "after": 512058,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/ml20.png",
+    "output": "public/assets/tech/catalog/ml20.lossless.webp",
+    "before": 1788807,
+    "after": 720368,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/pe2.png",
+    "output": "public/assets/tech/catalog/pe2.lossless.webp",
+    "before": 1842115,
+    "after": 745876,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/po2.png",
+    "output": "public/assets/tech/catalog/po2.lossless.webp",
+    "before": 1934653,
+    "after": 856764,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/pontoon.png",
+    "output": "public/assets/tech/catalog/pontoon.lossless.webp",
+    "before": 2328380,
+    "after": 1197122,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/r104.png",
+    "output": "public/assets/tech/catalog/r104.lossless.webp",
+    "before": 1906300,
+    "after": 1296244,
+    "width": 1312,
+    "height": 1199
+  },
+  {
+    "source": "public/assets/tech/catalog/rbm.png",
+    "output": "public/assets/tech/catalog/rbm.lossless.webp",
+    "before": 1561905,
+    "after": 1048090,
+    "width": 1312,
+    "height": 1199
+  },
+  {
+    "source": "public/assets/tech/catalog/studebaker.png",
+    "output": "public/assets/tech/catalog/studebaker.lossless.webp",
+    "before": 2467562,
+    "after": 1354480,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/su76.png",
+    "output": "public/assets/tech/catalog/su76.lossless.webp",
+    "before": 2688562,
+    "after": 1488262,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/su85.png",
+    "output": "public/assets/tech/catalog/su85.lossless.webp",
+    "before": 2290189,
+    "after": 1185024,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/t34.png",
+    "output": "public/assets/tech/catalog/t34.lossless.webp",
+    "before": 2514041,
+    "after": 1345746,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/t3476.png",
+    "output": "public/assets/tech/catalog/t3476.lossless.webp",
+    "before": 2569089,
+    "after": 1404778,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/t70.png",
+    "output": "public/assets/tech/catalog/t70.lossless.webp",
+    "before": 2519209,
+    "after": 1358194,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/telegraph.png",
+    "output": "public/assets/tech/catalog/telegraph.lossless.webp",
+    "before": 2831125,
+    "after": 1666528,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/telephone.png",
+    "output": "public/assets/tech/catalog/telephone.lossless.webp",
+    "before": 2873711,
+    "after": 1637178,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/tractor.png",
+    "output": "public/assets/tech/catalog/tractor.lossless.webp",
+    "before": 2521946,
+    "after": 1436544,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/willis.png",
+    "output": "public/assets/tech/catalog/willis.lossless.webp",
+    "before": 2247309,
+    "after": 1169422,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/yak3.png",
+    "output": "public/assets/tech/catalog/yak3.lossless.webp",
+    "before": 1776720,
+    "after": 678948,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/yak9.png",
+    "output": "public/assets/tech/catalog/yak9.lossless.webp",
+    "before": 1851702,
+    "after": 768230,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/zis151.png",
+    "output": "public/assets/tech/catalog/zis151.lossless.webp",
+    "before": 2393120,
+    "after": 1331790,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/zis3.png",
+    "output": "public/assets/tech/catalog/zis3.lossless.webp",
+    "before": 1641064,
+    "after": 626374,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "public/assets/tech/catalog/zis5.png",
+    "output": "public/assets/tech/catalog/zis5.lossless.webp",
+    "before": 2407943,
+    "after": 1273458,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "source": "фоновое изображение.png",
+    "output": "фоновое изображение.lossless.webp",
+    "before": 2656170,
+    "after": 1986240,
+    "width": 1808,
+    "height": 870
+  }
+]

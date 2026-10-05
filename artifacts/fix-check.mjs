@@ -1,0 +1,2 @@
+﻿import {readFile,writeFile} from 'node:fs/promises';
+const file='scripts/optimization-check.mjs';let text=await readFile(file,'utf8');text=text.replace("for(const img of await page.locator('.equipment-card img').all())await img.evaluate(el=>el.decode());","for(const img of await page.locator('.equipment-card img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}");await writeFile(file,text);
