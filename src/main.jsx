@@ -21,7 +21,6 @@ import OtherProjects from './OtherProjects.jsx';
 import SiteFooter from './SiteFooter.jsx';
 import MuseumHeader from './MuseumHeader.jsx';
 import './museum-polish.css';
-import JuryWelcome from './JuryWelcome.jsx';
 
 function useCursor() {
   const x = useMotionValue(-100), y = useMotionValue(-100);
@@ -47,7 +46,6 @@ function App(){
   const {sx,sy,active:cursorActive}=useCursor();
   useEffect(()=>{const ids=['hero','intro','prehistory','summer','strategy','commanders','partisans','opening','map','technology','aviators','archive','results','videos','projects'];const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&setSection(e.target.id)),{threshold:0,rootMargin:'-20% 0px -65% 0px'});ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});return()=>io.disconnect()},[]);
   return <><ExperienceMotion/><motion.div className={'cursor '+(cursorActive?'active':'')} style={{x:sx,y:sy}}/><div className="noise"/><ScrollProgress/><MuseumHeader activeSection={section}/><CinemaIntro/>
-    <JuryWelcome/>
     <main className="story-site">
       <Introduction/><Prehistory/>
       <ChapterBreak number="01" label="ЗАМЫСЕЛ" title="Удары должны встретиться." detail="Четыре фронта. Общее направление — Минск."/>
