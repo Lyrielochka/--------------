@@ -19,7 +19,7 @@ export function ChapterBreak({number:chapter, label, title, detail}) {
 export function CampaignFigures({data:d}) {
   const [selected,setSelected]=useState(0), reduced=useReducedMotion();
   const comparisons=[
-    {label:'Люди',icon:Users,unit:'военнослужащих',a:d.forces.soviet,b:d.forces.enemy,extra:''},
+    {label:'Личный состав',icon:Users,unit:'военнослужащих',a:d.forces.soviet,b:d.forces.enemy,extra:''},
     {label:'Бронетехника',icon:Shield,unit:'танков и самоходных орудий',a:d.forces.tanks,b:d.forces.enemyTanks,extra:''},
     {label:'Артиллерия',icon:Crosshair,unit:'орудий и миномётов',a:d.forces.guns,b:d.forces.enemyGuns,extra:'+'},
     {label:'Авиация',icon:Plane,unit:'самолётов',a:d.forces.planes,b:d.forces.enemyPlanes,extra:'+'},
@@ -35,7 +35,7 @@ export function CampaignFigures({data:d}) {
       <article><span>ПРОДВИЖЕНИЕ НА ЗАПАД</span><strong><small>до</small>{number.format(d.operation.advanceKm)}<small>км</small></strong><div className="reach-measure westward" aria-hidden="true"><i/><b/><i/></div></article>
     </div>
     <div className="force-comparison">
-      <div className="comparison-heading"><div><span className="section-kicker">СООТНОШЕНИЕ СИЛ</span><h3>С чем вступили в бой.</h3></div><div className="comparison-switch" aria-label="Вид сил">{comparisons.map((option,i)=><button key={option.label} aria-pressed={selected===i} onClick={()=>setSelected(i)}><option.icon size={16}/>{option.label}</button>)}</div></div>
+      <div className="comparison-heading"><div><span className="section-kicker">СООТНОШЕНИЕ СИЛ</span><h3>Силы сторон.</h3></div><div className="comparison-switch" aria-label="Вид сил">{comparisons.map((option,i)=><button key={option.label} aria-pressed={selected===i} onClick={()=>setSelected(i)}><option.icon size={16}/>{option.label}</button>)}</div></div>
       <div className="comparison-chart" aria-live="polite" aria-atomic="true">
         {[{name:'СССР',value:item.a,extra:item.extra,side:'soviet'},{name:'Германия',value:item.b,extra:'≈ ',side:'german'}].map(row=><div className={'force-row '+row.side} key={row.side}>
           {illustrations&&<div className="force-equipment" aria-hidden="true"><motion.img key={illustrations[row.side]} src={(selected===0?'/assets/personnel/':'/assets/scale/')+illustrations[row.side]} alt="" initial={reduced?false:{opacity:0,x:row.side==='soviet'?-18:18}} animate={{opacity:1,x:0}} transition={{duration:.45}}/></div>}
@@ -46,6 +46,6 @@ export function CampaignFigures({data:d}) {
       </div>
     </div>
     <div className="campaign-outcome"><div><span>РЕЗУЛЬТАТ ОПЕРАЦИИ</span><h3>Беларусь<br/>освобождена.</h3></div><p><strong>{d.result.divisions}</strong>дивизий и <b>{d.result.brigades} бригады</b><br/>противника уничтожены</p><p><strong>{d.result.damagedDivisions}</strong>дивизий потеряли свыше<br/>половины личного состава</p></div>
-    <p className="figures-note">Сводные оценки численности. Знак «+» означает нижнюю границу; «≈» — приблизительное значение.</p>
+    <p className="figures-note">Сводные оценки сил, задействованных в операции. Знак «+» означает нижнюю границу; «≈» — приблизительное значение.</p>
   </section>;
 }

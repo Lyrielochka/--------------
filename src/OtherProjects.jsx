@@ -10,8 +10,8 @@ const projects = [
 export default function OtherProjects() {
   return <section id="projects" className="other-projects section" aria-labelledby="projects-title">
     <header className="other-projects-heading">
-      <h2 id="projects-title">ДРУГИЕ НАШИ ПРОЕКТЫ</h2>
-      <p>Продолжайте изучать историю вместе с нами.</p>
+      <h2 id="projects-title">ДРУГИЕ ИСТОРИЧЕСКИЕ ПРОЕКТЫ</h2>
+      <p>Первая мировая война в Беларуси и Афганская война: материалы на отдельных сайтах.</p>
     </header>
     <div className="other-projects-grid">
       {projects.map((project, index) => <a className="other-project-card" href={project.url} target="_blank" rel="noopener noreferrer" key={project.image}>

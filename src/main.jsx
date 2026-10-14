@@ -48,13 +48,13 @@ function App(){
   return <><ExperienceMotion/><motion.div className={'cursor '+(cursorActive?'active':'')} style={{x:sx,y:sy}}/><div className="noise"/><ScrollProgress/><MuseumHeader activeSection={section}/><CinemaIntro/>
     <main className="story-site">
       <Introduction/><Prehistory/>
-      <ChapterBreak number="01" label="ЗАМЫСЕЛ" title="Удары должны встретиться." detail="Четыре фронта. Общее направление — Минск."/>
+      <ChapterBreak number="01" label="ЗАМЫСЕЛ" title="Четыре фронта — общий план." detail="Прорыв обороны и разгром группы армий «Центр»."/>
       <Strategy/><Commanders/>
       <Technology/><Aviators/><PartisanMap/>
-      <ChapterBreak number="02" label="НАСТУПЛЕНИЕ" title="Подготовка становится действием." detail="От первых ударов — к освобождению городов."/>
+      <ChapterBreak number="02" label="НАСТУПЛЕНИЕ" title="От прорыва — к освобождению." detail="Ход операции на карте: июнь — август 1944 года."/>
       <Opening/><RichTacticalMap active={active} setActive={setActive}/>
       <CampaignFigures data={operationScaleData}/>
-      <ChapterBreak number="03" label="ПАМЯТЬ" title="За каждой датой — люди." detail="Образы, места и следы лета 1944 года."/>
+      <ChapterBreak number="03" label="ПАМЯТЬ" title="Свидетельства военного времени." detail="Фотографии и фильмы об освобождении Беларуси."/>
       <ArchiveDesk/>
       <VideoGallery/>
       <div className="site-ending"><OtherProjects/><SiteFooter/></div>

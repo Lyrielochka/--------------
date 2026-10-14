@@ -11,9 +11,9 @@ const videos = [
 export default function VideoGallery() {
   return <section className="bagration-videos section" id="videos" aria-labelledby="videos-title">
     <div className="bagration-videos-heading">
-      <span className="section-kicker">СМОТРЕТЬ И ПОНИМАТЬ</span>
+      <span className="section-kicker">ФИЛЬМЫ И ЛЕКЦИИ</span>
       <h2 id="videos-title">БОЛЬШЕ <em>ОБ ОПЕРАЦИИ</em></h2>
-      <p>Три взгляда на наступление, изменившее ход войны.</p>
+      <p>Документальные фильмы и историческая лекция об операции «Багратион».</p>
     </div>
     <div className="bagration-video-grid">
       {videos.map(video => <article className="bagration-video-card" key={video.id}>

@@ -84,11 +84,11 @@ export function CinemaIntro(){
   <motion.aside className="intro-facts" initial={reduced?false:{opacity:0,x:24}} animate={{opacity:1,x:0}} transition={{duration:reduced?0:.9,delay:reduced?0:.8}} aria-label="Силы, задействованные в операции">
    <header><span>МАСШТАБ ОПЕРАЦИИ</span><small>СОВЕТСКИЕ СИЛЫ</small></header>
    <div className="intro-fact"><CountUp value={2.4} delay={550}/><small><img decoding="async" className="personnel-cover" src="/assets/personnel/soviet-helmet.lossless.webp" alt=""/>МЛН ЧЕЛОВЕК</small></div>
-   <div className="intro-fact"><CountUp value={36.4} delay={700}/><small>ТЫС. ОРУДИЙ</small></div>
+   <div className="intro-fact"><CountUp value={36} delay={700}/><small>ТЫС. ОРУДИЙ И МИНОМЁТОВ</small></div>
    <div className="intro-fact"><CountUp value={5.2} delay={850}/><small>ТЫС. ТАНКОВ И САУ</small></div>
-   <div className="intro-fact"><CountUp value={5.3} delay={1000}/><small>ТЫС. САМОЛЁТОВ</small></div>
+   <div className="intro-fact"><CountUp value={6} delay={1000}/><small>ТЫС. САМОЛЁТОВ</small></div>
   </motion.aside>
-  <motion.div className="intro-bottom" initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.8,delay:reduced?0:1.05}}><span>01 — ПРОСТРАНСТВО ИСТОРИИ</span><span>23.06 — 29.08.1944</span></motion.div>
+  <motion.div className="intro-bottom" initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:.8,delay:reduced?0:1.05}}><span>ИСТОРИЯ ОСВОБОЖДЕНИЯ БЕЛАРУСИ</span><span>23.06 — 29.08.1944</span></motion.div>
  </section>;
 }
 

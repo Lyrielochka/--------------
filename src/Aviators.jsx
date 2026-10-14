@@ -50,7 +50,6 @@ function Exhibit({ pilot, index, active, onToggle, reduced }) {
       <div className="sky-story" id={`sky-story-${pilot.id}`} role="region" aria-labelledby={`sky-name-${pilot.id}`} inert={!open} aria-hidden={!open}>
         <div className="sky-story-inner">
           <div className="sky-story-content">
-            <div><h4>Биография и Беларусь</h4><p>{pilot.connection}</p></div>
             <div><h4>Участие в освобождении</h4><p>{pilot.operation}</p></div>
             <div className="sky-equipment"><h4>Военная служба</h4><p>{pilot.role}. {pilot.unit}.</p><div><img loading="lazy" decoding="async" src={`/assets/aviators/${pilot.aircraft === 'Пе-2' ? 'pe-2' : 'po-2'}.lossless.webp`} alt=""/><span>{pilot.aircraft}</span></div></div>
           </div>
@@ -70,7 +69,7 @@ export default function Aviators() {
         <div className="sky-kicker">ЛИЦА ВОЙНЫ <span>Беларусь · 1944</span></div>
         <h2 id="aviators-title">ЖЕНЩИНЫ <span>В НЕБЕ ВОЙНЫ</span></h2>
         <p className="sky-subtitle">Лётчицы и штурманы в освобождении Беларуси</p>
-        <p className="sky-intro">Четыре биографии участниц воздушных боёв. Фотопортреты и краткие справки рассказывают об их службе, боевых вылетах и связи с Беларусью.</p>
+        <p className="sky-intro">Истории четырёх участниц освобождения Беларуси: их служба, боевые вылеты и связь с белорусскими городами.</p>
       </motion.header>
       <div className="sky-collection">{aviators.map((pilot, index) => <Exhibit key={pilot.id} pilot={pilot} index={index} active={active} reduced={reduced} onToggle={() => setActive(active === pilot.id ? null : pilot.id)}/>)}</div>
     </div>

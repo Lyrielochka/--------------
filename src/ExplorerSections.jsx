@@ -20,10 +20,10 @@ const mapMoments = [
   {date:'26.06',label:'Витебский узел',city:'Витебск',...mapPointPercent('vitebsk'),note:'Витебск освобождён. Северный узел немецкой обороны ликвидирован.'},
   {date:'27.06',label:'Оршанский узел',city:'Орша',...mapPointPercent('orsha'),note:'Освобождена Орша — укреплённый узел на магистрали к Минску.'},
   {date:'28.06',label:'Могилёв',city:'Могилёв',...mapPointPercent('mogilev'),note:'Войска 2-го Белорусского фронта преодолевают Днепр и освобождают город.'},
-  {date:'29.06',label:'Бобруйское окружение',city:'Бобруйск',...mapPointPercent('bobruisk'),note:'На юге завершено окружение бобруйской группировки. Путь на Минск открыт.'},
+  {date:'29.06',label:'Бобруйское окружение',city:'Бобруйск',...mapPointPercent('bobruisk'),note:'Освобождён Бобруйск. Разгром немецкой группировки открыл путь к Минску с юга.'},
   {date:'03.07',label:'Минск',city:'Минск',...mapPointPercent('minsk'),note:'Столица Беларуси освобождена. К востоку от неё замкнулось крупное окружение.'},
   {date:'16.07',label:'На запад',city:'Западнее Минска',...pct(xy(25.7,53.6)),note:'Наступление развивается через западные районы Беларуси.'},
-  {date:'29.08',label:'Завершение',city:'Западная граница карты',...pct(xy(24,53.6)),note:'Операция завершилась за пределами показанной карты Беларуси.'},
+  {date:'29.08',label:'Завершение',city:'За пределами карты',...pct(xy(24,53.6)),note:'К концу операции советские войска продвинулись за пределы Беларуси. Карта показывает белорусский участок наступления.'},
 ];
 
 
@@ -51,11 +51,11 @@ const cities = [
 ];
 
 const tech = [
-  {name:'Танковые части',kind:'Бронетехника',category:'tanks',Icon:Shield,fact:'Прорывали оборону и развивали наступление.'},
+  {name:'Танковые части',kind:'Бронетехника',category:'tanks',Icon:Shield,fact:'Прорывали оборону и развивали успех наступления.'},
   {name:'Полевая артиллерия',kind:'Артиллерия',category:'artillery',Icon:Crosshair,fact:'Подавляла огневые точки и поддерживала пехоту.'},
-  {name:'Штурмовая авиация',kind:'Авиация',category:'aviation',Icon:Plane,fact:'Прикрывала войска и наносила удары с воздуха.'},
+  {name:'Штурмовая авиация',kind:'Авиация',category:'aviation',Icon:Plane,fact:'Наносила удары по наземным целям.'},
   {name:'Военный транспорт',kind:'Логистика',category:'transport',Icon:Truck,fact:'Доставлял людей, горючее и боеприпасы.'},
-  {name:'Связь фронтов',kind:'Дороги',category:'signals',Icon:RadioTower,fact:'Соединяла штабы и передовые части.'},
+  {name:'Средства связи',kind:'Связь',category:'signals',Icon:RadioTower,fact:'Соединяла штабы и передовые части.'},
   {name:'Инженерные части',kind:'Обеспечение',category:'engineering',Icon:Box,fact:'Строили переправы и открывали путь войскам.'},
 ];
 
@@ -101,7 +101,7 @@ export function RichTacticalMap({active,setActive}){
   const toggle=k=>setLayers(v=>({...v,[k]:!v[k]}));
   const mapCities=[['vitebsk',2],['orsha',3],['mogilev',4],['bobruisk',5],['minsk',6]];
   return <section className="map-section section rich-map" id="map" ref={ref}>
-    <div className="section-head"><div><span className="section-kicker">23 ИЮНЯ — 29 АВГУСТА 1944</span><h2>ЛИНИЯ <em>НАСТУПЛЕНИЯ</em></h2></div><p>Витебск, Орша, Могилёв, Бобруйск, Минск. Один за другим города возвращались к мирной жизни.</p></div>
+    <div className="section-head"><div><span className="section-kicker">23 ИЮНЯ — 29 АВГУСТА 1944</span><h2>ЛИНИЯ <em>НАСТУПЛЕНИЯ</em></h2></div><p>Проследите наступление от первых ударов до освобождения Минска и продвижения на запад.</p></div>
     <div className={'map-shell '+(expanded?'map-expanded':'')}>
       <div className="map-toolbar"><span><Crosshair size={15}/> ОПЕРАТИВНАЯ КАРТА <i className="live-date">{moment.date}</i></span><div>
         <button aria-label="Фокус на выбранной точке" aria-pressed={focus} className={focus?'tool-active':''} onClick={()=>setFocus(v=>!v)}><ZoomIn size={16}/></button>
@@ -136,7 +136,7 @@ export function Strategy({onMap}){return <FrontDossier onMap={onMap}/>;}
 export function Commanders({onMap}){
   const [active,setActive]=useState(1);const c=commanders[active];
   return <section className="commanders section" id="commanders">
-    <div className="section-head"><div><span className="section-kicker">КОМАНДУЮЩИЕ ФРОНТАМИ</span><h2>За каждым ударом —<br/><em>решение.</em></h2></div><p>Четыре командующих отвечали за разные участки наступления. Их решения складывались в общий путь к Минску.</p></div>
+    <div className="section-head"><div><span className="section-kicker">КОМАНДУЮЩИЕ ФРОНТАМИ</span><h2>Командующие<br/><em>фронтами.</em></h2></div><p>Баграмян, Черняховский, Захаров и Рокоссовский руководили войсками четырёх фронтов, участвовавших в операции.</p></div>
     <div className="commander-stage">
       <div className="commander-tabs">{commanders.map((p,i)=><button aria-pressed={i===active} className={i===active?'active':''} onClick={()=>setActive(i)} key={p.name}><span>0{i+1}</span>{p.name}</button>)}</div>
       <motion.div className="portrait-placeholder" key={c.initials} initial={{clipPath:'inset(0 100% 0 0)'}} animate={{clipPath:'inset(0 0% 0 0)'}} transition={{duration:.45}} aria-hidden="true"><img loading="lazy" decoding="async" src={c.photo} alt=""/><small>{c.front}</small></motion.div>
