@@ -1,0 +1,5 @@
+MINSK_GEOMETRY: PASS (all OSM vertices, closed rings, 3 holes, shared geographic projection)
+MINSK_REGION 1440x900: PASS (zoom, drag, reset, keyboard, city hole, date, Escape, viewport, no runtime errors)
+MINSK_REGION 390x844: PASS (zoom, drag, reset, keyboard, city hole, date, Escape, viewport, no runtime errors)
+MINSK_REGION 1920x1080 reduced-motion: PASS (zoom, drag, reset, keyboard, city hole, date, Escape, viewport, no runtime errors)
+MINSK_REGION 320x568 reduced-motion: PASS (zoom, drag, reset, keyboard, city hole, date, Escape, viewport, no runtime errors)

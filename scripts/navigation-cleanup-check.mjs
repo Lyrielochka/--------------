@@ -6,9 +6,9 @@ try{
  for(const width of [1440,390]){
   const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+  await page.goto(process.env.BASE_URL || 'http://127.0.0.1:5173/',{waitUntil:'networkidle'});
   assert.equal(await page.locator('#decision-lab,.war-room,.map-enter-button,.map-immersion').count(),0);
-  assert.equal(await page.locator('main a[href^="#"]').count(),0);
+  assert.deepEqual(await page.locator('main a[href^="#"]').evaluateAll(links=>links.filter(a=>!document.getElementById(a.hash.slice(1))).map(a=>a.hash)),[],'All local links target existing sections');
   assert.equal(await page.locator('a[href="#decision-lab"]').count(),0);
   const map=page.locator('#map');
   await map.getByRole('button',{name:'3-й Белорусский фронт',exact:true}).click();

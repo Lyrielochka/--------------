@@ -1,0 +1,13 @@
+{
+  "docx_valid": true,
+  "pages_visually_reviewed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "renderer": "Microsoft Word PDF export and bundled Poppler",
+  "spoken_words": 885,
+  "target_minutes": 8,
+  "jury_question_included": true
+}

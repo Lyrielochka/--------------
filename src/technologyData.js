@@ -67,3 +67,12 @@ const idIllustrations = {
   pontoon: img.pontoon, boat: img.boat, bridge: img.bridge, mine: img.mine, bulldozer: img.bulldozer, fascine: img.fascine
 };
 Object.values(equipment).flat().forEach(entry => { entry.image = idIllustrations[entry.id]; });
+
+// Models are fetched only when their detail view is opened.
+const models = {
+  t34: {model:'/assets/tech/t-34-85.glb', orbit:'225deg 70deg 95%'},
+  is2: {model:'/assets/tech/is-2.glb', orbit:'35deg 70deg 95%'},
+  katyusha: {model:'/assets/tech/bm-13.glb', orbit:'225deg 70deg 100%'}
+};
+Object.values(equipment).flat().forEach(entry => Object.assign(entry, models[entry.id]));
+

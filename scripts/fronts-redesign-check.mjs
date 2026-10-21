@@ -6,7 +6,7 @@ try{
  for(const [name,width,height] of [['wide',1920,1080],['desktop',1440,1000],['mobile',390,844],['small',320,844]]){
   const p=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
   p.on('pageerror',e=>errors.push(e.message));
-  await p.goto('http://127.0.0.1:5173/',{waitUntil:'networkidle'});
+  await p.goto(process.env.BASE_URL||'http://127.0.0.1:5173/',{waitUntil:'networkidle'});
   const section=p.locator('#strategy');
   await section.evaluate(e=>e.scrollIntoView({behavior:'instant',block:'start'}));
   await p.screenshot({path:`artifacts/fronts-new-${name}-opening.png`});

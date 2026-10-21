@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "local": "node scripts/start-local.mjs",
+    "local:server": "node server/murvik-server.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -16,7 +18,9 @@
     "test:cinema": "node scripts/cinema-check.mjs",
     "test:details": "node scripts/cinema-detail-check.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "test:optimization": "node scripts/optimization-check.mjs"
+    "test:optimization": "node scripts/optimization-check.mjs",
+    "optimize:hero": "node scripts/optimize-hero.mjs",
+    "test:loading": "node scripts/site-loading-check.mjs"
   },
   "dependencies": {
     "@google/model-viewer": "^4.3.1",

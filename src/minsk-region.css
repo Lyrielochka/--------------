@@ -1,0 +1,35 @@
+.minsk-region{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none;overflow:visible}
+.minsk-region-detail{opacity:0;transition:opacity 1.6s ease .15s;pointer-events:none}
+.minsk-region-hit{fill:#e5c58706;stroke:#d6bf8590;stroke-width:1.5;vector-effect:non-scaling-stroke;cursor:zoom-in;pointer-events:all;transition:fill .5s,stroke .5s;outline:none}
+.minsk-region-hit:hover,.minsk-region-hit:focus-visible{fill:#e5c58720;stroke:#f1d89b;stroke-width:2.5}
+.is-open .minsk-region-detail{opacity:1}
+.is-open .minsk-region-hit{fill:transparent;stroke:#d8c692;pointer-events:none}
+.rich-map .map-world{transition-property:transform;transition-timing-function:cubic-bezier(.22,.61,.2,1);will-change:transform}
+.region-navigation{position:absolute;z-index:12;top:22px;left:24px;display:flex;gap:20px;align-items:center;color:#eedfbc}
+.region-navigation button{display:flex;align-items:center;gap:8px;background:#101c19ed;border:1px solid #bfaa76;padding:12px 16px;color:#eee2c7;cursor:pointer;font:600 10px var(--font);text-transform:uppercase;letter-spacing:.08em}
+.region-navigation span{font:500 22px var(--font-head);letter-spacing:.08em;text-shadow:0 2px 8px #000}
+.region-navigation small{display:block;font:500 8px var(--font);margin-top:5px;letter-spacing:.1em}
+.region-focused .map-card,.region-focused .map-side-label,.region-focused .map-front-key,.region-focused .map-north{opacity:0;pointer-events:none;transition:opacity .5s}
+.region-focused .map-world>.bagration-map,.region-focused .map-point,.region-focused .minsk-trigger{transition:opacity 1.4s;opacity:.22;pointer-events:none}
+.region-focused .map-point[aria-label="Минск"]{opacity:1;pointer-events:auto}
+@media(max-width:900px){.region-navigation{top:15px;left:12px;gap:10px}.region-navigation button{padding:10px;font-size:8px}.region-navigation span{font-size:17px}.region-focused .map-world{top:49%}}
+@media(prefers-reduced-motion:reduce){.minsk-region-detail,.minsk-region-hit,.rich-map .map-world,.region-focused .map-world>.bagration-map,.region-focused .map-point{transition:none!important}}
+/* Keep the regional view clear of campaign UI, including later theme rules. */
+.story-site .rich-map .region-focused .map-card,.story-site .rich-map .region-focused .map-side-label,.story-site .rich-map .region-focused .map-front-key{opacity:0!important;visibility:hidden;pointer-events:none}
+.minsk-region-hit{stroke-linejoin:round;stroke-linecap:round;stroke-width:1.2}
+.is-open .minsk-region-hit{stroke-width:calc(1.35px / var(--region-zoom));cursor:grab;transition:fill .5s,stroke .5s,stroke-width 2.4s}
+.rich-map .region-focused{touch-action:none;cursor:grab;outline:none}
+.rich-map .region-focused.region-dragging{cursor:grabbing}
+.rich-map .region-focused .map-world{top:50%}
+.rich-map .region-focused .map-point{pointer-events:none!important;opacity:0!important}
+.rich-map .region-focused .minsk-trigger{opacity:0!important}
+.region-camera-tools{position:absolute;z-index:12;right:20px;bottom:65px;display:flex;flex-direction:column;align-items:center;background:#101c19ef;border:1px solid #bda7798c;box-shadow:0 8px 25px #0005;cursor:default}
+.region-camera-tools button{width:42px;height:42px;border:0;background:transparent;color:#f0dfbd;font:400 26px var(--font);cursor:pointer;display:grid;place-items:center}
+.region-camera-tools button:hover{background:#dec58a18}.region-camera-tools button:disabled{opacity:.3;cursor:default}
+.region-camera-tools output{color:#c8bd9e;font:500 10px var(--font);padding:4px 0;min-width:42px;text-align:center}
+.region-camera-tools .region-camera-reset{border-top:1px solid #bda77940;height:36px}
+.region-map-credit{position:absolute;z-index:12;left:22px;right:22px;bottom:18px;display:flex;justify-content:space-between;gap:12px;font:500 9px var(--font);color:#c4c5ad;pointer-events:none}
+.region-map-credit a{color:#d0ceb7;pointer-events:auto;text-decoration:none}
+.region-focused .map-caption{visibility:hidden}
+.region-navigation small{font-size:9px;letter-spacing:.03em}
+@media(max-width:560px){.region-navigation{right:10px;flex-wrap:wrap;align-items:flex-start;gap:10px}.region-navigation span{font-size:18px}.region-navigation small{font-size:8px}.region-camera-tools{right:12px;bottom:65px}.region-map-credit{left:12px;right:12px;bottom:12px;font-size:8px;flex-direction:column;gap:5px}.region-map-credit span{max-width:240px}}

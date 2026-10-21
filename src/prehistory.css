@@ -49,3 +49,28 @@
 .before-compact .before-map-tools{justify-content:flex-end}
 .before-compact .before-map-scroll.is-zoomed .before-map-svg{width:145%;min-width:0}
 @media(max-width:950px) and (min-width:651px){.before-compact .before-main{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px}}
+/* Political situation map: stable territory colours across all four views. */
+.before-compact .before-map-key{background:#e6dfd0;gap:10px 18px;padding:12px 18px;border-top:0;border-bottom:1px solid #52636a33}
+.before-compact .before-key-west{background:#536774}.before-compact .before-key-east{background:#ad4d4d}.before-compact .before-key-front{border-top:3px solid #f6dfaa!important;filter:drop-shadow(0 1px 1px #24323c)}
+.before-geography{opacity:.8}
+.before-territory-west{fill:#425a6c;fill-opacity:.86}.before-territory-east{fill:#ad4147;fill-opacity:.84}
+.before-front-halo{fill:none;stroke:#24323d;stroke-width:18}.before-front-line{fill:none;stroke:#f6dfaa;stroke-width:7;stroke-linejoin:round}
+.before-compact .before-map-svg .before-city text{font-size:30px;fill:#fff1cf;stroke:#263b49;stroke-width:7px;font-weight:600}
+.before-compact .before-map-svg .before-city:hover text,.before-compact .before-map-svg .before-city.selected text{fill:#ffe290;stroke:#172b37}
+.before-compact .before-map-svg .before-army{font:30px var(--font-head);fill:#fff0ce;stroke:none}
+.before-compact .before-map-svg .before-side{font-size:23px;letter-spacing:3px;fill:#f0e9d9;stroke:#334652;stroke-width:3px}
+.before-compact .before-map-svg .before-centre{font:52px var(--font-head);fill:#f0e9d9;stroke:#334652;stroke-width:3px}
+.before-compact .before-map-svg .before-salient-title{font:37px var(--font-head);letter-spacing:3px;fill:#f3dca7;stroke:#354b59;stroke-width:4px}
+.before-callout-line{fill:none;stroke:#f6d594;stroke-width:4}
+.before-compact .before-map-svg .before-callout{font-size:25px;fill:#ffe5ac;stroke:#263b49;stroke-width:5px}
+.before-compact .before-map-svg .before-map-index{font-size:17px;fill:#f3e7ce;stroke:#263b49;stroke-width:4px}
+.before-plan-shadow{fill:none;stroke:#693536;stroke-width:22;stroke-linejoin:round;stroke-linecap:round}
+.before-plan-arrow{fill:none;stroke:#ffe0a0;stroke-width:10;stroke-linejoin:round;stroke-linecap:round}
+.before-compact .before-map-tools{justify-content:space-between;padding:9px 16px;background:#e1ddcf}
+.before-compact .before-map-tools>span{display:block;opacity:1;font-size:11px;color:#40565b;line-height:1.5}
+.before-compact .before-map-readout p{font-size:15px;line-height:1.65}
+.before-compact .before-map-tabs button{min-width:0;line-height:1.4}
+.before-compact .before-map-tabs button[aria-pressed=true]{background:#354e5d;color:#fff0d3}
+.before-city:focus-visible circle:first-child{stroke:#fff0c3;stroke-width:4px}
+@media(max-width:1100px) and (min-width:651px){.before-compact .before-main{grid-template-columns:1fr}.before-compact .before-map-svg{max-height:650px}.before-compact .before-map-tabs button{flex-direction:row}}
+@media(max-width:650px){.before-compact .before-map-tabs{display:grid;grid-template-columns:1fr 1fr}.before-compact .before-map-tabs button{flex-direction:row;padding:12px 8px;border-bottom:1px solid #7b887433;font-size:11px}.before-compact .before-map-svg{min-width:680px}.before-compact .before-map-scroll{max-height:545px}.before-compact .before-map-key{padding:11px 12px;gap:10px 14px}.before-compact .before-map-key span{font-size:10px}.before-compact .before-map-tools>span{font-size:10px;max-width:240px}}

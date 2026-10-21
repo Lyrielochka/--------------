@@ -120,3 +120,29 @@
   .map-front-key{top:55px;left:8px;right:8px;display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;padding:5px 8px}
   .map-front-key span{font-size:7px}.map-front-key i{width:10px}
 }
+/* Every dated event remains reachable, including events on the same day. */
+.rich-map .rich-scrubber{height:auto;min-height:138px;padding-top:18px;padding-bottom:14px}
+.rich-map .scrubber-wrap{min-width:0}
+.rich-map .scrubber-labels{position:relative;display:flex;justify-content:flex-start;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#b79265 #1a2b30;padding:8px 0 10px}
+.rich-map .scrubber-labels button:nth-child(n){display:block;flex:0 0 98px;min-height:46px;border:1px solid #a7b4a12b;padding:8px;background:#152a30;text-align:left;color:#c2c9bc;font-size:11px;cursor:pointer}
+.rich-map .scrubber-labels button.active{background:#9c4242;color:#fff4d8;border-color:#e0b980}
+.rich-map .scrubber-labels button small{font-size:10px;line-height:1.4;white-space:normal}
+.rich-map .map-event-source{display:block;margin-top:12px;font-size:10px;line-height:1.5;color:#dfc49b;text-decoration:underline;text-underline-offset:3px}
+.rich-map .map-world .map-point[data-city=molodechno] span,.rich-map .map-world .map-point[data-city=slonim] span{transform:translateY(22px)}
+.rich-map .map-world .map-point[data-city=lida] span{transform:translateY(-15px)}
+.rich-map .map-world .map-point[data-city=bialystok] span{transform:translate(-10px,24px)}
+.rich-map .map-world .map-point[data-city=volkovysk] span{transform:translateY(-18px)}
+.rich-map .map-world .map-point[data-city=osowiec] span{transform:translateY(-20px)}
+@media(max-width:650px){.rich-map .rich-scrubber{min-height:132px}.rich-map .scrubber-labels button:nth-child(n){flex-basis:90px}.rich-map .map-world .map-point span{display:none}.rich-map .map-world .map-point.active span{display:block;font-size:11px;background:#152a30ed;padding:4px 6px;transform:translateY(-22px)}.rich-map .map-event-source{font-size:10px}}
+.rich-map .map-world .map-point[data-city=lublin] span{transform:translateY(-25px)}
+/* Put the event brief below the map so western cities remain visible. */
+.rich-map .map-event-summary{background:#142a32;border-top:1px solid #d4bf8a33}
+.rich-map .map-event-summary .map-card{position:relative;inset:auto;width:100%;max-width:none;padding:18px 24px;border:0;box-shadow:none;background:transparent;display:grid;grid-template-columns:165px minmax(0,1fr) 220px;gap:7px 24px;align-items:start}
+.rich-map .map-event-summary .map-card-top{grid-column:1;grid-row:1;margin:0}
+.rich-map .map-event-summary .map-card>small{grid-column:1;grid-row:2;margin:0}
+.rich-map .map-event-summary .map-card h3{grid-column:2;grid-row:1;font-size:27px;margin:0}
+.rich-map .map-event-summary .map-card p{display:block;grid-column:2;grid-row:2;margin:0;font-size:12px;line-height:1.6}
+.rich-map .map-event-summary .map-card .metric{display:none}
+.rich-map .map-event-summary .map-event-source{grid-column:3;grid-row:1/span 2;margin:0;align-self:center}
+@media(max-width:650px){.rich-map .map-event-summary .map-card{padding:14px 16px;grid-template-columns:1fr auto;gap:7px 12px}.rich-map .map-event-summary .map-card-top{grid-column:2;grid-row:1}.rich-map .map-event-summary .map-card-top svg{display:none}.rich-map .map-event-summary .map-card>small{grid-column:1;grid-row:1}.rich-map .map-event-summary .map-card h3{grid-column:1/-1;grid-row:2;font-size:24px}.rich-map .map-event-summary .map-card p{grid-column:1/-1;grid-row:3;font-size:12px}.rich-map .map-event-summary .map-event-source{grid-column:1/-1;grid-row:4}}
+@media(max-width:560px){.rich-map .map-shell:not(.map-expanded) .map-canvas:not(.region-focused){height:calc((100vw - 40px)*.801 + 150px);min-height:0}.rich-map .map-shell:not(.map-expanded) .map-canvas:not(.region-focused) .map-world{top:calc(50% + 25px)}}

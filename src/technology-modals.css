@@ -22,3 +22,20 @@
 /* Единый ритм карточек: короткие подписи получают больше воздуха и читаются крупнее. */
 .equipment-card-copy small{font-size:12px;line-height:1.45;min-height:42px;color:#b4beb8;max-width:260px}
 @media(max-width:700px){.equipment-card-copy small{font-size:11px;min-height:46px}}
+
+.equipment-3d-badge{position:absolute;right:12px;top:8px;z-index:2;display:grid;place-items:center;width:54px;height:46px;isolation:isolate;border:1px solid #d6ac788c;border-radius:3px;background:linear-gradient(145deg,#394440,#172426 58%,#0b1416);box-shadow:0 5px 12px #0006,inset 0 1px 0 #ffe2b526,inset 0 -3px 0 #0005;transform:rotate(-5deg);pointer-events:none}
+.equipment-3d-badge:before{content:'';position:absolute;inset:4px;border:1px solid #d6ac7833;border-radius:1px;z-index:-1}
+.equipment-3d-badge:after{content:'';position:absolute;left:10px;right:10px;bottom:6px;height:1px;background:linear-gradient(90deg,transparent,#e6bd80,transparent)}
+.equipment-3d-badge>span{padding-bottom:2px;color:#f2d4a1;font:600 25px/1 var(--font-head);letter-spacing:.02em;text-shadow:1px 1px 0 #795536,2px 2px 0 #402f25,3px 3px 0 #0008}
+.equipment-card:hover .equipment-3d-badge,.equipment-card:focus-visible .equipment-3d-badge{border-color:#edc78d;box-shadow:0 5px 15px #0007,0 0 15px #d6ac7818,inset 0 1px 0 #ffe2b540,inset 0 -3px 0 #0005}
+
+/* Historical audio note appears only in the Katyusha detail view. */
+.equipment-sound-fact{margin:24px 0 4px;padding:18px;border:1px solid #c7867338;border-left:2px solid #c78673;background:linear-gradient(135deg,#b9756412,#0b14164d)}
+.equipment-sound-kicker{display:flex;align-items:center;gap:8px;color:#d1a58e;font:600 8px var(--font);letter-spacing:.16em}
+.equipment-sound-fact h3{margin:12px 0 9px;color:#e7dfce;font:400 29px/1.1 var(--font-head)}
+.equipment-sound-fact p{margin:0 0 17px;color:#b5beb6;font:400 11px/1.8 var(--font)}
+.equipment-sound-fact label{display:block;margin-bottom:9px;color:#cfba9e;font:600 8px var(--font);letter-spacing:.09em}
+.equipment-sound-fact audio{display:block;width:100%;height:36px;color-scheme:dark}
+.equipment-sound-fact>a{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:#aeb7ae;font:400 10px var(--font);text-underline-offset:3px}
+.equipment-sound-fact>a:hover{color:#e4bb9e}
+.equipment-sound-fact audio:focus-visible,.equipment-sound-fact>a:focus-visible{outline:2px solid #c78673;outline-offset:4px}

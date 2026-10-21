@@ -3,14 +3,14 @@ import {motion, useReducedMotion} from 'framer-motion';
 import {axes, battleZones, frontPaths, territoryPaths, line, progressLine, MAP_HEIGHT, MAP_WIDTH, pct, placeXY, places, rails} from './bagrationMapData.js';
 
 const defaults={front:true,routes:true,cities:true,fronts:true,rail:false,partisans:false,battles:true,memory:false};
-const frontIndex=id=>id==='baltic'?0:id.startsWith('third')?1:id==='second'?2:id.startsWith('first')?3:4;
+const frontIndex=id=>id.startsWith('baltic')?0:id.startsWith('third')?1:id.startsWith('second')?2:id.startsWith('first')?3:4;
 
-export default function BagrationMap({stage=0,layers=defaults,selectedRoute=null,selectedCity=null,labels=true,modern=false,showBase=true,territories=false,className=''}){
-  const phase=Math.max(0,Math.min(8,stage));
+function BagrationMap({stage=0,layers=defaults,selectedRoute=null,selectedCity=null,labels=true,modern=false,showBase=true,territories=false,className=''}){
+  const phase=Math.max(0,Math.min(frontPaths.length-1,stage));
   const reduced=useReducedMotion();
   const uid=useId().replaceAll(':','');
   const show=k=>layers[k]!==false;
-  const cities=['polotsk','vitebsk','orsha','mogilev','bobruisk','minsk','borisov','baranovichi','brest'];
+  const cities=Object.keys(places).filter(id=>places[id].date||id==='borisov');
   const highlights=modern?['vitebsk','mogilev','bobruisk','minsk','brest']:cities;
   return <svg className={'bagration-map '+className} viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={modern?'Карта Беларуси: города и места памяти':'Карта Беларуси с обобщёнными рубежами и направлениями операции «Багратион»'}>
     <defs>
@@ -31,7 +31,7 @@ export default function BagrationMap({stage=0,layers=defaults,selectedRoute=null
         <text x={placeXY('luninets').x+15} y={placeXY('luninets').y+80}>УДАРЫ ПО КОММУНИКАЦИЯМ</text>
       </g>}
       {show('front')&&<g data-layer="front"><path className="bmap-initial-front" d={frontPaths[0]}/>{phase>0&&<motion.path className="bmap-current-front" initial={false} animate={{d:frontPaths[phase]}} transition={{duration:reduced?0:1.1}}/>}<text x="1100" y="875" className="bmap-front-caption">РУБЕЖ · 22 ИЮНЯ</text></g>}
-      {show('routes')&&<g data-layer="routes" className="bmap-routes">{axes.map(a=>{const selected=selectedRoute===null||frontIndex(a.id)===selectedRoute;const progress=selectedRoute!==null&&phase===0&&selected?1:a.progress[phase];const route=progressLine(a.points,progress);return progress>0?<g key={a.id} className={selected?'':'dimmed'}><path d={line(a.points)} className="bmap-route-guide"/><motion.path className="bmap-route-shadow" initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><motion.path className="bmap-route-active" stroke={a.color} markerEnd={`url(#${uid}-arrow-${a.id})`} initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><motion.path className="bmap-route-core" initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><title>{a.front}</title></g>:null})}</g>}
+      {show('routes')&&<g data-layer="routes" className="bmap-routes">{axes.map(a=>{const selected=selectedRoute===null||frontIndex(a.id)===selectedRoute;const progress=selectedRoute!==null&&phase===0&&selected&&!a.late?1:a.progress[phase];const route=progressLine(a.points,progress);return progress>0?<g key={a.id} data-route={a.id} data-progress={progress} className={selected?'':'dimmed'}><path d={line(a.points)} className="bmap-route-guide"/><motion.path className="bmap-route-shadow" initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><motion.path className="bmap-route-active" stroke={a.color} markerEnd={`url(#${uid}-arrow-${a.id})`} initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><motion.path className="bmap-route-core" initial={false} animate={{d:route}} transition={{duration:reduced?0:1.1}}/><title>{a.front}</title></g>:null})}</g>}
       {show('battles')&&<g data-layer="battles" className="bmap-battles">{battleZones.filter(b=>phase>=b.stage).map(b=>{const p=placeXY(b.place);return <g key={b.id} className={phase===b.stage?'active':''}><ellipse cx={p.x} cy={p.y} rx={b.rx} ry={b.ry}/><text x={p.x+b.rx+13} y={p.y-b.ry/2}>{b.label}</text></g>})}</g>}
       {show('fronts')&&<g data-layer="fronts" className="bmap-front-labels"><text className="front-baltic" x="1035" y="185">1 ПРИБАЛТИЙСКИЙ</text><text className="front-third" x="1105" y="375">3 БЕЛОРУССКИЙ</text><text className="front-second" x="1110" y="595">2 БЕЛОРУССКИЙ</text><text className="front-first" x="1050" y="795">1 БЕЛОРУССКИЙ</text></g>}
     </>}
@@ -43,3 +43,5 @@ export default function BagrationMap({stage=0,layers=defaults,selectedRoute=null
 }
 
 export const mapPointPercent=id=>pct(placeXY(id));
+
+export default React.memo(BagrationMap);

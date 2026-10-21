@@ -5,7 +5,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, Bookmark, Check, Compass, Maximize2, 
 import './cinema.css';
 import './author-stamp.css';
 import BagrationMap from './BagrationMap.jsx';
-import heroBackground from '../фоновое изображение.lossless.webp';
+const heroBackground='/assets/hero-cover.webp';
 
 const source='https://museum-artillery.ru/ru/operacziya-bagration.html';
 export const chapters=[
@@ -57,12 +57,19 @@ function CountUp({value,delay=0}){
 export function CinemaIntro(){
  const reduced=useReducedMotion();
  const cover=useRef(null);
+ useEffect(()=>{
+  const element=cover.current;
+  const observer=new IntersectionObserver(([entry])=>{element.dataset.atmosphereActive=String(entry.isIntersecting&&entry.intersectionRatio>.01&&!document.hidden)},{threshold:[0,.01]});
+  const visibility=()=>{const r=element.getBoundingClientRect();element.dataset.atmosphereActive=String(!document.hidden&&r.bottom>0&&r.top<innerHeight)};
+  observer.observe(element);document.addEventListener('visibilitychange',visibility);
+  return()=>{observer.disconnect();document.removeEventListener('visibilitychange',visibility)};
+ },[]);
  const move=e=>{if(reduced||e.pointerType==='touch')return;const r=e.currentTarget.getBoundingClientRect();cover.current?.style.setProperty('--pointer-x',`${((e.clientX-r.left)/r.width*100).toFixed(2)}%`);cover.current?.style.setProperty('--pointer-y',`${((e.clientY-r.top)/r.height*100).toFixed(2)}%`);cover.current?.style.setProperty('--drift-x',`${(((e.clientX-r.left)/r.width-.5)*-12).toFixed(2)}px`);cover.current?.style.setProperty('--drift-y',`${(((e.clientY-r.top)/r.height-.5)*-8).toFixed(2)}px`)};
  return <section ref={cover} onPointerMove={move} className="cinema-intro" id="hero" style={{'--hero-image':`url("${heroBackground}")`}}>
   <motion.div className="intro-landscape" initial={reduced?false:{opacity:0,scale:1.035}} animate={{opacity:1,scale:1}} transition={{duration:reduced?0:1.8,ease:[.22,1,.36,1]}}/>
   <div className="intro-grade"/><div className="intro-warm-glow"/><div className="intro-vignette"/><div className="intro-grain"/><div className="intro-pointer-light"/>
   <div className="intro-smoke" aria-hidden="true"><i/><i/><i/><i/></div>
-  <div className="intro-sparks" aria-hidden="true">{Array.from({length:18},(_,i)=><i key={i} style={{left:`${4+(i*37)%72}%`,animationDelay:`-${(i*1.73%10).toFixed(2)}s`,animationDuration:`${7.5+(i%5)*1.25}s`}}/>)}</div>
+  <div className="intro-sparks" aria-hidden="true">{Array.from({length:46},(_,i)=><i key={i} style={{left:`${3+(i*37)%94}%`,animationDelay:`-${(i*1.73%14).toFixed(2)}s`,animationDuration:`${10+(i%7)*1.25}s`}}/>)}</div>
   <div className="intro-map-response" aria-hidden="true"><i className="map-signal signal-vitebsk"/><i className="map-signal signal-minsk"/></div>
   <div className="intro-frame intro-frame-left" aria-hidden="true"/><div className="intro-frame intro-frame-right" aria-hidden="true"/>
   <div className="intro-embers" aria-hidden="true">{Array.from({length:8},(_,i)=><i key={i}/>)}</div>

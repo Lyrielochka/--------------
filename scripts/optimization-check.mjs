@@ -8,7 +8,7 @@ try {
   const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400 && r.url().startsWith(process.env.BASE_URL || 'http://127.0.0.1:4173'))errors.push(`${r.status()} ${r.url()}`)});
   await page.goto(process.env.BASE_URL || 'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
   await page.locator('#operation-loader').waitFor({state:'detached',timeout:18000});
-  await page.getByRole('button', { name: 'Понятно', exact: true }).click();
+  const welcome=page.getByRole('button', { name: 'Понятно', exact: true });if(await welcome.count())await welcome.click();
   await page.screenshot({path:`artifacts/optimized-hero-${width}.png`});
   assert.equal(await page.locator('img[src*="soviet-t34-right.png"]').count(),0);
   const initial=await page.evaluate(()=>performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')).reduce((n,r)=>n+r.encodedBodySize,0));

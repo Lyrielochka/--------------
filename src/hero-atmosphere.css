@@ -1,0 +1,28 @@
+/* Slow atmosphere behind the cover typography; no flashing or moving copy. */
+.cinema-intro .intro-warm-glow{z-index:3;background:radial-gradient(ellipse,rgba(255,190,100,.48),rgba(255,132,48,.2) 37%,transparent 72%);filter:blur(18px);animation:hero-horizon-light 20s ease-in-out infinite alternate;animation-delay:-8s;transform-origin:50% 65%}
+.cinema-intro .intro-smoke{position:absolute;z-index:3;inset:8% 0 3%;overflow:hidden;pointer-events:none;opacity:.88;filter:blur(16px)}
+.cinema-intro .intro-smoke i{position:absolute;width:47%;aspect-ratio:2.15;border-radius:50%;background:radial-gradient(ellipse,rgba(148,145,135,.66),rgba(186,167,139,.32) 45%,transparent 73%);animation:hero-smoke-drift 30s ease-in-out infinite alternate}
+.cinema-intro .intro-smoke i:nth-child(1){left:-8%;top:46%}
+.cinema-intro .intro-smoke i:nth-child(2){left:26%;top:12%;scale:.8;animation-delay:-11s;animation-duration:35s}
+.cinema-intro .intro-smoke i:nth-child(3){left:56%;top:37%;scale:.64;animation-delay:-19s;animation-duration:32s}
+.cinema-intro .intro-smoke i:nth-child(4){left:12%;top:66%;scale:.53;animation-delay:-23s;animation-duration:38s}
+.cinema-intro .intro-sparks{position:absolute;z-index:4;left:0;bottom:0;width:100%;height:70%;overflow:hidden;pointer-events:none;mask-image:linear-gradient(0deg,#000 15%,#000 65%,transparent)}
+.cinema-intro .intro-sparks i{--spark-drift:34px;position:absolute;bottom:-18px;width:3px;height:4px;border-radius:50%;opacity:0;background:#ffd39a;box-shadow:0 0 7px 2px #ff793dcc,0 0 17px 4px #fa542955;animation-name:hero-spark-rise;animation-timing-function:linear;animation-iteration-count:infinite}
+.cinema-intro .intro-sparks i:nth-child(3n){width:3px;height:8px;--spark-drift:-42px}
+.cinema-intro .intro-sparks i:nth-child(4n){width:5px;height:5px;--spark-drift:70px}
+.cinema-intro .intro-sparks i:nth-child(5n){background:#fff0cf;--spark-drift:-18px}
+.cinema-intro[data-atmosphere-active="false"] :is(.intro-warm-glow,.intro-smoke i,.intro-sparks i){animation-play-state:paused}
+@keyframes hero-horizon-light{0%{opacity:.62;transform:scale(.94) translateY(2%)}100%{opacity:1;transform:scale(1.12) translateY(-2%)}}
+@keyframes hero-smoke-drift{0%{transform:translate3d(-10%,9%,0) scale(.94);opacity:.5}50%{opacity:.9}100%{transform:translate3d(20%,-12%,0) scale(1.16);opacity:.65}}
+@keyframes hero-spark-rise{0%{transform:translate3d(0,15px,0) scale(.65);opacity:0}12%{opacity:1}55%{opacity:.85}85%{opacity:.5}100%{transform:translate3d(var(--spark-drift),-540px,0) scale(.85);opacity:0}}
+@media(max-width:900px){
+ .cinema-intro .intro-smoke{opacity:.7;filter:blur(13px)}
+ .cinema-intro .intro-sparks{height:58%}
+ .cinema-intro .intro-sparks i:nth-child(n+29){display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .cinema-intro :is(.intro-warm-glow,.intro-smoke i,.intro-sparks i){animation:none!important}
+ .cinema-intro .intro-warm-glow{opacity:.55}
+ .cinema-intro .intro-smoke{opacity:.25}
+ .cinema-intro .intro-sparks{display:none}
+}
