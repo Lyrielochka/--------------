@@ -26,3 +26,48 @@
  .cinema-intro .intro-smoke{opacity:.25}
  .cinema-intro .intro-sparks{display:none}
 }
+/* Static letter mask: only pre-rasterized images transform and dissolve. */
+.intro-title{filter:none!important}
+.intro-title h1.living-title{position:relative;isolation:isolate;filter:none!important;letter-spacing:-.025em!important}
+.intro-title h1.living-title>span{border:0;outline:0;box-shadow:none;background:none!important;animation:none;-webkit-text-stroke:0}
+.intro-title h1.living-title span:after{content:none}
+.intro-title h1.living-title>.title-size{display:block;line-height:1.12;font:inherit;letter-spacing:inherit;white-space:nowrap;visibility:visible;color:transparent!important;-webkit-text-fill-color:transparent!important;background:linear-gradient(0deg,#d2a46e 0%,#bd8b58 43%,#c75b3e 55%,#e74739 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-stroke:1px #fff;filter:drop-shadow(0 3px 5px #0009)}
+.intro-title h1.living-title>.title-window{position:absolute;inset:0;display:block;overflow:hidden;background:#bf8a52!important;mask:url('/assets/bagration-title-mask.png?v=2') center/100% 100% no-repeat;-webkit-mask:url('/assets/bagration-title-mask.png?v=2') center/100% 100% no-repeat;contain:paint;isolation:isolate;visibility:hidden;-webkit-background-clip:border-box!important;background-clip:border-box!important}
+.living-title .title-shot{position:absolute;inset:0;display:block;line-height:0;animation:none;background:none;opacity:1}
+.living-title .title-shot img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 53%;transform:translate3d(0,3%,0) scale(1.22);will-change:transform;animation:title-camera 12s linear infinite;backface-visibility:hidden}
+/* Continuous closed camera path: no direction-switch pauses or loop jump. */
+@keyframes title-camera{0.0000%{transform:translate3d(0.00000%,3.00000%,0) scale(1.22)}1.5625%{transform:translate3d(0.39207%,2.98555%,0) scale(1.22)}3.1250%{transform:translate3d(0.78036%,2.94236%,0) scale(1.22)}4.6875%{transform:translate3d(1.16114%,2.87082%,0) scale(1.22)}6.2500%{transform:translate3d(1.53073%,2.77164%,0) scale(1.22)}7.8125%{transform:translate3d(1.88559%,2.64576%,0) scale(1.22)}9.3750%{transform:translate3d(2.22228%,2.49441%,0) scale(1.22)}10.9375%{transform:translate3d(2.53757%,2.31903%,0) scale(1.22)}12.5000%{transform:translate3d(2.82843%,2.12132%,0) scale(1.22)}14.0625%{transform:translate3d(3.09204%,1.90318%,0) scale(1.22)}15.6250%{transform:translate3d(3.32588%,1.66671%,0) scale(1.22)}17.1875%{transform:translate3d(3.52769%,1.41419%,0) scale(1.22)}18.7500%{transform:translate3d(3.69552%,1.14805%,0) scale(1.22)}20.3125%{transform:translate3d(3.82776%,0.87085%,0) scale(1.22)}21.8750%{transform:translate3d(3.92314%,0.58527%,0) scale(1.22)}23.4375%{transform:translate3d(3.98074%,0.29405%,0) scale(1.22)}25.0000%{transform:translate3d(4.00000%,0.00000%,0) scale(1.22)}26.5625%{transform:translate3d(3.98074%,-0.29405%,0) scale(1.22)}28.1250%{transform:translate3d(3.92314%,-0.58527%,0) scale(1.22)}29.6875%{transform:translate3d(3.82776%,-0.87085%,0) scale(1.22)}31.2500%{transform:translate3d(3.69552%,-1.14805%,0) scale(1.22)}32.8125%{transform:translate3d(3.52769%,-1.41419%,0) scale(1.22)}34.3750%{transform:translate3d(3.32588%,-1.66671%,0) scale(1.22)}35.9375%{transform:translate3d(3.09204%,-1.90318%,0) scale(1.22)}37.5000%{transform:translate3d(2.82843%,-2.12132%,0) scale(1.22)}39.0625%{transform:translate3d(2.53757%,-2.31903%,0) scale(1.22)}40.6250%{transform:translate3d(2.22228%,-2.49441%,0) scale(1.22)}42.1875%{transform:translate3d(1.88559%,-2.64576%,0) scale(1.22)}43.7500%{transform:translate3d(1.53073%,-2.77164%,0) scale(1.22)}45.3125%{transform:translate3d(1.16114%,-2.87082%,0) scale(1.22)}46.8750%{transform:translate3d(0.78036%,-2.94236%,0) scale(1.22)}48.4375%{transform:translate3d(0.39207%,-2.98555%,0) scale(1.22)}50.0000%{transform:translate3d(0.00000%,-3.00000%,0) scale(1.22)}51.5625%{transform:translate3d(-0.39207%,-2.98555%,0) scale(1.22)}53.1250%{transform:translate3d(-0.78036%,-2.94236%,0) scale(1.22)}54.6875%{transform:translate3d(-1.16114%,-2.87082%,0) scale(1.22)}56.2500%{transform:translate3d(-1.53073%,-2.77164%,0) scale(1.22)}57.8125%{transform:translate3d(-1.88559%,-2.64576%,0) scale(1.22)}59.3750%{transform:translate3d(-2.22228%,-2.49441%,0) scale(1.22)}60.9375%{transform:translate3d(-2.53757%,-2.31903%,0) scale(1.22)}62.5000%{transform:translate3d(-2.82843%,-2.12132%,0) scale(1.22)}64.0625%{transform:translate3d(-3.09204%,-1.90318%,0) scale(1.22)}65.6250%{transform:translate3d(-3.32588%,-1.66671%,0) scale(1.22)}67.1875%{transform:translate3d(-3.52769%,-1.41419%,0) scale(1.22)}68.7500%{transform:translate3d(-3.69552%,-1.14805%,0) scale(1.22)}70.3125%{transform:translate3d(-3.82776%,-0.87085%,0) scale(1.22)}71.8750%{transform:translate3d(-3.92314%,-0.58527%,0) scale(1.22)}73.4375%{transform:translate3d(-3.98074%,-0.29405%,0) scale(1.22)}75.0000%{transform:translate3d(-4.00000%,-0.00000%,0) scale(1.22)}76.5625%{transform:translate3d(-3.98074%,0.29405%,0) scale(1.22)}78.1250%{transform:translate3d(-3.92314%,0.58527%,0) scale(1.22)}79.6875%{transform:translate3d(-3.82776%,0.87085%,0) scale(1.22)}81.2500%{transform:translate3d(-3.69552%,1.14805%,0) scale(1.22)}82.8125%{transform:translate3d(-3.52769%,1.41419%,0) scale(1.22)}84.3750%{transform:translate3d(-3.32588%,1.66671%,0) scale(1.22)}85.9375%{transform:translate3d(-3.09204%,1.90318%,0) scale(1.22)}87.5000%{transform:translate3d(-2.82843%,2.12132%,0) scale(1.22)}89.0625%{transform:translate3d(-2.53757%,2.31903%,0) scale(1.22)}90.6250%{transform:translate3d(-2.22228%,2.49441%,0) scale(1.22)}92.1875%{transform:translate3d(-1.88559%,2.64576%,0) scale(1.22)}93.7500%{transform:translate3d(-1.53073%,2.77164%,0) scale(1.22)}95.3125%{transform:translate3d(-1.16114%,2.87082%,0) scale(1.22)}96.8750%{transform:translate3d(-0.78036%,2.94236%,0) scale(1.22)}98.4375%{transform:translate3d(-0.39207%,2.98555%,0) scale(1.22)}100.0000%{transform:translate3d(-0.00000%,3.00000%,0) scale(1.22)}}
+.cinema-intro[data-atmosphere-active="false"] .living-title :is(.title-shot,img){animation-play-state:paused!important}
+/* Keep large blurred surfaces and pointer-driven repainting out of the motion path. */
+.cinema-intro .intro-smoke{filter:none;opacity:.38}
+.cinema-intro .intro-smoke i{width:35%;animation-duration:46s;will-change:transform,opacity}
+.cinema-intro .intro-pointer-light{display:none}
+.cinema-intro .intro-warm-glow{animation:none}
+@media(max-width:900px){.intro-title h1.living-title{font-size:clamp(48px,16vw,144px)!important;width:max-content;max-width:100%}.cinema-intro .intro-smoke i:nth-child(n+3){display:none}}
+@media(prefers-reduced-motion:reduce){.living-title .title-shot,.living-title .title-shot img{animation:none!important}.living-title .title-shot img{will-change:auto}.cinema-intro .intro-smoke{opacity:.25}}
+
+/* Leave the readable text in place until every animation asset is decoded. */
+.intro-title h1.living-title[data-title-ready="true"]>.title-size{visibility:hidden}
+.intro-title h1.living-title[data-title-ready="true"]>.title-window{visibility:visible}
+
+
+/* Bronze and crimson bands run along the full title width. */
+.intro-title h1.living-title .title-red-wash{position:absolute;inset:0;display:block;pointer-events:none;background:linear-gradient(0deg,#b18a5e 0%,#a77a50 43%,#b85236 53%,#d33229 65%,#d33229 100%)!important;animation:none;mix-blend-mode:color;opacity:.78;border:0;box-shadow:none}
+
+/* Match the original bronze / crimson split; the fine edge follows letters only. */
+.living-title .title-shot-base{overflow:hidden}
+.living-title .title-shot img{position:absolute;top:0;object-position:50% 43%}
+.living-title .title-shot img.title-bronze-scene{left:-1%;width:55%}
+.living-title .title-shot img.title-crimson-scene{left:52%;width:49%}
+.intro-title h1.living-title>.title-letter-edge{position:absolute;z-index:2;inset:0;display:block;pointer-events:none;visibility:hidden;background:#fff!important;mask:url('/assets/bagration-title-outline.png?v=5') center/100% 100% no-repeat}
+.intro-title h1.living-title[data-title-ready="true"]>.title-letter-edge{visibility:visible}
+
+.intro-title h1.living-title .title-dim{position:absolute;inset:0;display:block;background:rgba(24,10,5,.20)!important;pointer-events:none;animation:none}
+
+/* New scene every five seconds, including a 1.5-second soft dissolve. */
+.living-title .title-shot-crossing{opacity:0;will-change:opacity;animation:title-frame-crossing 15s ease-in-out infinite}
+.living-title .title-shot-sky{opacity:0;will-change:opacity;animation:title-frame-sky 15s ease-in-out infinite}
+@keyframes title-frame-crossing{0%,23.333%{opacity:0}33.333%,66.667%{opacity:1}76.667%,100%{opacity:0}}
+@keyframes title-frame-sky{0%,56.667%{opacity:0}66.667%,90%{opacity:1}100%{opacity:0}}
+.living-title[data-title-ready="false"] :is(.title-shot,img){animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.living-title .title-shot-crossing,.living-title .title-shot-sky{animation:none!important;opacity:0}}

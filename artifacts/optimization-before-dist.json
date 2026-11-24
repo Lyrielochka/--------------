@@ -1,0 +1,730 @@
+[
+  {
+    "path": "dist/assets/arrow-left-CQk9It98.js",
+    "bytes": 194
+  },
+  {
+    "path": "dist/assets/aviators/pe-2.lossless.webp",
+    "bytes": 507196
+  },
+  {
+    "path": "dist/assets/aviators/po-2.lossless.webp",
+    "bytes": 648040
+  },
+  {
+    "path": "dist/assets/bagration-hero.webp",
+    "bytes": 183022
+  },
+  {
+    "path": "dist/assets/bagration-title-battle.webp",
+    "bytes": 392818
+  },
+  {
+    "path": "dist/assets/belarus-base.lossless.webp",
+    "bytes": 1227430
+  },
+  {
+    "path": "dist/assets/BrestBattleAtlas-BoXqEKI7.js",
+    "bytes": 44966
+  },
+  {
+    "path": "dist/assets/events/minsk-encirclement.webp",
+    "bytes": 304302
+  },
+  {
+    "path": "dist/assets/GrodnoBattleAtlas-CIYMX_rI.js",
+    "bytes": 46383
+  },
+  {
+    "path": "dist/assets/hero-cover.webp",
+    "bytes": 475746
+  },
+  {
+    "path": "dist/assets/index-B7Y9TwDt.css",
+    "bytes": 380603
+  },
+  {
+    "path": "dist/assets/index-Tf5YV-s4.js",
+    "bytes": 662656
+  },
+  {
+    "path": "dist/assets/jsx-runtime-Dk72oS4N.js",
+    "bytes": 8774
+  },
+  {
+    "path": "dist/assets/minsk-region.webp",
+    "bytes": 157080
+  },
+  {
+    "path": "dist/assets/MinskBattleAtlas-Ch24rtTA.js",
+    "bytes": 19205
+  },
+  {
+    "path": "dist/assets/MinskBattleAtlas-DTVf0oCM.css",
+    "bytes": 24186
+  },
+  {
+    "path": "dist/assets/minskBattleEvents-D0rCFQ_-.js",
+    "bytes": 87554
+  },
+  {
+    "path": "dist/assets/MinskRegion-Q3EQfFHe.js",
+    "bytes": 234293
+  },
+  {
+    "path": "dist/assets/model-viewer-fgEPN2MU.js",
+    "bytes": 1024012
+  },
+  {
+    "path": "dist/assets/MogilevBattleAtlas-0fWgbDSN.js",
+    "bytes": 48592
+  },
+  {
+    "path": "dist/assets/murvik-blink.webp",
+    "bytes": 70420
+  },
+  {
+    "path": "dist/assets/murvik-cabinet-map.webp",
+    "bytes": 245332
+  },
+  {
+    "path": "dist/assets/murvik-flow/00-02.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/00-08.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/00-15.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/01-02.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/01-03.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/08-09.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/09-10.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/10-11.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/11-12.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/12-13.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/13-14.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-flow/14-15.bin",
+    "bytes": 17280
+  },
+  {
+    "path": "dist/assets/murvik-frames/00.webp",
+    "bytes": 57168
+  },
+  {
+    "path": "dist/assets/murvik-frames/01.webp",
+    "bytes": 55472
+  },
+  {
+    "path": "dist/assets/murvik-frames/02.webp",
+    "bytes": 58540
+  },
+  {
+    "path": "dist/assets/murvik-frames/03.webp",
+    "bytes": 55560
+  },
+  {
+    "path": "dist/assets/murvik-frames/04.webp",
+    "bytes": 57570
+  },
+  {
+    "path": "dist/assets/murvik-frames/05.webp",
+    "bytes": 59104
+  },
+  {
+    "path": "dist/assets/murvik-frames/06.webp",
+    "bytes": 57722
+  },
+  {
+    "path": "dist/assets/murvik-frames/07.webp",
+    "bytes": 57718
+  },
+  {
+    "path": "dist/assets/murvik-frames/08.webp",
+    "bytes": 58196
+  },
+  {
+    "path": "dist/assets/murvik-frames/09.webp",
+    "bytes": 56934
+  },
+  {
+    "path": "dist/assets/murvik-frames/10.webp",
+    "bytes": 57126
+  },
+  {
+    "path": "dist/assets/murvik-frames/11.webp",
+    "bytes": 58704
+  },
+  {
+    "path": "dist/assets/murvik-frames/12.webp",
+    "bytes": 57204
+  },
+  {
+    "path": "dist/assets/murvik-frames/13.webp",
+    "bytes": 56520
+  },
+  {
+    "path": "dist/assets/murvik-frames/14.webp",
+    "bytes": 56742
+  },
+  {
+    "path": "dist/assets/murvik-frames/15.webp",
+    "bytes": 57370
+  },
+  {
+    "path": "dist/assets/murvik-launcher-portrait-v2.webp",
+    "bytes": 36618
+  },
+  {
+    "path": "dist/assets/murvik-panel-surface-v3.webp",
+    "bytes": 2024
+  },
+  {
+    "path": "dist/assets/murvik-tour/point.webp",
+    "bytes": 66540
+  },
+  {
+    "path": "dist/assets/murvik-tour/poses.png",
+    "bytes": 1593075
+  },
+  {
+    "path": "dist/assets/murvik-tour/README.md",
+    "bytes": 1149
+  },
+  {
+    "path": "dist/assets/murvik-tour/think.webp",
+    "bytes": 67680
+  },
+  {
+    "path": "dist/assets/murvik-tour/walk.webp",
+    "bytes": 99906
+  },
+  {
+    "path": "dist/assets/murvik-tour/wave.webp",
+    "bytes": 64530
+  },
+  {
+    "path": "dist/assets/murvik.webp",
+    "bytes": 80576
+  },
+  {
+    "path": "dist/assets/murvikGuide-nWqxO7wn.js",
+    "bytes": 19952
+  },
+  {
+    "path": "dist/assets/operation-atmosphere.lossless.webp",
+    "bytes": 1453728
+  },
+  {
+    "path": "dist/assets/partisans-night.webp",
+    "bytes": 94514
+  },
+  {
+    "path": "dist/assets/personnel/german-helmet.lossless.webp",
+    "bytes": 69592
+  },
+  {
+    "path": "dist/assets/personnel/soviet-helmet.lossless.webp",
+    "bytes": 59340
+  },
+  {
+    "path": "dist/assets/projects/afghanistan.webp",
+    "bytes": 139564
+  },
+  {
+    "path": "dist/assets/projects/first-world-war.webp",
+    "bytes": 69026
+  },
+  {
+    "path": "dist/assets/scale/enemy-assault-gun-steel.lossless.webp",
+    "bytes": 1276842
+  },
+  {
+    "path": "dist/assets/scale/german-88mm-left.lossless.webp",
+    "bytes": 532024
+  },
+  {
+    "path": "dist/assets/scale/german-fw190-left.lossless.webp",
+    "bytes": 784068
+  },
+  {
+    "path": "dist/assets/scale/german-tiger-left.lossless.webp",
+    "bytes": 1404508
+  },
+  {
+    "path": "dist/assets/scale/soviet-il2-right.lossless.webp",
+    "bytes": 847384
+  },
+  {
+    "path": "dist/assets/scale/soviet-t34-right.lossless.webp",
+    "bytes": 1389328
+  },
+  {
+    "path": "dist/assets/scale/soviet-tank-copper.lossless.webp",
+    "bytes": 1257958
+  },
+  {
+    "path": "dist/assets/scale/soviet-zis3-right.lossless.webp",
+    "bytes": 474296
+  },
+  {
+    "path": "dist/assets/supply/ammunition.lossless.webp",
+    "bytes": 214980
+  },
+  {
+    "path": "dist/assets/supply/engineering.lossless.webp",
+    "bytes": 284044
+  },
+  {
+    "path": "dist/assets/supply/fuel.lossless.webp",
+    "bytes": 255080
+  },
+  {
+    "path": "dist/assets/supply/signals.lossless.webp",
+    "bytes": 250372
+  },
+  {
+    "path": "dist/assets/supply/transport.lossless.webp",
+    "bytes": 205482
+  },
+  {
+    "path": "dist/assets/tech/bm-13.glb",
+    "bytes": 9592084
+  },
+  {
+    "path": "dist/assets/tech/bs-3.glb",
+    "bytes": 44432168
+  },
+  {
+    "path": "dist/assets/tech/catalog/12rt.lossless.webp",
+    "bytes": 1645104
+  },
+  {
+    "path": "dist/assets/tech/catalog/45mm.lossless.webp",
+    "bytes": 882618
+  },
+  {
+    "path": "dist/assets/tech/catalog/boat.lossless.webp",
+    "bytes": 1438036
+  },
+  {
+    "path": "dist/assets/tech/catalog/bridge.lossless.webp",
+    "bytes": 1329078
+  },
+  {
+    "path": "dist/assets/tech/catalog/bs3.lossless.webp",
+    "bytes": 601100
+  },
+  {
+    "path": "dist/assets/tech/catalog/bulldozer.lossless.webp",
+    "bytes": 1451858
+  },
+  {
+    "path": "dist/assets/tech/catalog/fascine.lossless.webp",
+    "bytes": 1715222
+  },
+  {
+    "path": "dist/assets/tech/catalog/gazaa.lossless.webp",
+    "bytes": 954008
+  },
+  {
+    "path": "dist/assets/tech/catalog/il2.lossless.webp",
+    "bytes": 639044
+  },
+  {
+    "path": "dist/assets/tech/catalog/is2.lossless.webp",
+    "bytes": 1295354
+  },
+  {
+    "path": "dist/assets/tech/catalog/katyusha.lossless.webp",
+    "bytes": 1387508
+  },
+  {
+    "path": "dist/assets/tech/catalog/la5.lossless.webp",
+    "bytes": 727360
+  },
+  {
+    "path": "dist/assets/tech/catalog/lamp.lossless.webp",
+    "bytes": 1474902
+  },
+  {
+    "path": "dist/assets/tech/catalog/m30.lossless.webp",
+    "bytes": 840310
+  },
+  {
+    "path": "dist/assets/tech/catalog/mine.lossless.webp",
+    "bytes": 512058
+  },
+  {
+    "path": "dist/assets/tech/catalog/ml20.lossless.webp",
+    "bytes": 720368
+  },
+  {
+    "path": "dist/assets/tech/catalog/pe2.lossless.webp",
+    "bytes": 745876
+  },
+  {
+    "path": "dist/assets/tech/catalog/po2.lossless.webp",
+    "bytes": 856764
+  },
+  {
+    "path": "dist/assets/tech/catalog/pontoon.lossless.webp",
+    "bytes": 1197122
+  },
+  {
+    "path": "dist/assets/tech/catalog/r104.lossless.webp",
+    "bytes": 1296244
+  },
+  {
+    "path": "dist/assets/tech/catalog/rbm.lossless.webp",
+    "bytes": 1048090
+  },
+  {
+    "path": "dist/assets/tech/catalog/studebaker.lossless.webp",
+    "bytes": 1354480
+  },
+  {
+    "path": "dist/assets/tech/catalog/su76.lossless.webp",
+    "bytes": 1488262
+  },
+  {
+    "path": "dist/assets/tech/catalog/su85.lossless.webp",
+    "bytes": 1185024
+  },
+  {
+    "path": "dist/assets/tech/catalog/t34.lossless.webp",
+    "bytes": 1345746
+  },
+  {
+    "path": "dist/assets/tech/catalog/t3476.lossless.webp",
+    "bytes": 1404778
+  },
+  {
+    "path": "dist/assets/tech/catalog/t70.lossless.webp",
+    "bytes": 1358194
+  },
+  {
+    "path": "dist/assets/tech/catalog/telegraph.lossless.webp",
+    "bytes": 1666528
+  },
+  {
+    "path": "dist/assets/tech/catalog/telephone.lossless.webp",
+    "bytes": 1637178
+  },
+  {
+    "path": "dist/assets/tech/catalog/tractor.lossless.webp",
+    "bytes": 1436544
+  },
+  {
+    "path": "dist/assets/tech/catalog/willis.lossless.webp",
+    "bytes": 1169422
+  },
+  {
+    "path": "dist/assets/tech/catalog/yak3.lossless.webp",
+    "bytes": 678948
+  },
+  {
+    "path": "dist/assets/tech/catalog/yak9.lossless.webp",
+    "bytes": 768230
+  },
+  {
+    "path": "dist/assets/tech/catalog/zis151.lossless.webp",
+    "bytes": 1331790
+  },
+  {
+    "path": "dist/assets/tech/catalog/zis3.lossless.webp",
+    "bytes": 626374
+  },
+  {
+    "path": "dist/assets/tech/catalog/zis5.lossless.webp",
+    "bytes": 1273458
+  },
+  {
+    "path": "dist/assets/tech/gaz-aa.glb",
+    "bytes": 54200336
+  },
+  {
+    "path": "dist/assets/tech/il-2.glb",
+    "bytes": 16789336
+  },
+  {
+    "path": "dist/assets/tech/is-2.glb",
+    "bytes": 1123156
+  },
+  {
+    "path": "dist/assets/tech/katyusha-salvo.mp3",
+    "bytes": 450890
+  },
+  {
+    "path": "dist/assets/tech/la-5.glb",
+    "bytes": 13939428
+  },
+  {
+    "path": "dist/assets/tech/landing-boat.glb",
+    "bytes": 42416484
+  },
+  {
+    "path": "dist/assets/tech/m-30.glb",
+    "bytes": 49031884
+  },
+  {
+    "path": "dist/assets/tech/m-42.glb",
+    "bytes": 37720280
+  },
+  {
+    "path": "dist/assets/tech/ml-20.glb",
+    "bytes": 52403428
+  },
+  {
+    "path": "dist/assets/tech/pe-2.glb",
+    "bytes": 25322200
+  },
+  {
+    "path": "dist/assets/tech/po-2.glb",
+    "bytes": 28687476
+  },
+  {
+    "path": "dist/assets/tech/s-60.glb",
+    "bytes": 100162324
+  },
+  {
+    "path": "dist/assets/tech/su-76m.glb",
+    "bytes": 135769100
+  },
+  {
+    "path": "dist/assets/tech/su-85.glb",
+    "bytes": 82890520
+  },
+  {
+    "path": "dist/assets/tech/t-34-76.glb",
+    "bytes": 117221760
+  },
+  {
+    "path": "dist/assets/tech/t-34-85.glb",
+    "bytes": 3502764
+  },
+  {
+    "path": "dist/assets/tech/t-70.glb",
+    "bytes": 72440420
+  },
+  {
+    "path": "dist/assets/tech/willys-mb.glb",
+    "bytes": 87718176
+  },
+  {
+    "path": "dist/assets/tech/yak-3.glb",
+    "bytes": 15194568
+  },
+  {
+    "path": "dist/assets/tech/yak-9.glb",
+    "bytes": 13746848
+  },
+  {
+    "path": "dist/assets/tech/zis-3.glb",
+    "bytes": 36060236
+  },
+  {
+    "path": "dist/assets/technologyData-DIjohuWF.js",
+    "bytes": 20335
+  },
+  {
+    "path": "dist/assets/TechnologyModals-C29S63JQ.js",
+    "bytes": 7953
+  },
+  {
+    "path": "dist/assets/TechnologyModals-Do_i5aMY.css",
+    "bytes": 9593
+  },
+  {
+    "path": "dist/assets/videos/great-war.jpg",
+    "bytes": 31607
+  },
+  {
+    "path": "dist/assets/videos/history-lab.jpg",
+    "bytes": 41650
+  },
+  {
+    "path": "dist/assets/videos/minaev.jpg",
+    "bytes": 176004
+  },
+  {
+    "path": "dist/assets/VitebskBattleAtlas-BBl2xAXq.js",
+    "bytes": 38778
+  },
+  {
+    "path": "dist/data/brest-battle-events.json",
+    "bytes": 54469
+  },
+  {
+    "path": "dist/data/brest-region.geojson",
+    "bytes": 273798
+  },
+  {
+    "path": "dist/data/grodno-battle-events.json",
+    "bytes": 56469
+  },
+  {
+    "path": "dist/data/grodno-region.geojson",
+    "bytes": 602857
+  },
+  {
+    "path": "dist/data/minsk-battle-events.json",
+    "bytes": 107146
+  },
+  {
+    "path": "dist/data/minsk-region.geojson",
+    "bytes": 325468
+  },
+  {
+    "path": "dist/data/mogilev-battle-events.json",
+    "bytes": 59852
+  },
+  {
+    "path": "dist/data/mogilev-region.geojson",
+    "bytes": 249009
+  },
+  {
+    "path": "dist/data/vitebsk-battle-events.json",
+    "bytes": 47813
+  },
+  {
+    "path": "dist/data/vitebsk-region.geojson",
+    "bytes": 599122
+  },
+  {
+    "path": "dist/images/archive/bagration-medic.jpg",
+    "bytes": 60664
+  },
+  {
+    "path": "dist/images/archive/borisov-tankers.jpg",
+    "bytes": 67371
+  },
+  {
+    "path": "dist/images/archive/chereya-family.jpg",
+    "bytes": 73339
+  },
+  {
+    "path": "dist/images/archive/command-post.jpg",
+    "bytes": 57630
+  },
+  {
+    "path": "dist/images/archive/dnieper-crossing.jpg",
+    "bytes": 67970
+  },
+  {
+    "path": "dist/images/archive/kazakevich-awards.jpg",
+    "bytes": 82114
+  },
+  {
+    "path": "dist/images/archive/kovel-panther.jpg",
+    "bytes": 95199
+  },
+  {
+    "path": "dist/images/archive/minsk-ml20.jpg",
+    "bytes": 151500
+  },
+  {
+    "path": "dist/images/archive/minsk-partisan-parade.jpg",
+    "bytes": 116696
+  },
+  {
+    "path": "dist/images/archive/minsk-prisoners-tiger.jpg",
+    "bytes": 100530
+  },
+  {
+    "path": "dist/images/archive/minsk-welcome.jpg",
+    "bytes": 81222
+  },
+  {
+    "path": "dist/images/archive/mordik-su76.jpg",
+    "bytes": 77966
+  },
+  {
+    "path": "dist/images/archive/orsha-guns.jpg",
+    "bytes": 84672
+  },
+  {
+    "path": "dist/images/archive/polotsk-soldiers.jpg",
+    "bytes": 64344
+  },
+  {
+    "path": "dist/images/archive/vitebsk-commanders.jpg",
+    "bytes": 102356
+  },
+  {
+    "path": "dist/images/archive/vitebsk-rotmistrov.jpg",
+    "bytes": 164431
+  },
+  {
+    "path": "dist/images/aviators/dolina.jpg",
+    "bytes": 46122
+  },
+  {
+    "path": "dist/images/aviators/dudina.jpg",
+    "bytes": 55235
+  },
+  {
+    "path": "dist/images/aviators/gelman.jpg",
+    "bytes": 163249
+  },
+  {
+    "path": "dist/images/aviators/golubeva-teres.jpg",
+    "bytes": 41002
+  },
+  {
+    "path": "dist/images/commanders/baghramyan.jpg",
+    "bytes": 409842
+  },
+  {
+    "path": "dist/images/commanders/chernyakhovsky.jpg",
+    "bytes": 368728
+  },
+  {
+    "path": "dist/images/commanders/rokossovsky.jpg",
+    "bytes": 20952
+  },
+  {
+    "path": "dist/images/commanders/zakharov.jpg",
+    "bytes": 19671
+  },
+  {
+    "path": "dist/index.html",
+    "bytes": 3029
+  },
+  {
+    "path": "dist/preloader.css",
+    "bytes": 5090
+  },
+  {
+    "path": "dist/preloader.js",
+    "bytes": 3440
+  }
+]

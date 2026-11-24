@@ -33,3 +33,10 @@
 .region-focused .map-caption{visibility:hidden}
 .region-navigation small{font-size:9px;letter-spacing:.03em}
 @media(max-width:560px){.region-navigation{right:10px;flex-wrap:wrap;align-items:flex-start;gap:10px}.region-navigation span{font-size:18px}.region-navigation small{font-size:8px}.region-camera-tools{right:12px;bottom:65px}.region-map-credit{left:12px;right:12px;bottom:12px;font-size:8px;flex-direction:column;gap:5px}.region-map-credit span{max-width:240px}}
+/* Detailed OSM geometry: one vector border, without the old raster border beneath it. */
+.region-vector-focused .map-world>.bagration-map{opacity:0!important;visibility:hidden}
+.region-precise .region-boundary-halo{fill:none;stroke:#101c19;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none}
+.region-precise .minsk-region-hit{stroke:#dec991;stroke-opacity:1;stroke-width:1.4}
+.region-precise.is-open .region-boundary-halo{stroke-width:calc(4px / var(--region-zoom))}
+.region-precise.is-open .minsk-region-hit{stroke:#f0dba4;stroke-width:calc(1.8px / var(--region-zoom));transition:fill .3s,stroke .3s}
+.region-precise .minsk-region-hit:hover,.region-precise .minsk-region-hit:focus-visible{stroke:#fff1c2}

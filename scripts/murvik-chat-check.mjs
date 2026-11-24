@@ -35,12 +35,13 @@ try{
  await page.emulateMedia({reducedMotion:'no-preference'});await input.fill('Расскажи о Рокоссовском');await input.press('Enter');
  await page.waitForFunction(()=>document.querySelector('.murvik-portrait')?.dataset.mood==='speaking');
  await page.getByRole('button',{name:'Очистить диалог'}).click();await page.waitForTimeout(1000);assert.equal(await log.locator('.murvik-message').count(),1);assert.equal(await page.locator('.murvik-pending').count(),0);
- await page.waitForFunction(()=>document.querySelector('.murvik-character img')?.src.includes('blink.webp'),null,{timeout:8000});
+ assert.ok(await page.locator('.murvik-character img').getAttribute('src').then(src=>src.includes('natural-v2/')));
+ assert.equal(await page.locator('.murvik-character').evaluate(e=>getComputedStyle(e).animationName),'none');
  await page.locator('.murvik-portrait').screenshot({path:'artifacts/murvik-blink-preview.png'});
  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.murvik-character').evaluate(e=>getComputedStyle(e).animationName),'none');
  await page.getByRole('button',{name:'Когда освободили Минск?',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.murvik-pending'));
  while(!await log.getByRole('button',{name:'Минск на карте'}).count()&&await page.getByRole('button',{name:'Далее →',exact:true}).isEnabled())await page.getByRole('button',{name:'Далее →',exact:true}).click();
  await log.getByRole('button',{name:'Минск на карте'}).click();assert.equal(await page.locator('#murvik-panel').count(),0);
  assert.ok(await page.locator('#map').evaluate(e=>Math.abs(e.getBoundingClientRect().top)<200));
- assert.deepEqual(errors,[]);console.log('MURVIK_CHAT_OK: answers, follow-up, mood states, quiz preservation, session history, links, clear/cancel, keyboard, reduced motion, blink, 1440/390/320px');
+ assert.deepEqual(errors,[]);console.log('MURVIK_CHAT_OK: answers, follow-up, mood states, quiz preservation, session history, links, clear/cancel, keyboard, reduced motion, static kitten portrait, 1440/390/320px');
 }finally{await browser.close();}

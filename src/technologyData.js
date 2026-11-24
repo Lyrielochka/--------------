@@ -1,10 +1,10 @@
 const img = {
-  t34: '/assets/tech/catalog/t34.lossless.webp', is2: '/assets/tech/catalog/is2.lossless.webp', t3476: '/assets/tech/catalog/t3476.lossless.webp', t70: '/assets/tech/catalog/t70.lossless.webp', su76: '/assets/tech/catalog/su76.lossless.webp', su85: '/assets/tech/catalog/su85.lossless.webp',
-  zis3: '/assets/tech/catalog/zis3.lossless.webp', m30: '/assets/tech/catalog/m30.lossless.webp', ml20: '/assets/tech/catalog/ml20.lossless.webp', bs3: '/assets/tech/catalog/bs3.lossless.webp', katyusha: '/assets/tech/catalog/katyusha.lossless.webp', gun45: '/assets/tech/catalog/45mm.lossless.webp',
-  il2: '/assets/tech/catalog/il2.lossless.webp', yak9: '/assets/tech/catalog/yak9.lossless.webp', pe2: '/assets/tech/catalog/pe2.lossless.webp', la5: '/assets/tech/catalog/la5.lossless.webp', po2: '/assets/tech/catalog/po2.lossless.webp', yak3: '/assets/tech/catalog/yak3.lossless.webp',
-  studebaker: '/assets/tech/catalog/studebaker.lossless.webp', zis5: '/assets/tech/catalog/zis5.lossless.webp', gazaa: '/assets/tech/catalog/gazaa.lossless.webp', zis151: '/assets/tech/catalog/zis151.lossless.webp', willis: '/assets/tech/catalog/willis.lossless.webp', tractor: '/assets/tech/catalog/tractor.lossless.webp',
-  rbm: '/assets/tech/catalog/rbm.lossless.webp', rt12: '/assets/tech/catalog/12rt.lossless.webp', telephone: '/assets/tech/catalog/telephone.lossless.webp', telegraph: '/assets/tech/catalog/telegraph.lossless.webp', lamp: '/assets/tech/catalog/lamp.lossless.webp', r104: '/assets/tech/catalog/r104.lossless.webp',
-  pontoon: '/assets/tech/catalog/pontoon.lossless.webp', boat: '/assets/tech/catalog/boat.lossless.webp', bridge: '/assets/tech/catalog/bridge.lossless.webp', mine: '/assets/tech/catalog/mine.lossless.webp', bulldozer: '/assets/tech/catalog/bulldozer.lossless.webp', fascine: '/assets/tech/catalog/fascine.lossless.webp'
+  t34: '/assets/tech/catalog/t34.display.webp', is2: '/assets/tech/catalog/is2.display.webp', t3476: '/assets/tech/catalog/t3476.display.webp', t70: '/assets/tech/catalog/t70.display.webp', su76: '/assets/tech/catalog/su76.display.webp', su85: '/assets/tech/catalog/su85.display.webp',
+  zis3: '/assets/tech/catalog/zis3.display.webp', m30: '/assets/tech/catalog/m30.display.webp', ml20: '/assets/tech/catalog/ml20.display.webp', bs3: '/assets/tech/catalog/bs3.display.webp', katyusha: '/assets/tech/catalog/katyusha.display.webp', gun45: '/assets/tech/catalog/45mm.display.webp',
+  il2: '/assets/tech/catalog/il2.display.webp', yak9: '/assets/tech/catalog/yak9.display.webp', pe2: '/assets/tech/catalog/pe2.display.webp', la5: '/assets/tech/catalog/la5.display.webp', po2: '/assets/tech/catalog/po2.display.webp', yak3: '/assets/tech/catalog/yak3.display.webp',
+  studebaker: '/assets/tech/catalog/studebaker.display.webp', zis5: '/assets/tech/catalog/zis5.display.webp', gazaa: '/assets/tech/catalog/gazaa.display.webp', zis151: '/assets/tech/catalog/zis151.display.webp', willis: '/assets/tech/catalog/willis.display.webp', tractor: '/assets/tech/catalog/tractor.display.webp',
+  rbm: '/assets/tech/catalog/rbm.display.webp', rt12: '/assets/tech/catalog/12rt.display.webp', telephone: '/assets/tech/catalog/telephone.display.webp', telegraph: '/assets/tech/catalog/telegraph.display.webp', lamp: '/assets/tech/catalog/lamp.display.webp', r104: '/assets/tech/catalog/r104.display.webp',
+  pontoon: '/assets/tech/catalog/pontoon.display.webp', boat: '/assets/tech/catalog/boat.display.webp', bridge: '/assets/tech/catalog/bridge.display.webp', mine: '/assets/tech/catalog/mine.display.webp', bulldozer: '/assets/tech/catalog/bulldozer.display.webp', fascine: '/assets/tech/catalog/fascine.display.webp'
 };
 
 const item = (id, name, type, short, description, specs, image, source) => ({id, name, type, short, description, specs, image, source});
@@ -70,7 +70,26 @@ Object.values(equipment).flat().forEach(entry => { entry.image = idIllustrations
 
 // Models are fetched only when their detail view is opened.
 const models = {
+  boat: {model:'/assets/tech/landing-boat.glb', orbit:'225deg 70deg 95%'},
   t34: {model:'/assets/tech/t-34-85.glb', orbit:'225deg 70deg 95%'},
+  t3476: {model:'/assets/tech/t-34-76.glb', orbit:'225deg 70deg 95%'},
+  t70: {model:'/assets/tech/t-70.glb', orbit:'225deg 70deg 95%'},
+  su76: {model:'/assets/tech/su-76m.glb', orbit:'225deg 70deg 95%'},
+  zis3: {model:'/assets/tech/zis-3.glb', orbit:'225deg 70deg 95%'},
+  m30: {model:'/assets/tech/m-30.glb', orbit:'225deg 70deg 95%'},
+  ml20: {model:'/assets/tech/ml-20.glb', orbit:'225deg 70deg 95%'},
+  bs3: {model:'/assets/tech/bs-3.glb', orbit:'225deg 70deg 95%'},
+  '45mm': {model:'/assets/tech/m-42.glb', orbit:'225deg 70deg 95%'},
+  il2: {model:'/assets/tech/il-2.glb', orbit:'225deg 70deg 95%'},
+  yak9: {model:'/assets/tech/yak-9.glb', orbit:'225deg 70deg 95%'},
+  pe2: {model:'/assets/tech/pe-2.glb', orbit:'225deg 70deg 95%'},
+  la5: {model:'/assets/tech/la-5.glb', orbit:'225deg 70deg 95%'},
+  po2: {model:'/assets/tech/po-2.glb', orbit:'225deg 70deg 95%'},
+  yak3: {model:'/assets/tech/yak-3.glb', orbit:'225deg 70deg 95%'},
+  willis: {model:'/assets/tech/willys-mb.glb', orbit:'225deg 70deg 95%'},
+  gazaa: {model:'/assets/tech/gaz-aa.glb', orbit:'225deg 70deg 95%'},
+  tractor: {model:'/assets/tech/s-60.glb', orbit:'225deg 70deg 95%'},
+  su85: {model:'/assets/tech/su-85.glb', orbit:'225deg 70deg 95%'},
   is2: {model:'/assets/tech/is-2.glb', orbit:'35deg 70deg 95%'},
   katyusha: {model:'/assets/tech/bm-13.glb', orbit:'225deg 70deg 100%'}
 };

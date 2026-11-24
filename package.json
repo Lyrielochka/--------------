@@ -20,7 +20,11 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "test:optimization": "node scripts/optimization-check.mjs",
     "optimize:hero": "node scripts/optimize-hero.mjs",
-    "test:loading": "node scripts/site-loading-check.mjs"
+    "test:murvik-tour": "node scripts/murvik-tour-check.mjs",
+    "test:loading": "node scripts/site-loading-check.mjs",
+    "optimize:models": "node scripts/optimize-models.mjs",
+    "optimize:display": "node scripts/optimize-display-images.mjs",
+    "test:models": "node scripts/models-optimized-check.mjs"
   },
   "dependencies": {
     "@google/model-viewer": "^4.3.1",
@@ -32,6 +36,11 @@
     "vite": "latest"
   },
   "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "draco3dgltf": "^1.5.9",
+    "meshoptimizer": "^1.3.0",
     "playwright": "^1.63.0",
     "sharp": "^0.35.4"
   }

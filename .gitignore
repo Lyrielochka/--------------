@@ -2,3 +2,9 @@
 dist/
 .env
 .env.local
+.npm-cache/
+outputs/model-originals/
+outputs/model-optimized/
+
+# Local source models; website uses public/assets/tech/
+/3д-модели/

@@ -1,41 +1,50 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {isMurvikLocalHost} from './murvikEnvironment.js';
 import MurvikSymbol from './MurvikSymbol.jsx';
+import {readJsonLines} from '../server/murvik-stream.js';
 
 const localChat=isMurvikLocalHost(window.location.hostname);
 
 const welcome={role:'assistant',text:'Ушки на макушке! Спроси меня об операции, технике или людях. Я отвечаю по материалам сайта и подсказываю, где узнать больше.',links:[],suggestions:['Когда освободили Минск?','Расскажи о Т-34-85','Какие фронты участвовали?']};
 export function useMurvikChat(active=false){
   const [messages,setMessages]=useState([welcome]),[draft,setDraft]=useState(''),[status,setStatus]=useState('idle');
-  const [partial,setPartial]=useState('');const topic=useRef(null),generation=useRef(0),timers=useRef(new Set());
+  const [partial,setPartial]=useState('');const topic=useRef(null),generation=useRef(0);
   const [connection,setConnection]=useState('checking');const request=useRef(null),locked=useRef(false);
   useEffect(()=>{if(!active||!localChat)return;let alive=true;const controller=new AbortController();const check=async()=>{try{const response=await fetch('/api/murvik/health',{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(3500)])});const data=response.ok?await response.json():null;if(alive)setConnection(data?.available?'online':'offline');}catch{if(alive)setConnection('offline');}};check();const timer=setInterval(check,30000);return()=>{alive=false;controller.abort();clearInterval(timer);};},[active]);
-  const later=(fn,delay)=>{const timer=setTimeout(()=>{timers.current.delete(timer);fn();},delay);timers.current.add(timer);};
-  useEffect(()=>()=>{generation.current++;timers.current.forEach(clearTimeout);request.current?.abort();},[]);
+  useEffect(()=>()=>{generation.current++;request.current?.abort();},[]);
   const busy=status==='thinking'||status==='speaking';
-  const clear=()=>{generation.current++;request.current?.abort();locked.current=false;timers.current.forEach(clearTimeout);timers.current.clear();setMessages([welcome]);setDraft('');setPartial('');setStatus('idle');topic.current=null;};
+  const clear=()=>{generation.current++;request.current?.abort();locked.current=false;setMessages([welcome]);setDraft('');setPartial('');setStatus('idle');topic.current=null;};
   const send=async(raw=draft)=>{
     if(!localChat)return;
     const text=raw.trim().slice(0,400);if(!text||busy||locked.current)return;locked.current=true;
-    const id=++generation.current;setDraft('');setMessages(m=>[...m.slice(-22),{role:'user',text}]);setStatus('thinking');
+    const id=++generation.current;setDraft('');setMessages(m=>[...m.slice(-22),{role:'user',text}]);setPartial('');setStatus('thinking');
     try{
       const {answerGuide}=await import('./murvikGuide.js');
       if(generation.current!==id)return;let reply={...answerGuide(text,{topic:topic.current}),engine:'local'};
       if(connection!=='offline'){
         const controller=new AbortController();request.current=controller;
-        try{const response=await fetch('/api/murvik/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text,topic:topic.current,history:messages.filter(m=>m!==welcome).slice(-6).map(({role,text})=>({role,text}))}),signal:AbortSignal.any([controller.signal,AbortSignal.timeout(125000)])});
-          if(!response.ok)throw Error('Недоступно');const neural=await response.json();if(typeof neural.text!=='string'||neural.engine!=='ollama')throw Error('Некорректный ответ');reply=neural;if(generation.current===id)setConnection('online');
+        try{const response=await fetch('/api/murvik/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:text,stream:true,topic:topic.current,history:messages.filter(m=>m!==welcome).slice(-6).map(({role,text})=>({role,text}))}),signal:AbortSignal.any([controller.signal,AbortSignal.timeout(125000)])});
+          if(!response.ok)throw Error('Недоступно');let neural;
+          if(response.headers.get('content-type')?.includes('application/x-ndjson')){
+            for await(const event of readJsonLines(response.body)){
+              if(generation.current!==id)return;
+              if(event.error)throw Error(event.error);
+              if(typeof event.text==='string'){
+                setPartial(event.text);setStatus('speaking');
+                // Give the browser a paint even when several records arrive together.
+                await new Promise(resolve=>document.hidden?setTimeout(resolve,0):requestAnimationFrame(()=>setTimeout(resolve,0)));
+              }
+              if(event.done)neural=event.answer;
+            }
+          }else neural=await response.json();
+          if(typeof neural?.text!=='string'||neural.engine!=='ollama')throw Error('Некорректный ответ');reply=neural;if(generation.current===id)setConnection('online');
         }catch{if(generation.current!==id)return;reply={...reply,fallback:true};setConnection('offline');}
         finally{if(request.current===controller)request.current=null;}
       }
       if(generation.current!==id)return;
-      later(()=>{
-        if(generation.current!==id)return;topic.current=reply.topic;
-        const finish=()=>{locked.current=false;setMessages(m=>[...m,{...reply,role:'assistant'}]);setPartial('');setStatus(reply.mood==='happy'?'happy':reply.mood==='unsure'?'unsure':'idle');};
-        if(matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return;}
-        setStatus('speaking');let length=0;
-        const tick=()=>{if(generation.current!==id)return;length+=18;if(length>=reply.text.length){finish();return;}setPartial(reply.text.slice(0,length));later(tick,24);};tick();
-      },420);
+      topic.current=reply.topic;locked.current=false;
+      setMessages(m=>[...m,{...reply,role:'assistant'}]);setPartial('');
+      setStatus(reply.mood==='happy'?'happy':reply.mood==='unsure'?'unsure':'idle');
     }catch{if(generation.current===id){locked.current=false;setMessages(m=>[...m,{role:'assistant',text:'Не получилось открыть материалы. Попробуй ещё раз. Карты, карточки и викторина по-прежнему доступны.',links:[],suggestions:['Что такое операция «Багратион»?']}]);setStatus('unsure');}}
   };
   return {messages,draft,setDraft,status,setStatus,partial,busy,send,clear,connection};
@@ -68,7 +77,7 @@ export default function MurvikChat({chat,onVisit,active}){
     <p className="murvik-chat-note">Объясняю историю и помогаю исследовать сайт</p>
     <div ref={log} className="murvik-chat-log" role="log" aria-label="Диалог с Мурвiком" aria-live="polite" aria-atomic="true" tabIndex={0}>
       {!busy&&current&&<article className={`murvik-message ${current.role}`} data-engine={current.engine||'welcome'}><small>{current.role==='assistant'?'МУРВIК ОТВЕЧАЕТ':'ТВОЙ ВОПРОС'}{current.parts>1&&` · ЧАСТЬ ${current.part} / ${current.parts}`}</small><p>{current.text}</p>{current.links?.length>0&&<div className="murvik-chat-links">{current.links.map(l=><button key={l.section} onClick={()=>onVisit(l.section)}>{l.label} <span aria-hidden="true">↗</span></button>)}</div>}</article>}
-      {busy&&<div className="murvik-message assistant murvik-pending" aria-hidden="true"><small>МУРВIК</small><div className="murvik-thinking"><i/><i/><i/><span>{partial?'Мурвiк собирает ответ…':'Мурвiк готовит ответ…'}</span></div></div>}
+      {busy&&<div className="murvik-message assistant murvik-pending" aria-busy="true"><small>МУРВIК</small>{partial&&<p>{partial}</p>}<div className="murvik-thinking"><i/><i/><i/><span>{partial?'Мурвiк собирает ответ…':'Мурвiк готовит ответ…'}</span></div></div>}
     </div>
     <nav className="murvik-chat-pages" aria-label="Страницы диалога"><button disabled={busy||page===0} onClick={()=>setPage(p=>Math.max(0,p-1))}>← Назад</button><span>{Math.min(page+1,pages.length)} / {pages.length}</span><button disabled={busy||page>=pages.length-1} onClick={()=>setPage(p=>Math.min(pages.length-1,p+1))}>Далее →</button></nav>
     <div className="murvik-chat-announcement" role="status">{busy?'Мурвiк готовит ответ':''}</div>

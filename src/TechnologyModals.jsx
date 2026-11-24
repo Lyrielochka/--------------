@@ -5,13 +5,23 @@ import {ArrowLeft, ArrowRight, RotateCcw, Volume2, X} from 'lucide-react';
 import './technology-modals.css';
 import {equipment as verifiedEquipment} from './technologyData.js';
 
+let viewerModule;
+function loadModelViewer(){
+  // Configure before the first element upgrades; keep decoding local.
+  window.ModelViewerElement ||= {dracoDecoderLocation:'/assets/draco/'};
+  return viewerModule ||= import('@google/model-viewer').then(({ModelViewerElement})=>{
+    ModelViewerElement.dracoDecoderLocation='/assets/draco/';
+    ModelViewerElement.modelCacheSize=1;
+  });
+}
+
 function ModelStage({item}){
   const viewer=useRef(null);
   const [state,setState]=useState('loading');
   useEffect(()=>{
     let live=true;
     setState('loading');
-    import('@google/model-viewer').catch(()=>{if(live)setState('error')});
+    loadModelViewer().catch(()=>{if(live)setState('error')});
     const node=viewer.current;
     const loaded=()=>{if(live)setState('ready')};
     const failed=()=>{if(live)setState('error')};

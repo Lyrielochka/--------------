@@ -1,0 +1,32 @@
+{
+  "source": "Illustrated belarus-base.lossless.webp silhouette; geographic regions used only as an initial partition",
+  "width": 1402,
+  "height": 1122,
+  "landPixels": 747958,
+  "regions": {
+    "vitebsk": {
+      "rings": 1,
+      "vertices": 658
+    },
+    "mogilev": {
+      "rings": 1,
+      "vertices": 629
+    },
+    "grodno": {
+      "rings": 1,
+      "vertices": 530
+    },
+    "brest": {
+      "rings": 1,
+      "vertices": 559
+    },
+    "minsk": {
+      "rings": 1,
+      "vertices": 746
+    },
+    "gomel": {
+      "rings": 1,
+      "vertices": 584
+    }
+  }
+}

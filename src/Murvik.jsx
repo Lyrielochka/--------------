@@ -1,14 +1,18 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {makeRound, missions} from './murvikQuestions.js';
 import './murvik.css';
 import MurvikChat,{useMurvikChat} from './MurvikChat.jsx';
 import MurvikPortrait from './MurvikPortrait.jsx';
+import MurvikImage from './MurvikImage.jsx';
 import MurvikSymbol from './MurvikSymbol.jsx';
 import './murvik-studio.css';
+import './murvik-launcher.css';
+import MurvikTour from './MurvikTour.jsx';
 
-const image='/assets/murvik.webp';
 export default function Murvik(){
+  const [tour,setTour]=useState(false);
+  const closeTour=useCallback(()=>{setTour(false);requestAnimationFrame(()=>launcher.current?.focus());},[]);
   const [ready,setReady]=useState(!document.getElementById('operation-loader'));
   const [open,setOpen]=useState(false),[mode,setMode]=useState('home');
   const [round,setRound]=useState([]),[index,setIndex]=useState(0),[choice,setChoice]=useState(null);
@@ -33,10 +37,11 @@ export default function Murvik(){
   const q=round[index],task=missions[mission];
   const mood=mode==='chat'?chat.status:mode==='quiz'?(choice===null?'listening':choice===q?.answer?'correct':'learning'):mode==='result'?'happy':mode==='mission'?'mission':'idle';
   return createPortal(<div className="murvik-root">
-    <button ref={launcher} className="murvik-launcher" aria-label="Мурвiк — открыть помощника" aria-haspopup="dialog" aria-expanded={open} aria-controls="murvik-panel" onClick={()=>setOpen(v=>!v)}><img src={image} alt=""/><span><strong>Мурвiк</strong><small>Проверим себя?</small></span><b aria-hidden="true">?</b></button>
+    <button ref={launcher} className="murvik-launcher" aria-label="Мурвiк — открыть помощника" aria-haspopup="dialog" aria-expanded={open} aria-controls="murvik-panel" onClick={()=>setOpen(v=>!v)}><span className="murvik-launcher-portrait" aria-hidden="true"><MurvikImage src="/assets/murvik-kitten-avatar-v3.webp" blinkSrc="/assets/murvik-kitten-avatar-v3-blink.webp" alt=""/></span><span className="murvik-launcher-copy"><strong>Мурвiк</strong><small>Экскурсия · вопросы</small></span><span className="murvik-launcher-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+    {tour&&<MurvikTour onClose={closeTour}/>}
     {open&&<><div className="murvik-backdrop" onClick={()=>setOpen(false)} aria-hidden="true"/><section ref={panel} id="murvik-panel" className={`murvik-panel mode-${mode} ${choice!==null&&mode==='quiz'?(choice===q?.answer?'is-correct':'is-learning'):''}`} role="dialog" aria-modal="true" aria-labelledby="murvik-title">
       <header><div><span>ЛИЧНЫЙ КАБИНЕТ ИССЛЕДОВАТЕЛЯ</span><h2 id="murvik-title">Мурвiк <i>Проводник по истории</i></h2></div><button className="murvik-close" aria-label="Закрыть помощника" onClick={()=>setOpen(false)}>×</button></header>
-      <nav className="murvik-tabs" aria-label="Режим помощника"><button aria-pressed={mode!=='chat'} onClick={()=>setMode(lastQuizMode.current)}><MurvikSymbol type="compass"/> Викторина</button><button aria-pressed={mode==='chat'} onClick={()=>setMode('chat')}><MurvikSymbol type="chat"/> Спросить Мурвiка</button></nav>
+      <nav className="murvik-tabs" aria-label="Режим помощника"><button aria-pressed={mode!=='chat'} onClick={()=>setMode(lastQuizMode.current)}><MurvikSymbol type="compass"/> Викторина</button><button aria-pressed={mode==='chat'} onClick={()=>setMode('chat')}><MurvikSymbol type="chat"/> Спросить Мурвiка</button><button onClick={()=>{setOpen(false);setTour(true);}}><MurvikSymbol type="route"/> Экскурсия</button></nav>
       <MurvikPortrait mood={mood} large={mode==='home'}/>
       <MurvikChat chat={chat} onVisit={visit} active={mode==='chat'}/>
       <div className="murvik-body" key={`${mode}-${index}`}>

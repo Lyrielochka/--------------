@@ -56,6 +56,20 @@ function CountUp({value,delay=0}){
 
 export function CinemaIntro(){
  const reduced=useReducedMotion();
+ const [titleReady,setTitleReady]=useState(false);
+ useEffect(()=>{
+  let active=true;
+  const load=src=>new Promise((resolve,reject)=>{
+   const image=new Image();image.onload=()=>image.decode().then(resolve,reject);image.onerror=reject;image.src=src;
+  });
+  Promise.all([
+   '/assets/bagration-title-mask.png?v=2',
+   '/assets/bagration-title-battle.webp',
+   '/assets/bagration-title-crossing.webp',
+   '/assets/bagration-title-sky.webp'
+  ].map(load)).then(()=>{if(active&&CSS.supports('mask-image','url("/assets/bagration-title-mask.png?v=2")'))setTitleReady(true)}).catch(()=>{});
+  return()=>{active=false};
+ },[]);
  const cover=useRef(null);
  useEffect(()=>{
   const element=cover.current;
@@ -64,12 +78,11 @@ export function CinemaIntro(){
   observer.observe(element);document.addEventListener('visibilitychange',visibility);
   return()=>{observer.disconnect();document.removeEventListener('visibilitychange',visibility)};
  },[]);
- const move=e=>{if(reduced||e.pointerType==='touch')return;const r=e.currentTarget.getBoundingClientRect();cover.current?.style.setProperty('--pointer-x',`${((e.clientX-r.left)/r.width*100).toFixed(2)}%`);cover.current?.style.setProperty('--pointer-y',`${((e.clientY-r.top)/r.height*100).toFixed(2)}%`);cover.current?.style.setProperty('--drift-x',`${(((e.clientX-r.left)/r.width-.5)*-12).toFixed(2)}px`);cover.current?.style.setProperty('--drift-y',`${(((e.clientY-r.top)/r.height-.5)*-8).toFixed(2)}px`)};
- return <section ref={cover} onPointerMove={move} className="cinema-intro" id="hero" style={{'--hero-image':`url("${heroBackground}")`}}>
+ return <section ref={cover} className="cinema-intro" id="hero" style={{'--hero-image':`url("${heroBackground}")`}}>
   <motion.div className="intro-landscape" initial={reduced?false:{opacity:0,scale:1.035}} animate={{opacity:1,scale:1}} transition={{duration:reduced?0:1.8,ease:[.22,1,.36,1]}}/>
   <div className="intro-grade"/><div className="intro-warm-glow"/><div className="intro-vignette"/><div className="intro-grain"/><div className="intro-pointer-light"/>
   <div className="intro-smoke" aria-hidden="true"><i/><i/><i/><i/></div>
-  <div className="intro-sparks" aria-hidden="true">{Array.from({length:46},(_,i)=><i key={i} style={{left:`${3+(i*37)%94}%`,animationDelay:`-${(i*1.73%14).toFixed(2)}s`,animationDuration:`${10+(i%7)*1.25}s`}}/>)}</div>
+  <div className="intro-sparks" aria-hidden="true">{Array.from({length:18},(_,i)=><i key={i} style={{left:`${3+(i*37)%94}%`,animationDelay:`-${(i*1.73%14).toFixed(2)}s`,animationDuration:`${10+(i%7)*1.25}s`}}/>)}</div>
   <div className="intro-map-response" aria-hidden="true"><i className="map-signal signal-vitebsk"/><i className="map-signal signal-minsk"/></div>
   <div className="intro-frame intro-frame-left" aria-hidden="true"/><div className="intro-frame intro-frame-right" aria-hidden="true"/>
   <div className="intro-embers" aria-hidden="true">{Array.from({length:8},(_,i)=><i key={i}/>)}</div>
@@ -85,7 +98,16 @@ export function CinemaIntro(){
   <div className="intro-content">
    <motion.div className="intro-date" initial={reduced?false:{opacity:0,y:14,filter:'blur(5px)'}} animate={{opacity:1,y:0,filter:'blur(0px)'}} transition={{duration:reduced?0:.8,delay:reduced?0:.2}}><b>23 ИЮНЯ</b><strong>1944</strong><span>НАЧАЛО НАСТУПЛЕНИЯ</span></motion.div>
    <motion.div className="intro-title" initial={reduced?false:{opacity:0,y:30,filter:'blur(9px)'}} animate={{opacity:1,y:0,filter:'blur(0px)'}} transition={{duration:reduced?0:1,delay:reduced?0:.42,ease:[.22,1,.36,1]}}>
-    <span className="intro-kicker"><i/> ОПЕРАЦИЯ</span><h1 aria-label="Операция «Багратион»"><span><b>«БАГРА</b><em>ТИОН»</em></span></h1><p>ОСВОБОЖДЕНИЕ БЕЛАРУСИ · ЛЕТО 1944</p>
+    <span className="intro-kicker"><i/> ОПЕРАЦИЯ</span><h1 className="living-title" data-title-ready={titleReady} aria-label="Операция «Багратион»">
+     <span className="title-size" aria-hidden="true">«БАГРАТИОН»</span>
+     <span className="title-window" aria-hidden="true">
+      <span className="title-shot title-shot-base"><img className="title-bronze-scene" src="/assets/bagration-title-battle.webp" alt="" decoding="async"/><img className="title-crimson-scene" src="/assets/bagration-title-battle.webp" alt="" decoding="async"/></span>
+      <span className="title-shot title-shot-crossing"><img className="title-bronze-scene" src="/assets/bagration-title-crossing.webp" alt="" decoding="async"/><img className="title-crimson-scene" src="/assets/bagration-title-crossing.webp" alt="" decoding="async"/></span>
+      <span className="title-shot title-shot-sky"><img className="title-bronze-scene" src="/assets/bagration-title-sky.webp" alt="" decoding="async"/><img className="title-crimson-scene" src="/assets/bagration-title-sky.webp" alt="" decoding="async"/></span>
+      <span className="title-red-wash"/><span className="title-dim"/>
+     </span>
+     <span className="title-letter-edge" aria-hidden="true"/>
+    </h1><p>ОСВОБОЖДЕНИЕ БЕЛАРУСИ · ЛЕТО 1944</p>
    </motion.div>
   </div>
   <motion.aside className="intro-facts" initial={reduced?false:{opacity:0,x:24}} animate={{opacity:1,x:0}} transition={{duration:reduced?0:.9,delay:reduced?0:.8}} aria-label="Силы, задействованные в операции">

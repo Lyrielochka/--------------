@@ -3,6 +3,7 @@ import {readFile,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {guideContext} from '../src/murvikGuide.js';
+import {readJsonLines,visibleReply} from './murvik-stream.js';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist');
 const prompt=`Ты Мурвiк, доброжелательный рысёнок в офицерской фуражке, помощник исторического сайта об операции «Багратион». Отвечай по-русски, живо и понятно, без длинного приветствия каждый раз. Можно изредка «Ушки на макушке!» или «Мур-р». В ответах о гибели людей, блокаде, голоде и других трагических событиях говори сдержанно, без шуток и игровых присказок.
@@ -34,13 +35,31 @@ export function createMurvikServer({ollama='http://127.0.0.1:11434',model='qwen3
       const context=/кто ты|ты нейросет|как тебя зовут|что ты умеешь/i.test(data.question)?'Мурвiк — виртуальный рысёнок-проводник по сайту. Помогает понять историю, объясняет материалы и предлагает разделы. Также есть викторина и задания.':grounded.context;
       const history=(data.history||[]).slice(-6).filter(m=>['user','assistant'].includes(m?.role)&&typeof m?.text==='string').map(m=>({role:m.role,content:m.text.slice(0,900)}));
       const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),timeout);const cancel=()=>{if(!res.writableEnded)controller.abort();};res.on('close',cancel);active++;
+      const streaming=data.stream===true;
+      const emit=value=>res.write(JSON.stringify(value)+'\n');
       try{
-        const result=await fetcher(`${ollama}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:false,think:false,keep_alive:'10m',messages:[{role:'system',content:prompt},{role:'system',content:`МАТЕРИАЛЫ САЙТА:\n${context||'Подходящие материалы сайта не найдены. На вопрос о Великой Отечественной войне отвечай из исторических знаний согласно правилам выше.'}`},...history,{role:'user',content:data.question}],options:{temperature:.25,num_predict:320,num_ctx:4096}}),signal:controller.signal});
+        const result=await fetcher(`${ollama}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:streaming,think:false,keep_alive:'30m',messages:[{role:'system',content:prompt},{role:'system',content:`МАТЕРИАЛЫ САЙТА:\n${context||'Подходящие материалы сайта не найдены. На вопрос о Великой Отечественной войне отвечай из исторических знаний согласно правилам выше.'}`},...history,{role:'user',content:data.question}],options:{temperature:.25,num_predict:320,num_ctx:4096}}),signal:controller.signal});
         if(!result.ok)throw Error(`Ollama HTTP ${result.status}`);
-        const reply=await result.json();const text=reply.message?.content?.replace(/<think>[\s\S]*?<\/think>/g,'').trim();
+        let reply;
+        if(streaming){
+          res.socket?.setNoDelay(true);
+          res.writeHead(200,{'Content-Type':'application/x-ndjson; charset=utf-8','Cache-Control':'no-store, no-transform','X-Accel-Buffering':'no','X-Content-Type-Options':'nosniff'});
+          res.flushHeaders();let content='',done=false;
+          for await(const chunk of readJsonLines(result.body)){
+            if(chunk.error)throw Error(chunk.error);
+            content+=chunk.message?.content||'';
+            if(chunk.message?.content)emit({text:visibleReply(content).slice(0,2400)});
+            if(chunk.done){reply={...chunk,message:{content}};done=true;break;}
+          }
+          if(!done)throw Error('Incomplete stream');
+        }else reply=await result.json();
+        const text=visibleReply(reply.message?.content||'').trim();
         if(!text||reply.done_reason==='length')throw Error('Незавершённый ответ модели');
-        if(!controller.signal.aborted)json(res,200,{...local,text:text.slice(0,2400),links:links.length?links:local.links,engine:'ollama',model,mood:local.mood==='happy'?'happy':'speaking'});
-      }catch{if(!res.destroyed)json(res,503,{error:'Ollama недоступна или не успела ответить. Используй ответы по материалам сайта.'});}
+        if(!controller.signal.aborted){
+          const answer={...local,text:text.slice(0,2400),links:links.length?links:local.links,engine:'ollama',model,mood:local.mood==='happy'?'happy':'speaking'};
+          if(streaming){emit({done:true,answer});res.end();}else json(res,200,answer);
+        }
+      }catch{if(!res.destroyed){const error='Ollama недоступна или не успела ответить. Используй ответы по материалам сайта.';if(res.headersSent){emit({error});res.end();}else json(res,503,{error});}}
       finally{active--;clearTimeout(timer);res.removeListener('close',cancel);}return;
     }
     if(url.pathname.startsWith('/api/'))return json(res,404,{error:'Неизвестный API'});

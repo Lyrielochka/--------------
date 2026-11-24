@@ -28,11 +28,11 @@ export default function MinskEvent({onClose}){
     <svg viewBox="0 0 1000 360" aria-label="Направления ударов"><defs><marker id="minsk-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10L3 5Z" fill="#f0d393"/></marker></defs>
      {[['north','M890 35C640 0 210 20 180 150','Северный охват'],['south','M900 325C660 360 210 345 180 210','Южный охват'],['east','M970 180H850','Удар с востока']].map(([id,d,label])=><g key={id} className={'minsk-vector '+id} role="button" tabIndex={0} aria-label={label} aria-pressed={direction===id} onClick={()=>inspect(id)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(id)}}}><path className={'minsk-route '+id} d={d} pathLength="1" markerEnd="url(#minsk-arrow)"/><path className="minsk-route-hit" d={d}/></g>)}
      <ellipse className="minsk-ring" cx="505" cy="180" rx="325" ry="125" pathLength="1"/>
-     <g className="minsk-enemy"><image href="/assets/scale/enemy-assault-gun-steel.lossless.webp" x="445" y="95" width="135" height="85"/>{[[320,180],[620,180],[405,235],[540,235]].map(([x,y],i)=><image key={i} className="minsk-unit" href="/assets/personnel/german-helmet.lossless.webp" x={x} y={y} width="80" height="60"/>)}</g>
+     <g className="minsk-enemy"><image href="/assets/scale/enemy-assault-gun-steel.display.webp" x="445" y="95" width="135" height="85"/>{[[320,180],[620,180],[405,235],[540,235]].map(([x,y],i)=><image key={i} className="minsk-unit" href="/assets/personnel/german-helmet.lossless.webp" x={x} y={y} width="80" height="60"/>)}</g>
      <image href="/assets/personnel/soviet-helmet.lossless.webp" x="745" y="0" width="75" height="55"/><image href="/assets/personnel/soviet-helmet.lossless.webp" x="750" y="302" width="75" height="55"/>
      <circle className="minsk-junction" cx="180" cy="180" r="9" fill="#fff1cc"/>
-     <image className="minsk-moving-tank north" href="/assets/tech/catalog/t34.lossless.webp" x="105" y="98" width="120" height="76"/>
-     <image className="minsk-moving-tank south" href="/assets/tech/catalog/t3476.lossless.webp" x="105" y="188" width="120" height="76"/>
+     <image className="minsk-moving-tank north" href="/assets/tech/catalog/t34.display.webp" x="105" y="98" width="120" height="76"/>
+     <image className="minsk-moving-tank south" href="/assets/tech/catalog/t3476.display.webp" x="105" y="188" width="120" height="76"/>
     </svg>
    </div>
    <div className="minsk-outcome"><strong>Более 100 000</strong><span>немецких военнослужащих в окружении восточнее Минска</span></div>

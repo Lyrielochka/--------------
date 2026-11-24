@@ -13,6 +13,18 @@ import useRegionCamera, {REGION_MAX_ZOOM} from './useRegionCamera.js';
 const MinskBattleAtlas=lazy(()=>import('./MinskBattleAtlas.jsx'));
 import {pct, xy, places} from './bagrationMapData.js';
 import {campaignEvents} from './campaignTimeline.js';
+const VitebskBattleAtlas=lazy(()=>import('./VitebskBattleAtlas.jsx'));
+const GrodnoBattleAtlas=lazy(()=>import('./GrodnoBattleAtlas.jsx'));
+const MogilevBattleAtlas=lazy(()=>import('./MogilevBattleAtlas.jsx'));
+const BrestBattleAtlas=lazy(()=>import('./BrestBattleAtlas.jsx'));
+import {regionDisplayShapes} from './regionDisplayShapes.js';
+const regionProfiles={
+ brest:{name:'Брестская область',genitive:'Брестской',label:'Брестскую область',...regionDisplayShapes.brest,Atlas:BrestBattleAtlas},
+ mogilev:{name:'Могилёвская область',genitive:'Могилёвской',label:'Могилёвскую область',...regionDisplayShapes.mogilev,Atlas:MogilevBattleAtlas},
+ minsk:{name:'Минская область',genitive:'Минской',label:'Минскую область',...regionDisplayShapes.minsk,Atlas:MinskBattleAtlas},
+ vitebsk:{name:'Витебская область',genitive:'Витебской',label:'Витебскую область',...regionDisplayShapes.vitebsk,Atlas:VitebskBattleAtlas},
+ grodno:{name:'Гродненская область',genitive:'Гродненской',label:'Гродненскую область',...regionDisplayShapes.grodno,Atlas:GrodnoBattleAtlas}
+};
 
 const mapMoments=campaignEvents.map(event=>({...event,...(event.place?mapPointPercent(event.place):pct(xy(event.id==='start-line'?31.1:23.3,event.id==='siauliai'?56:event.id==='osowiec'?53.5:54.5)))}));
 
@@ -64,7 +76,9 @@ export function RichTacticalMap({active,setActive}){
   const [eventOpen,setEventOpen]=useState(false);
   const [regionOpen,setRegionOpen]=useState(false);
   const regionCanvas=useRef(null),regionWorld=useRef(null);
-  const regionCamera=useRegionCamera(regionOpen,regionCanvas,regionWorld);
+  const regionProfile=regionProfiles[regionOpen]||regionProfiles.minsk;
+  const RegionAtlas=regionProfile.Atlas;
+  const regionCamera=useRegionCamera(regionOpen,regionCanvas,regionWorld,regionProfile.bounds);
   const [regionReady,setRegionReady]=useState(false);
   useEffect(()=>{
     const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){setRegionReady(true);observer.disconnect()}},{rootMargin:'900px'});
@@ -72,10 +86,23 @@ export function RichTacticalMap({active,setActive}){
   },[]);
   const regionReturn=useRef(null),regionButton=useRef(null);
   const closeRegion=React.useCallback(()=>{setRegionOpen(false);requestAnimationFrame(()=>regionReturn.current?.focus())},[]);
-  const openRegion=()=>{if(regionOpen)return;regionReturn.current=document.activeElement;holdDate.current=true;setCompare(false);setFocus(false);setLayersOpen(false);setRegionOpen(true)};
+  const openRegion=(region='minsk')=>{if(regionOpen)return;regionReturn.current=document.activeElement;holdDate.current=true;setCompare(false);setFocus(false);setLayersOpen(false);setRegionOpen(region)};
   useEffect(()=>{if(!regionOpen)return;regionButton.current?.focus();const key=e=>{if(e.key==='Escape'){if(regionCanvas.current?.querySelector('[data-atlas-detail="true"]'))return;e.stopImmediatePropagation();closeRegion()}};document.addEventListener('keydown',key,true);return()=>document.removeEventListener('keydown',key,true)},[regionOpen,closeRegion]);
   const closeEvent=React.useCallback(()=>setEventOpen(false),[]);
   const holdDate=useRef(false);
+  const tourActive=useRef(false);
+  useEffect(()=>{
+    const select=e=>{
+      tourActive.current=true;holdDate.current=true;
+      setExpanded(false);setEventOpen(false);setRegionOpen(false);setCompare(false);setLayersOpen(false);setFocus(false);
+      setLayers(v=>({...v,cities:true,front:true,routes:true}));
+      const stage=campaignEvents.findIndex(item=>item.id===e.detail?.event);
+      if(stage>=0)setActive(stage);
+    };
+    const end=()=>{tourActive.current=false;holdDate.current=false;};
+    window.addEventListener('murvik:tour-step',select);window.addEventListener('murvik:tour-end',end);
+    return()=>{window.removeEventListener('murvik:tour-step',select);window.removeEventListener('murvik:tour-end',end);};
+  },[setActive]);
   const [layersOpen,setLayersOpen]=useState(false);
   const [compare,setCompare]=useState(false);
   const [split,setSplit]=useState(52);
@@ -83,9 +110,9 @@ export function RichTacticalMap({active,setActive}){
   useEffect(()=>{
     if(expanded||eventOpen||regionOpen||reduced)return;
     let frame;
-    const resume=()=>{holdDate.current=false};
+    const resume=()=>{if(!tourActive.current)holdDate.current=false};
     const sync=()=>{
-      if(holdDate.current)return;
+      if(holdDate.current||tourActive.current)return;
       cancelAnimationFrame(frame);
       frame=requestAnimationFrame(()=>{
         const bounds=ref.current?.getBoundingClientRect();
@@ -113,19 +140,19 @@ export function RichTacticalMap({active,setActive}){
         <button aria-label="Сравнение до и после" aria-pressed={compare} className={compare?'tool-active':''} onClick={()=>{setCompare(v=>!v);setRegionOpen(false);setFocus(false)}}><ArrowLeftRight size={16}/> <b>ДО / ПОСЛЕ</b></button>
         <button aria-label="Слои карты" aria-expanded={layersOpen} className={layersOpen?'tool-active':''} onClick={()=>setLayersOpen(v=>!v)}><Layers3 size={16}/> <b>СЛОИ</b></button>
       </div></div>
-      <div ref={regionCanvas} tabIndex={regionOpen?0:-1} aria-label={regionOpen?'Карта Минской области. Перетаскивайте карту, используйте плюс и минус для масштаба.':undefined} {...regionCamera.handlers} className={'map-canvas '+(focus?'cinematic-focus':'')+(regionOpen?' region-focused':'')+(regionCamera.dragging?' region-dragging':'')}>
+      <div ref={regionCanvas} tabIndex={regionOpen?0:-1} aria-label={regionOpen?`Карта ${regionProfile.genitive} области. Перетаскивайте карту, используйте плюс и минус для масштаба.`:undefined} {...regionCamera.handlers} className={'map-canvas '+(focus?'cinematic-focus':'')+(regionOpen?' region-focused':'')+(regionOpen?' region-vector-focused':'')+(regionCamera.dragging?' region-dragging':'')}>
         {regionOpen&&<div className="region-drag-surface" aria-hidden="true"/>}
         {focusShot>0&&<motion.div key={focusShot} className="map-focus-flash" initial={{opacity:.7}} animate={{opacity:0}} transition={{duration:reduced?0:1.2}}/>}
         <div ref={regionWorld} className="map-world" style={{transitionDuration:reduced||regionCamera.dragging?'0s':regionOpen?'.55s':'2s',transform:regionOpen?regionCamera.transform:focus?`translate(calc(-50% + ${(50-moment.x)*.3}%),calc(-50% + ${(50-moment.y)*.22}%)) scale(1.16)`:'translate(-50%,-50%)'}}>
           <BagrationMap stage={active} layers={layers} labels={false} territories/>
-          {!compare&&regionReady&&<Suspense fallback={null}><MinskRegion active={regionOpen} onOpen={openRegion} zoom={regionCamera.zoom}/></Suspense>}
+          {!compare&&regionReady&&<Suspense fallback={null}>{Object.entries(regionProfiles).map(([id,profile])=><MinskRegion key={id} active={regionOpen===id} hidden={regionOpen&&regionOpen!==id} precise path={profile.path} name={profile.name} label={profile.label} onOpen={()=>openRegion(id)} zoom={regionCamera.zoom}/>)}</Suspense>}
           {layers.cities&&mapCities.map(([id,i])=>{const m=mapMoments[i],pos=mapPointPercent(id);return <button key={id} aria-label={id==='mogilev'?'Могилёв':m.city} data-tooltip={`${id==='mogilev'?'Могилёв':m.city} · ${m.date} · открыть сводку`} data-city={id} className={'map-point '+(active===i?'active':'')+(active<i?' is-pending':'')} style={{left:pos.x+'%',top:pos.y+'%'}} onClick={()=>{holdDate.current=true;setActive(i);setFocus(true);setFocusShot(v=>v+1)}}><i/><span>{places[id].name}<small>{m.date}</small></span></button>})}
           {layers.battles&&!compare&&<button className="minsk-trigger" style={{left:(mapPointPercent('minsk').x+7)+'%',top:(mapPointPercent('minsk').y+4)+'%'}} aria-label="Открыть событие: Минское окружение" onClick={()=>{holdDate.current=true;setActive(6);setLayersOpen(false);setEventOpen(true)}}><CircleDot/></button>}
         </div>
-        {regionOpen&&<><div className="region-navigation"><button ref={regionButton} onClick={closeRegion}><ArrowRight size={15} style={{transform:'rotate(180deg)'}}/> К общей карте</button><span>МИНСКАЯ ОБЛАСТЬ<small>Современная граница · OpenStreetMap</small></span></div>
-          <div className="region-camera-tools" aria-label="Масштаб Минской области"><button aria-label="Увеличить масштаб области" disabled={regionCamera.zoom>=REGION_MAX_ZOOM} onClick={()=>regionCamera.zoomBy(1.25)}>+</button><output aria-label="Масштаб области">{regionCamera.zoom.toFixed(1)}×</output><button aria-label="Уменьшить масштаб области" disabled={regionCamera.zoom<=1.6} onClick={()=>regionCamera.zoomBy(.8)}>−</button><button className="region-camera-reset" aria-label="Сбросить вид области" onClick={regionCamera.reset}><Maximize2 size={16}/></button></div>
+        {regionOpen&&<><div className="region-navigation"><button ref={regionButton} onClick={closeRegion}><ArrowRight size={15} style={{transform:'rotate(180deg)'}}/> К общей карте</button><span>{regionProfile.name.toUpperCase()}<small>Учебная схема · современные области</small></span></div>
+          <div className="region-camera-tools" aria-label={`Масштаб ${regionProfile.genitive} области`}><button aria-label="Увеличить масштаб области" disabled={regionCamera.zoom>=REGION_MAX_ZOOM} onClick={()=>regionCamera.zoomBy(1.25)}>+</button><output aria-label="Масштаб области">{regionCamera.zoom.toFixed(1)}×</output><button aria-label="Уменьшить масштаб области" disabled={regionCamera.zoom<=1.6} onClick={()=>regionCamera.zoomBy(.8)}>−</button><button className="region-camera-reset" aria-label="Сбросить вид области" onClick={regionCamera.reset}><Maximize2 size={16}/></button></div>
           <div className="region-map-credit"><span>Перетаскивайте карту · + / − масштаб</span><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors · ODbL</a></div>
-          <Suspense fallback={<span className="battle-atlas-loading">Загрузка исторического атласа…</span>}><MinskBattleAtlas camera={regionCamera} worldRef={regionWorld} canvasRef={regionCanvas}/></Suspense></>}
+          <Suspense fallback={<span className="battle-atlas-loading">Загрузка исторического атласа…</span>}><RegionAtlas camera={regionCamera} worldRef={regionWorld} canvasRef={regionCanvas}/></Suspense></>}
         <div className="map-side-label map-side-german" aria-hidden="true"><small>ЗАПАД / 1944</small><strong>ГЕРМАНИЯ</strong><i/></div><div className="map-side-label map-side-soviet" aria-hidden="true"><small>ВОСТОК / 1944</small><strong>СССР</strong><i/></div>
         {layers.fronts&&layers.routes&&<div className="map-front-key" aria-label={"\u041d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f"}>{fronts.map((front,i)=><button key={front.id} onClick={()=>{setActive([2,3,4,5][i]);setFocus(true)}} aria-label={front.name}><i className={['front-baltic','front-third','front-second','front-first'][i]}/>{front.name.replace(' \u0444\u0440\u043e\u043d\u0442','')}<ArrowRight size={11}/></button>)}</div>}
         {compare&&<><div className="compare-before" style={{width:'100%',clipPath:`inset(0 ${100-split}% 0 0)`}}><div className="compare-map-world"><BagrationMap stage={0} layers={{front:true,routes:false,cities:false,fronts:false,rail:false,partisans:false,battles:false,memory:false}} labels={false} territories/></div><span>ИСХОДНЫЙ РУБЕЖ / 22.06</span></div><i className="compare-line" style={{left:`${split}%`}}/><input aria-label="Сравнение карты" className="compare-range" type="range" min="12" max="88" value={split} onChange={e=>setSplit(+e.target.value)}/></>}

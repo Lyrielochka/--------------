@@ -1,4 +1,4 @@
-﻿import {chromium} from 'playwright';
+import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const report=[];
@@ -16,19 +16,19 @@ try {
    const section=page.locator('#'+id);if(!await section.count())continue;
    await section.evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
    await page.waitForTimeout(180);
-   for(const img of await section.locator('img').all())if(await img.isVisible()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
+   for(const img of await section.locator('img').all())if(await img.isVisible()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode().catch(()=>{throw new Error('Image decode failed: '+el.currentSrc)}));}
    if(id==='strategy') {
     await section.getByRole('button',{name:'Состав и техника',exact:true}).click();
-    for(const img of await section.locator('img').all())if(await img.isVisible()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
+    for(const img of await section.locator('img').all())if(await img.isVisible()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode().catch(()=>{throw new Error('Image decode failed: '+el.currentSrc)}));}
    }
    if(id==='technology') {
     for(let i=0;i<6;i++) {
      await section.locator('.tech-ribbon > button').nth(i).click();
      await page.locator('.equipment-dialog').waitFor();
-     for(const img of await page.locator('.equipment-card img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
+     for(const img of await page.locator('.equipment-card img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode().catch(()=>{throw new Error('Image decode failed: '+el.currentSrc)}));}
      await page.locator('.equipment-card').first().click();
      await page.locator('.equipment-detail').waitFor();
-     for(const img of await page.locator('.equipment-detail img').all())await img.evaluate(el=>el.decode());
+     for(const img of await page.locator('.equipment-detail img').all())await img.evaluate(el=>el.decode().catch(()=>{throw new Error('Image decode failed: '+el.currentSrc)}));
      if(i===0)await page.locator('.equipment-dialog').screenshot({path:`artifacts/optimized-tank-${width}.png`});
      await page.keyboard.press('Escape');await page.locator('.equipment-category').waitFor();
      await page.keyboard.press('Escape');await page.locator('.equipment-backdrop').waitFor({state:'detached'});

@@ -192,7 +192,7 @@
 .story-site .partisan-marker:before,.story-site .partisan-marker:after{animation:none;opacity:0}
 .story-site .partisan-marker.selected:before,.story-site .partisan-marker:hover:before{opacity:.7;inset:-7px}
 .story-site .partisan-map-window:before{opacity:.3}
-.story-site .route-opening{min-height:590px;background:linear-gradient(90deg,#0b1c24ee,#10212966),url('/assets/operation-atmosphere.lossless.webp') center/cover;text-align:left;align-items:flex-start;padding-inline:clamp(26px,7.5vw,130px)}
+.story-site .route-opening{min-height:590px;background:linear-gradient(90deg,#0b1c24ee,#10212966),url('/assets/operation-atmosphere.display.webp') center/cover;text-align:left;align-items:flex-start;padding-inline:clamp(26px,7.5vw,130px)}
 .story-site .opening-grid{display:none}
 .story-site .route-opening strong{font-size:clamp(76px,11vw,160px);display:flex;gap:.2em;align-items:baseline;flex-wrap:wrap}
 .story-site .route-opening strong em{display:inline;color:#ca7671}

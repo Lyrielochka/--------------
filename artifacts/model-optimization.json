@@ -1,0 +1,760 @@
+{
+  "settings": {
+    "textureMax": 2048,
+    "colorQuality": 90,
+    "normalLossless": true,
+    "simplifyRatio": 0.4,
+    "simplifyError": 0.0005,
+    "lockBorder": true
+  },
+  "models": [
+    {
+      "name": "bm-13.glb",
+      "before": 9592084,
+      "after": 1246412,
+      "beforeVertices": 85782,
+      "afterVertices": 85783,
+      "texturesBefore": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 862091
+        },
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 427736
+        },
+        {
+          "size": [
+            1024,
+            512
+          ],
+          "bytes": 480807
+        }
+      ],
+      "sha256Original": "b84023722eef32711414d9505d8619d66953e8081d78a9ca19f5456fcbfa94ad",
+      "sha256Optimized": "8706a484bed04574589efd79c1d3b78b8974ab3e494ffbfb72157587829735a4"
+    },
+    {
+      "name": "bs-3.glb",
+      "before": 44432168,
+      "after": 7197484,
+      "beforeVertices": 677952,
+      "afterVertices": 295340,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3000864
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2395245
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2299508
+        }
+      ],
+      "sha256Original": "7d20cb65e5cdc4864a2cd8ac56967b3004a8f77422072159a10697654dcd1eda",
+      "sha256Optimized": "3a6493b87e8646f1fb681744db02cbd37dfd6d1e0e51b633504e9bdf53c24941"
+    },
+    {
+      "name": "gaz-aa.glb",
+      "before": 54200336,
+      "after": 7220832,
+      "beforeVertices": 866651,
+      "afterVertices": 384110,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2760395
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2556577
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2144410
+        }
+      ],
+      "sha256Original": "0a336ccf30c64708e0b7a7b829be1509db25e5e6b51e9d00ed47224487e9e552",
+      "sha256Optimized": "189dc458438d4e1049ae1facc883b10175c03f6331f1a4d292baaf93071860d4"
+    },
+    {
+      "name": "il-2.glb",
+      "before": 16789336,
+      "after": 6676112,
+      "beforeVertices": 164064,
+      "afterVertices": 164064,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3522717
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 1956489
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2586739
+        }
+      ],
+      "sha256Original": "b6ce0bd0d7f003abeabc9b27c904b2c2b82bae453853b2b2e1384793e961d34d",
+      "sha256Optimized": "5d31e59fedf5cea462b3661e13f972c6da09bbb2efaecf24f92fa513629e9105"
+    },
+    {
+      "name": "is-2.glb",
+      "before": 1123156,
+      "after": 389696,
+      "beforeVertices": 8081,
+      "afterVertices": 8074,
+      "texturesBefore": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 722166
+        },
+        {
+          "size": [
+            256,
+            256
+          ],
+          "bytes": 41232
+        },
+        {
+          "size": [
+            64,
+            128
+          ],
+          "bytes": 5597
+        },
+        {
+          "size": [
+            128,
+            128
+          ],
+          "bytes": 9554
+        },
+        {
+          "size": [
+            32,
+            64
+          ],
+          "bytes": 520
+        },
+        {
+          "size": [
+            32,
+            64
+          ],
+          "bytes": 917
+        },
+        {
+          "size": [
+            32,
+            64
+          ],
+          "bytes": 686
+        }
+      ],
+      "sha256Original": "bdae73f6224cfbf3782d3790b6dcc966003cbf5cd066f3e0e25c62832535d775",
+      "sha256Optimized": "6943aa6e0365dd3ddefeb40b8e4215724a8e42427fcdd68b0590fc601198e6ae"
+    },
+    {
+      "name": "la-5.glb",
+      "before": 13939428,
+      "after": 5533872,
+      "beforeVertices": 127954,
+      "afterVertices": 127954,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3049471
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 1797687
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2262619
+        }
+      ],
+      "sha256Original": "8bfe12ccb82df3c5a1c4bad1c2c31aed127d2ee6d5789053715e032042f531c0",
+      "sha256Optimized": "dbb4eb0d459870e9cd006aa1115da145a7c1deabe42a7ef2cd69c54df3530d02"
+    },
+    {
+      "name": "landing-boat.glb",
+      "before": 42416484,
+      "after": 7337284,
+      "beforeVertices": 631304,
+      "afterVertices": 272059,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3393158
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2168450
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2433315
+        }
+      ],
+      "sha256Original": "f1c11be2225ecb58182b9130c8404a5f080f2d3023739545a35a807ae9947e19",
+      "sha256Optimized": "147a5bd0827805ef664964e576626708a9c92d1095541d08ffc5e721ca275b4e"
+    },
+    {
+      "name": "m-30.glb",
+      "before": 49031884,
+      "after": 7567776,
+      "beforeVertices": 761336,
+      "afterVertices": 332004,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3103656
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2362499
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2300772
+        }
+      ],
+      "sha256Original": "1f4b75bec8c5e79527bc64fc3c302b78b10eceb3faca51e2365a5ea77e082977",
+      "sha256Optimized": "3629cbc997a4707c7a3155c773889c7a644b9b5e729529f2a5ac1d24ad0e1850"
+    },
+    {
+      "name": "m-42.glb",
+      "before": 37720280,
+      "after": 7125556,
+      "beforeVertices": 546361,
+      "afterVertices": 237827,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3279405
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2358649
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2415421
+        }
+      ],
+      "sha256Original": "0553e81d58bf4dc1eae2dd79970f9b4350b99c77d65d2f84a80c9df30332d1d4",
+      "sha256Optimized": "4cb3ebb932cc37502831ab69d2804f301ba4f1cf6a8f5baf9ce05c7c7eb621ca"
+    },
+    {
+      "name": "ml-20.glb",
+      "before": 52403428,
+      "after": 7218252,
+      "beforeVertices": 832958,
+      "afterVertices": 363078,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2756880
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2429515
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2087591
+        }
+      ],
+      "sha256Original": "22acaab303799e7eb1a49690d73ee5086aa7cb191998611e6e8ce29ff4f6c2b8",
+      "sha256Optimized": "105e41c752d403fa0d93e87c27f1ab7f8f12fac82714e72d8e317d4a4604bb56"
+    },
+    {
+      "name": "pe-2.glb",
+      "before": 25322200,
+      "after": 5829044,
+      "beforeVertices": 337551,
+      "afterVertices": 152621,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2991873
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2051047
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2237834
+        }
+      ],
+      "sha256Original": "75afba5b7f484918a1ac293700e79bdc3f2a1f9f53ecaad696231d6e443332e4",
+      "sha256Optimized": "5f3e88b55c5fdcfb9189f4a56e4074abff8e94078ba7ca11174f7599dc3a45b1"
+    },
+    {
+      "name": "po-2.glb",
+      "before": 28687476,
+      "after": 6080572,
+      "beforeVertices": 392038,
+      "afterVertices": 174257,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3243336
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2071460
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2341171
+        }
+      ],
+      "sha256Original": "3f02ba12ccf592460287e12688f6a2fea02c4624edcf064de204ff421ad54078",
+      "sha256Optimized": "d0ae71c131a1a5c791ec4d90c3c8ce84bd7f601bf3d7ba2710dd1f4161493075"
+    },
+    {
+      "name": "s-60.glb",
+      "before": 100162324,
+      "after": 10769384,
+      "beforeVertices": 1696178,
+      "afterVertices": 738752,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3198777
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2680059
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2404332
+        }
+      ],
+      "sha256Original": "7fb9482c0fa06d203e585b22311a15ece5bec3b07b593d815a1a012b100e2975",
+      "sha256Optimized": "244954bb54ea7ac4b2d466050e83930c06d0a9bbec830a58840d8c8120cc4b1f"
+    },
+    {
+      "name": "su-76m.glb",
+      "before": 135769100,
+      "after": 13453796,
+      "beforeVertices": 2356066,
+      "afterVertices": 1034620,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3529606
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2645880
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2558969
+        }
+      ],
+      "sha256Original": "ef5d4c31cca5d7473879afa9e62846c63b9659b70e33be76bd47a3ef28f4a27b",
+      "sha256Optimized": "93145a43748a03bff581f9596cf43d81b93709f4dfd082a32f6368bf23084d49"
+    },
+    {
+      "name": "su-85.glb",
+      "before": 82890520,
+      "after": 9556396,
+      "beforeVertices": 1378470,
+      "afterVertices": 592374,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3158759
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2223214
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2368998
+        }
+      ],
+      "sha256Original": "8127944d9d5635b8867b08c6f2dca6d74beb8b731bedc30cb7a46e53fe395314",
+      "sha256Optimized": "820a9e6be3dc5ae16c014859b1f7abf6ed598b967fb4eadda9eb5fb35320d2e6"
+    },
+    {
+      "name": "t-34-76.glb",
+      "before": 117221760,
+      "after": 12292052,
+      "beforeVertices": 1999638,
+      "afterVertices": 868658,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3526355
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2636828
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2595068
+        }
+      ],
+      "sha256Original": "cb58949e8bbcb4de3dc9f9f26b3217ec63e58890e800db5a1bc5c40fbda6d4f9",
+      "sha256Optimized": "76c7d5ee998835bf58446a52cef6a6c8f6ea03410bcb8e6f9c709242774965dd"
+    },
+    {
+      "name": "t-34-85.glb",
+      "before": 3502764,
+      "after": 894900,
+      "beforeVertices": 56426,
+      "afterVertices": 56430,
+      "texturesBefore": [
+        {
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 138060
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 111242
+        },
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 608334
+        },
+        {
+          "size": [
+            512,
+            128
+          ],
+          "bytes": 34391
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 158272
+        }
+      ],
+      "sha256Original": "aef6e1036f062fb36d3ddd1c8bb07b966e9712a6be145d5c657f21b549910758",
+      "sha256Optimized": "395a10310fac95e83098b48f05ddb759d0ce34a59631618f9756c71776b68cda"
+    },
+    {
+      "name": "t-70.glb",
+      "before": 72440420,
+      "after": 9541412,
+      "beforeVertices": 1178376,
+      "afterVertices": 507956,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3515109
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2143979
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2589138
+        }
+      ],
+      "sha256Original": "8fa3f5e22047aeb57c575a7c77e3c641f04270030bd14af159f271d256266d1e",
+      "sha256Optimized": "e8a2e65c4359182f28bf18fb24e4395d6d9d6a42763d965e35dba8f74ac31b31"
+    },
+    {
+      "name": "willys-mb.glb",
+      "before": 87718176,
+      "after": 8945872,
+      "beforeVertices": 1482793,
+      "afterVertices": 645404,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2652771
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2632158
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 1959716
+        }
+      ],
+      "sha256Original": "bc271837176a11da078f40b3a6321c0ce1ca22588a0f66caf5718333f681acd7",
+      "sha256Optimized": "a973e15ff1d06c90f54b6f8e47b711ffe0147a8c9cbfcbc11a2d13a16db02bef"
+    },
+    {
+      "name": "yak-3.glb",
+      "before": 15194568,
+      "after": 6125700,
+      "beforeVertices": 140553,
+      "afterVertices": 140553,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3366027
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 1848280
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2478066
+        }
+      ],
+      "sha256Original": "75e9a68d0e681088d5e30d98bb4e15eb3bc94cd4c83885abf32d7474baa7c38d",
+      "sha256Optimized": "c1b96d4355863ca7dcef2d0f4f9f90fdecdf7a035974856ed56a4748a6fda5ba"
+    },
+    {
+      "name": "yak-9.glb",
+      "before": 13746848,
+      "after": 5603932,
+      "beforeVertices": 118817,
+      "afterVertices": 118817,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 3168004
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 1970765
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2322089
+        }
+      ],
+      "sha256Original": "886cdcf4db82d2703ac21e187ed74460f8e78ff8e67d45bb5a30ad611d617408",
+      "sha256Optimized": "e17771ee03e4337695c0db6d82a95848ce85d0ebac073cc5e7f8828b9847c854"
+    },
+    {
+      "name": "zis-3.glb",
+      "before": 36060236,
+      "after": 6110536,
+      "beforeVertices": 537067,
+      "afterVertices": 236289,
+      "texturesBefore": [
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2771799
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2214690
+        },
+        {
+          "size": [
+            2048,
+            2048
+          ],
+          "bytes": 2053302
+        }
+      ],
+      "sha256Original": "6a8bf7b6b525bbe0322539d4fdebe9d2dd665ff73109ebce4e82da6acd6b29f0",
+      "sha256Optimized": "de451ebfcf83541aad63119867fee6965e4119809b2ce003b86dd011e781514a"
+    }
+  ],
+  "before": 1040364976,
+  "after": 152716872
+}

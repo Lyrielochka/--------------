@@ -94,7 +94,7 @@ export const frontDossiers = [
 
 export const strengthCategories = [
   { key: 'personnel', label: 'Личный состав', unit: 'человек' },
-  { key: 'tanks', label: 'Танки и САУ', unit: 'машин', image: '/assets/scale/soviet-t34-right.lossless.webp' },
-  { key: 'artillery', label: 'Орудия и миномёты', unit: 'единиц', image: '/assets/scale/soviet-zis3-right.lossless.webp' },
-  { key: 'aircraft', label: 'Авиация', unit: 'самолётов', image: '/assets/scale/soviet-il2-right.lossless.webp' },
+  { key: 'tanks', label: 'Танки и САУ', unit: 'машин', image: '/assets/scale/soviet-t34-right.display.webp' },
+  { key: 'artillery', label: 'Орудия и миномёты', unit: 'единиц', image: '/assets/scale/soviet-zis3-right.display.webp' },
+  { key: 'aircraft', label: 'Авиация', unit: 'самолётов', image: '/assets/scale/soviet-il2-right.display.webp' },
 ];

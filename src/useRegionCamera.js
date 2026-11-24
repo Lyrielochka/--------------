@@ -5,9 +5,9 @@ import {xy} from './bagrationMapData.js';
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
 export const REGION_INITIAL_ZOOM=3.2;
 export const REGION_MAX_ZOOM=9;
-const center={x:(minskRegionBounds.left+minskRegionBounds.right)/2,y:(minskRegionBounds.top+minskRegionBounds.bottom)/2};
 
-export default function useRegionCamera(open,canvasRef,worldRef){
+export default function useRegionCamera(open,canvasRef,worldRef,bounds=minskRegionBounds){
+  const center={x:(bounds.left+bounds.right)/2,y:(bounds.top+bounds.bottom)/2};
   const [camera,setCamera]=useState({zoom:REGION_INITIAL_ZOOM,x:0,y:0});
   const [size,setSize]=useState({width:0,height:0});
   const [dragging,setDragging]=useState(false);
@@ -35,8 +35,8 @@ export default function useRegionCamera(open,canvasRef,worldRef){
     const width=worldRef.current?.offsetWidth||size.width,height=worldRef.current?.offsetHeight||size.height;
     const viewport=canvasRef.current;
     // Leave a margin at the edges so every boundary remains reachable at any zoom.
-    const maxX=(minskRegionBounds.right-minskRegionBounds.left)/1402*width*value.zoom/2+(viewport?.clientWidth||0)*.2;
-    const maxY=(minskRegionBounds.bottom-minskRegionBounds.top)/1122*height*value.zoom/2+(viewport?.clientHeight||0)*.2;
+    const maxX=(bounds.right-bounds.left)/1402*width*value.zoom/2+(viewport?.clientWidth||0)*.2;
+    const maxY=(bounds.bottom-bounds.top)/1122*height*value.zoom/2+(viewport?.clientHeight||0)*.2;
     return {...value,x:clamp(value.x,-maxX,maxX),y:clamp(value.y,-maxY,maxY)};
   };
   const reset=()=>{current.current={zoom:REGION_INITIAL_ZOOM,x:0,y:0};setCamera(current.current)};
@@ -53,12 +53,12 @@ export default function useRegionCamera(open,canvasRef,worldRef){
     const observer=new ResizeObserver(()=>{setSize({width:world.offsetWidth,height:world.offsetHeight});setCamera(c=>{current.current=limit(c);return current.current})});
     observer.observe(world);return()=>observer.disconnect();
   },[]);
-  useEffect(()=>{reset();setDragging(false);pointers.current.clear();gesture.current=null},[open]);
+  useEffect(()=>{reset();setDragging(false);pointers.current.clear();gesture.current=null},[open,bounds]);
   useEffect(()=>{
     const canvas=canvasRef.current;if(!open||!canvas)return;
     const wheel=e=>{if(e.target.closest('button,a,input,[data-map-ui]'))return;e.preventDefault();zoomBy(Math.exp(-clamp(e.deltaY,-100,100)*.002))};
     canvas.addEventListener('wheel',wheel,{passive:false});return()=>canvas.removeEventListener('wheel',wheel);
-  },[open]);
+  },[open,bounds]);
   const beginGesture=()=>{
     const points=[...pointers.current.values()];
     gesture.current={camera:current.current,mid:{x:points.reduce((s,p)=>s+p.x,0)/points.length,y:points.reduce((s,p)=>s+p.y,0)/points.length},distance:points.length>1?Math.hypot(points[1].x-points[0].x,points[1].y-points[0].y):0};

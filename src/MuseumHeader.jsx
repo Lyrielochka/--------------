@@ -42,7 +42,11 @@ export default function MuseumHeader({ activeSection }) {
   return <>
     <header className={`museum-header${activeSection === 'hero' ? ' museum-header-cover' : ''}${open ? ' museum-header-open' : ''}`}>
       <a className="museum-brand" href="#hero" onClick={() => setOpen(false)} aria-label="Операция Багратион — на главную">
-        <span className="museum-brand-mark" aria-hidden="true">Б<small>44</small></span>
+        <span className="museum-brand-mark" aria-hidden="true">
+          <span className="museum-brand-orbit"/>
+          <span className="museum-brand-star"/>
+          <span className="museum-brand-year">1944</span>
+        </span>
         <span className="museum-brand-name">БАГРАТИОН<small>ИСТОРИЯ ОСВОБОЖДЕНИЯ</small></span>
       </a>
       <button ref={button} className="museum-menu-button" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="museum-menu" aria-label={open ? 'Закрыть меню разделов' : 'Открыть все разделы'}><span>{open ? 'Закрыть' : 'Разделы'}</span>{open ? <X size={19}/> : <Menu size={19}/>}</button>
