@@ -25,7 +25,7 @@ export function CampaignFigures({data:d}) {
     {label:'Авиация',icon:Plane,unit:'самолётов',a:d.forces.planes,b:d.forces.enemyPlanes,extra:'+'},
   ];
   const item=comparisons[selected];
-  const illustrations=[{soviet:'soviet-helmet.lossless.webp',german:'german-helmet.lossless.webp'},{soviet:'soviet-t34-right.lossless.webp',german:'german-tiger-left.lossless.webp'},{soviet:'soviet-zis3-right.lossless.webp',german:'german-88mm-left.lossless.webp'},{soviet:'soviet-il2-right.lossless.webp',german:'german-fw190-left.lossless.webp'}][selected];
+  const illustrations=[{soviet:'soviet-helmet.lossless.webp',german:'german-helmet.lossless.webp'},{soviet:'soviet-t34-right.display.webp',german:'german-tiger-left.display.webp'},{soviet:'soviet-zis3-right.display.webp',german:'german-88mm-left.display.webp'},{soviet:'soviet-il2-right.display.webp',german:'german-fw190-left.display.webp'}][selected];
   const ratio=(item.a/item.b).toLocaleString('ru-RU',{maximumFractionDigits:1});
   return <section className="campaign-figures section" id="results" aria-labelledby="figures-heading">
     <div className="figures-heading"><span className="section-kicker">ИТОГИ / 23 ИЮНЯ — 29 АВГУСТА</span><h2 id="figures-heading">Масштаб<br/><em>освобождения.</em></h2></div>

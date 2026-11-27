@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useInView, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDown, ArrowLeft, ArrowRight, Bookmark, Check, Compass, Maximize2, Pause, Play, RotateCcw, X } from 'lucide-react';
 import './cinema.css';
-import './author-stamp.css';
 import BagrationMap from './BagrationMap.jsx';
 const heroBackground='/assets/hero-cover.webp';
 
@@ -86,15 +85,6 @@ export function CinemaIntro(){
   <div className="intro-map-response" aria-hidden="true"><i className="map-signal signal-vitebsk"/><i className="map-signal signal-minsk"/></div>
   <div className="intro-frame intro-frame-left" aria-hidden="true"/><div className="intro-frame intro-frame-right" aria-hidden="true"/>
   <div className="intro-embers" aria-hidden="true">{Array.from({length:8},(_,i)=><i key={i}/>)}</div>
-  <aside className="hero-author-stamp" aria-label="Автор проекта: Титовец Анастасия Дмитриевна">
-   <span className="hero-stamp-label">КОНКУРСНЫЙ ПРОЕКТ</span>
-   <span className="hero-stamp-contest">PATRIOT<span>.by</span></span>
-   <span className="hero-stamp-rule" aria-hidden="true"/>
-   <span className="hero-stamp-role">ПОДГОТОВИЛА</span>
-   <strong>Титовец<br/>Анастасия Дмитриевна</strong>
-   <span className="hero-stamp-role hero-stamp-supervisor-label">НАУЧНЫЙ РУКОВОДИТЕЛЬ</span>
-   <span className="hero-stamp-supervisor">Титов Егор Александрович</span>
-  </aside>
   <div className="intro-content">
    <motion.div className="intro-date" initial={reduced?false:{opacity:0,y:14,filter:'blur(5px)'}} animate={{opacity:1,y:0,filter:'blur(0px)'}} transition={{duration:reduced?0:.8,delay:reduced?0:.2}}><b>23 ИЮНЯ</b><strong>1944</strong><span>НАЧАЛО НАСТУПЛЕНИЯ</span></motion.div>
    <motion.div className="intro-title" initial={reduced?false:{opacity:0,y:30,filter:'blur(9px)'}} animate={{opacity:1,y:0,filter:'blur(0px)'}} transition={{duration:reduced?0:1,delay:reduced?0:.42,ease:[.22,1,.36,1]}}>

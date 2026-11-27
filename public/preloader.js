@@ -1,4 +1,13 @@
 (() => {
+  // Reload starts at the cover; ordinary section links and back navigation keep working.
+  const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+  const showHome = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  if (isReload) {
+    history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+    showHome();
+    window.addEventListener('pageshow', event => { if (!event.persisted) showHome(); }, { once: true });
+  }
   const loader = document.getElementById('operation-loader');
   if (!loader) return;
   const progress = loader.querySelector('[role="progressbar"]');
@@ -27,6 +36,8 @@
     requestAnimationFrame(() => {
       loader.classList.add('is-complete');
       document.documentElement.classList.remove('operation-loading');
+      // Reset after revealing the layout, while native restoration is still disabled.
+      if (isReload) showHome();
       const remove = () => {
         if (!loader.isConnected) return;
         loader.remove();

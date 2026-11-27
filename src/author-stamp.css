@@ -18,3 +18,42 @@
 @media(max-width:750px) and (max-height:740px){.cinema-intro:has(.hero-author-stamp){min-height:780px!important}}
 @media(max-width:750px){.hero-stamp-supervisor-label{margin-top:9px;font-size:6px}.hero-stamp-supervisor{font-size:13px}}
 
+/* A single entrance per mount; scrolling and hovering do not restart it. */
+.hero-author-stamp{
+ --stamp-angle:-5deg;
+ overflow:hidden;isolation:isolate;
+ transform:perspective(800px) rotate(var(--stamp-angle)) rotateX(var(--stamp-tilt-x,0deg)) rotateY(var(--stamp-tilt-y,0deg));
+ transition:transform 220ms ease-out;
+ animation:stamp-arrive 1s cubic-bezier(.22,1,.36,1) both;
+ animation-fill-mode:backwards;
+}
+.hero-author-stamp::after{
+ content:"";position:absolute;inset:-40% -80%;pointer-events:none;
+ background:linear-gradient(110deg,transparent 42%,#efce8a08 46%,#ffe4af29 50%,#efce8a08 54%,transparent 58%);
+ opacity:0;transform:translateX(-65%);
+ animation:stamp-sheen 850ms 1.4s ease-in-out backwards;
+}
+.hero-author-stamp>span:not(.hero-stamp-rule),.hero-author-stamp>strong{
+ animation:stamp-text 650ms cubic-bezier(.22,1,.36,1) backwards;
+}
+.hero-author-stamp>.hero-stamp-label{animation-delay:180ms}
+.hero-author-stamp>.hero-stamp-contest{animation-delay:300ms}
+.hero-author-stamp>.hero-stamp-rule{transform-origin:left;animation:stamp-rule 650ms 450ms cubic-bezier(.22,1,.36,1) backwards}
+.hero-author-stamp>.hero-stamp-role{animation-delay:650ms}
+.hero-author-stamp>strong{animation-delay:800ms}
+.hero-author-stamp>.hero-stamp-supervisor-label{animation-delay:950ms}
+.hero-author-stamp>.hero-stamp-supervisor{animation-delay:1100ms}
+@keyframes stamp-arrive{
+ from{opacity:0;transform:perspective(800px) translateY(16px) rotate(calc(var(--stamp-angle) - 2deg))}
+ to{opacity:1;transform:perspective(800px) translateY(0) rotate(var(--stamp-angle))}
+}
+@keyframes stamp-text{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stamp-rule{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+@keyframes stamp-sheen{0%{opacity:0;transform:translateX(-65%)}25%,65%{opacity:1}100%{opacity:0;transform:translateX(65%)}}
+@media(max-width:750px){.hero-author-stamp{--stamp-angle:-3deg}}
+@media(prefers-reduced-motion:reduce){
+ .hero-author-stamp,.hero-author-stamp::after,.hero-author-stamp>span,.hero-author-stamp>strong{animation:none!important;transition:none!important}
+ .hero-author-stamp{transform:rotate(var(--stamp-angle))}
+ .hero-author-stamp::after{display:none}
+}
+
